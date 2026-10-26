@@ -57,7 +57,7 @@
     "empty": "Todavía no hay reuniones publicadas. Entren al grupo de WhatsApp y nos enteramos juntos de la próxima.",
     "zones_note": "Cada hora corresponde a la fecha exacta de la reunión; en algunos países cambia por el horario de verano.",
     "types": {"meeting": "Reunión virtual", "presentation": "Presentación"},
-    "presents": "Presenta", "join_meeting": "Entrar a la reunión",
+    "watch_recording": "Ver la grabación", "channel": "Todas las grabaciones, en el canal de YouTube de GECAL", "presents": "Presenta", "join_meeting": "Entrar a la reunión",
     "host_time": "Hora de referencia: {country} ({utc})",
     "cta": {"title": "¿Qué les gustaría presentar?", "body": "Escríbannos en el grupo y lo conversamos."}
   },

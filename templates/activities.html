@@ -21,6 +21,7 @@
   {% if past %}
   <section class="section" aria-labelledby="past-title">
     <div class="section__head"><h2 class="h2" id="past-title">{{ t('activities.past') }}</h2></div>
+    {% if site.youtube_url %}<p class="lead" style="margin-bottom:var(--space-5)"><a href="{{ site.youtube_url }}">{{ t('activities.channel') }}</a></p>{% endif %}
     {% for ev in past %}{{ ui.event(ev, t, past=True) }}{% endfor %}
   </section>
   {% endif %}

@@ -1,16 +1,39 @@
 {
-  "_nota": "Una entrada por reunión. start: ISO 8601 con desfase. tz_ref: código del país cuya hora es la de referencia. title: texto o {es,en,fr,pt}. draft:true oculta el evento en producción (INCLUDE_DRAFTS=1 lo muestra). Borra el ejemplo y agrega los eventos reales.",
+  "_nota": "Una entrada por charla. start: ISO 8601 con desfase (null si la reunión ya pasó y no se registró la fecha). tz_ref: país cuya hora es la de referencia. title: texto o {es,en,fr,pt}. link: enlace de la reunión. recording: enlace https de YouTube cuando exista la grabación. duration_min: por defecto 90; al terminar pasa a 'Anteriores'. draft:true la oculta en producción.",
   "events": [
     {
-      "id": "ejemplo-ebc-valle-de-aburra",
+      "id": "2026-10-28-lichtig-co-sudamerica",
       "type": "presentation",
-      "title": "Características del eBC en el Valle de Aburrá",
-      "presenter": null,
+      "title": "Estimación de fuentes de CO en Sudamérica mediante modelado multiescala",
+      "presenter": "Pablo Lichtig (CNEA, Argentina)",
       "start": "2026-10-28T11:30:00-05:00",
       "tz_ref": "CO",
       "duration_min": 90,
+      "link": "https://meet.google.com/gac-wqxz-hwy",
+      "recording": null,
+      "draft": false
+    },
+    {
+      "id": "reunion-1-delgado-biocombustibles",
+      "type": "presentation",
+      "title": "Impacto del uso de biocombustibles en la formación de partículas ultrafinas en el sureste de Brasil",
+      "presenter": "Alejandro Delgado (Universidad de São Paulo, Brasil)",
+      "start": null,
+      "tz_ref": null,
       "link": null,
-      "draft": true
+      "recording": null,
+      "draft": false
+    },
+    {
+      "id": "reunion-2-nieves-siata",
+      "type": "presentation",
+      "title": "Monitoreo de calidad del aire en Colombia: del panorama nacional a la experiencia del SIATA en el Valle de Aburrá",
+      "presenter": "Duvan Nieves (SIATA, Medellín, Colombia)",
+      "start": null,
+      "tz_ref": null,
+      "link": null,
+      "recording": null,
+      "draft": false
     }
   ]
 }

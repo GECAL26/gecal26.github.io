@@ -20,12 +20,17 @@
     <h3 class="gecal-card__title">{{ ev.title }}</h3>
     {% if ev.presenter %}<p class="muted">{{ t('activities.presents') }}: {{ ev.presenter }}</p>{% endif %}
   </div>
+  {% if past %}
+    {% if ev.date_text %}<p class="event__host">{{ ev.date_text }}</p>{% endif %}
+    {% if ev.recording %}<p><a class="gecal-btn gecal-btn--secondary" href="{{ ev.recording }}">{{ t('activities.watch_recording') }}</a></p>{% endif %}
+  {% else %}
   <div class="event__meta">
     <p class="event__when">{{ ev.date_text }} · {{ ev.host_time }}</p>
     <p class="event__host">{{ ev.host_text }}</p>
   </div>
   {{ zones(ev) }}
-  {% if ev.link and not past %}<p><a class="gecal-btn gecal-btn--primary" href="{{ ev.link }}">{{ t('activities.join_meeting') }}</a></p>{% endif %}
+  {% if ev.link %}<p><a class="gecal-btn gecal-btn--primary" href="{{ ev.link }}">{{ t('activities.join_meeting') }}</a></p>{% endif %}
+  {% endif %}
 </article>
 {% endmacro %}
 

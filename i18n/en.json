@@ -57,7 +57,7 @@
     "empty": "No meetings have been published yet. Join the WhatsApp group and we will find out about the next one together.",
     "zones_note": "Each time is for the exact date of the meeting; in some countries it changes with daylight saving time.",
     "types": {"meeting": "Virtual meeting", "presentation": "Presentation"},
-    "presents": "Presenter", "join_meeting": "Join the meeting",
+    "watch_recording": "Watch the recording", "channel": "All recordings, on the GECAL YouTube channel", "presents": "Presenter", "join_meeting": "Join the meeting",
     "host_time": "Reference time: {country} ({utc})",
     "cta": {"title": "What would you like to present?", "body": "Write to us in the group and we will talk it over."}
   },

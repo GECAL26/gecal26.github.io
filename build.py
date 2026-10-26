@@ -113,12 +113,31 @@ def fmt_date(d, lang, short=False):
         weekday=lk("date.weekdays")[d.weekday()], day=d.day, month=lk("date.months")[d.month - 1], year=d.year)
 
 
+YOUTUBE_HOSTS = {"www.youtube.com", "youtube.com", "m.youtube.com", "youtu.be"}
+
+
+def check_youtube(url, where):
+    if url and not (url.startswith("https://") and url.split("/")[2] in YOUTUBE_HOSTS):
+        raise SystemExit(f"data/events.json: {where}: 'recording' debe ser un enlace https de YouTube, no {url!r}")
+    return url or ""
+
+
 def event_views(lang):
     t = make_t(lang)[0]
     cname = I18N[lang]["countries"]
-    upcoming, past = [], []
+    upcoming, past_dated, past_undated = [], [], []
     for ev in events_raw:
         if ev.get("draft") and not DRAFTS:
+            continue
+        title = ev["title"]
+        view = {
+            "type": ev["type"], "link": ev.get("link") or "", "presenter": ev.get("presenter") or "",
+            "recording": check_youtube(ev.get("recording"), ev["id"]),
+            "title": title if isinstance(title, str) else title.get(lang) or title["es"],
+            "date_text": "", "host_time": "", "host_text": "", "zones": [], "start": None,
+        }
+        if not ev.get("start"):  # reunión ya realizada de la que aún no se registró la fecha
+            past_undated.append(view)
             continue
         start = datetime.fromisoformat(ev["start"])
         host = start.astimezone(ZoneInfo(COUNTRY_TZ[ev["tz_ref"]]))
@@ -127,24 +146,18 @@ def event_views(lang):
             loc = start.astimezone(ZoneInfo(COUNTRY_TZ[c]))
             b = boxes.setdefault(loc.utcoffset(), {"time": loc.strftime("%H:%M"), "day_shift": (loc.date() - host.date()).days, "codes": []})
             b["codes"].append(c)
-        zones = [{
+        view["zones"] = [{
             "time": boxes[off]["time"], "day_shift": boxes[off]["day_shift"], "utc": utc_label(off),
             "flags": "".join(flag(c) for c in sorted(boxes[off]["codes"])),
             "names": ", ".join(sorted((cname[c] for c in boxes[off]["codes"]), key=sort_key)),
         } for off in sorted(boxes)]
-        title = ev["title"]
-        view = {
-            "type": ev["type"], "start": start, "link": ev.get("link") or "", "presenter": ev.get("presenter") or "",
-            "title": title if isinstance(title, str) else title.get(lang) or title["es"],
-            "date_text": fmt_date(host, lang), "host_time": host.strftime("%H:%M"),
-            "host_text": t("activities.host_time", country=cname[ev["tz_ref"]], utc=utc_label(host.utcoffset())),
-            "zones": zones,
-        }
+        view.update(start=start, date_text=fmt_date(host, lang), host_time=host.strftime("%H:%M"),
+                    host_text=t("activities.host_time", country=cname[ev["tz_ref"]], utc=utc_label(host.utcoffset())))
         end = start + timedelta(minutes=ev.get("duration_min", 90))
-        (upcoming if end >= NOW else past).append(view)
+        (upcoming if end >= NOW else past_dated).append(view)
     upcoming.sort(key=lambda e: e["start"])
-    past.sort(key=lambda e: e["start"], reverse=True)
-    return upcoming, past
+    past_dated.sort(key=lambda e: e["start"], reverse=True)
+    return upcoming, past_dated + past_undated
 
 
 # ---------- Render ----------
