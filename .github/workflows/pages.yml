@@ -3,6 +3,7 @@ name: Publicar sitio
 on:
   push:
     branches: [main]
+  pull_request:          # solo construye y comprueba enlaces; el despliegue no corre en PR
   schedule:
     - cron: "17 6 * * *"   # reconstrucción diaria: las reuniones pasan de "próximas" a "anteriores" sin tocar nada
   workflow_dispatch:
@@ -40,6 +41,7 @@ jobs:
 
   deploy:
     needs: build
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
