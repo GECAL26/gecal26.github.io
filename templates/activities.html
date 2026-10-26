@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% import "macros.html" as ui with context %}
+{% block content %}
+<div class="container">
+
+  <header class="page-head">
+    <p class="gecal-overline">{{ t('activities.overline') }}</p>
+    <h1 class="h1">{{ t('activities.title') }}</h1>
+    <span class="gecal-rule gecal-rule--short" aria-hidden="true"></span>
+    <p class="lead">{{ t('activities.lead') }}</p>
+  </header>
+
+  <section class="section" aria-labelledby="up-title">
+    <div class="section__head"><h2 class="h2" id="up-title">{{ t('activities.upcoming') }}</h2></div>
+    {% for ev in upcoming %}{{ ui.event(ev, t) }}{% else %}
+    <p class="empty">{{ t('activities.empty') }}</p>
+    {% endfor %}
+    {% if upcoming %}<p class="zones-note" style="margin-top:var(--space-4)">{{ t('activities.zones_note') }}</p>{% endif %}
+  </section>
+
+  {% if past %}
+  <section class="section" aria-labelledby="past-title">
+    <div class="section__head"><h2 class="h2" id="past-title">{{ t('activities.past') }}</h2></div>
+    {% for ev in past %}{{ ui.event(ev, t, past=True) }}{% endfor %}
+  </section>
+  {% endif %}
+
+  <section class="section">
+    <div class="band">
+      <div class="band__text">
+        <h2 class="h2">{{ t('activities.cta.title') }}</h2>
+        <p>{{ t('activities.cta.body') }}</p>
+      </div>
+      <a class="gecal-btn gecal-btn--primary gecal-btn--lg" href="{{ site.whatsapp_url }}">{{ t('cta.join_group') }}</a>
+    </div>
+  </section>
+
+</div>
+{% endblock %}

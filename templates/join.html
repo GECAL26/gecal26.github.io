@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+
+  <header class="page-head">
+    <p class="gecal-overline">{{ t('join.overline') }}</p>
+    <h1 class="h1">{{ t('join.title') }}</h1>
+    <span class="gecal-rule gecal-rule--short" aria-hidden="true"></span>
+    <p class="lead">{{ t('join.lead') }}</p>
+  </header>
+
+  <section class="section" aria-labelledby="steps-title">
+    <div class="section__head"><h2 class="h2" id="steps-title">{{ t('join.steps_title') }}</h2></div>
+    <ol class="steps">
+      <li>
+        <h3>{{ t('join.step1.title') }}</h3>
+        <p class="muted">{{ t('join.step1.body') }}</p>
+        <a class="gecal-btn gecal-btn--primary gecal-btn--lg" href="{{ site.whatsapp_url }}">{{ t('cta.join_group') }}</a>
+      </li>
+      {% if site.form_url %}
+      <li>
+        <h3>{{ t('join.step2.title') }}</h3>
+        <p class="muted">{{ t('join.step2.body') }}</p>
+        <a class="gecal-btn gecal-btn--secondary gecal-btn--lg" href="{{ site.form_url }}">{{ t('join.step2.cta') }}</a>
+      </li>
+      {% endif %}
+    </ol>
+  </section>
+
+  <section class="section" aria-labelledby="who-title">
+    <div class="section__head"><h2 class="h2" id="who-title">{{ t('join.who.title') }}</h2></div>
+    <p class="lead">{{ t('join.who.body') }}</p>
+  </section>
+
+  <section class="section" aria-labelledby="priv-title">
+    <div class="section__head">
+      <p class="gecal-overline">{{ t('join.privacy.overline') }}</p>
+      <h2 class="h2" id="priv-title">{{ t('join.privacy.title') }}</h2>
+    </div>
+    <div class="grid grid--2">
+      <article class="gecal-card">
+        <h3 class="gecal-card__title">{{ t('join.privacy.shown_title') }}</h3>
+        <ul class="list">{% for i in t_list('join.privacy.shown') %}<li>{{ i }}</li>{% endfor %}</ul>
+      </article>
+      <article class="gecal-card">
+        <h3 class="gecal-card__title">{{ t('join.privacy.hidden_title') }}</h3>
+        <ul class="list">{% for i in t_list('join.privacy.hidden') %}<li>{{ i }}</li>{% endfor %}</ul>
+      </article>
+    </div>
+    <p class="lead" style="margin-top:var(--space-5)">{{ t('join.privacy.remove') }}{% if site.contact_email %} <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>{% endif %}</p>
+  </section>
+
+</div>
+{% endblock %}

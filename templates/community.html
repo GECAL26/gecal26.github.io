@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% import "macros.html" as ui with context %}
+{% block content %}
+<div class="container">
+
+  <header class="page-head">
+    <p class="gecal-overline">{{ t('community.overline') }}</p>
+    <h1 class="h1">{{ t('community.title') }}</h1>
+    <span class="gecal-rule gecal-rule--short" aria-hidden="true"></span>
+    <p class="lead">{{ t('community.lead') }}</p>
+  </header>
+
+  <section class="section" aria-labelledby="dir-title" data-directory>
+    <div class="section__head">
+      <h2 class="h2" id="dir-title">{{ t('community.directory') }}</h2>
+      <p class="muted">{{ t('community.progress', published=members | length, registered=net.members) }}</p>
+    </div>
+
+    {% if members %}
+    <form class="filters" data-filters role="search" hidden>
+      <div class="field"><label for="f-q">{{ t('community.f_search') }}</label><input id="f-q" name="q" type="search" autocomplete="off" placeholder="{{ t('community.f_search_ph') }}"></div>
+      <div class="field"><label for="f-country">{{ t('community.f_country') }}</label>
+        <select id="f-country" name="country"><option value="">{{ t('community.all_m') }}</option>{% for c in filter_countries %}<option value="{{ c.code }}">{{ c.name }}</option>{% endfor %}</select></div>
+      <div class="field"><label for="f-area">{{ t('community.f_area') }}</label>
+        <select id="f-area" name="area"><option value="">{{ t('community.all_f') }}</option>{% for a in filter_areas %}<option value="{{ a.slug }}">{{ a.name }}</option>{% endfor %}</select></div>
+      <div class="field"><label for="f-tool">{{ t('community.f_tool') }}</label>
+        <select id="f-tool" name="tool"><option value="">{{ t('community.all_f') }}</option>{% for x in filter_tools %}<option value="{{ x.slug }}">{{ x.name }}</option>{% endfor %}</select></div>
+      <button class="gecal-btn gecal-btn--secondary" type="reset">{{ t('community.reset') }}</button>
+    </form>
+    <p class="count" role="status" aria-live="polite" data-count data-tpl="{{ t('community.count') }}">{{ t('community.count', n=members | length, total=members | length) }}</p>
+    <div class="members">
+      {% for m in members %}{{ ui.member(m, t, countries, areas) }}{% endfor %}
+    </div>
+    <p class="empty" data-none hidden>{{ t('community.none') }}</p>
+    {% else %}
+    <p class="empty">{{ t('community.empty') }}</p>
+    {% endif %}
+    <p class="caption">{{ t('community.privacy') }}</p>
+  </section>
+
+  <section class="section" aria-labelledby="where-title">
+    <div class="section__head">
+      <p class="gecal-overline">{{ t('community.where.overline') }}</p>
+      <h2 class="h2" id="where-title">{{ t('community.where.title') }}</h2>
+    </div>
+    <ul class="tags">
+      {% for c in country_list %}
+      <li class="gecal-tag"><span class="gecal-tag__dot" style="--tag-dot:var(--{{ c.color }})"></span>{{ c.name }} <small>· {{ c.n }}</small></li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section class="section" aria-labelledby="uses-title">
+    <div class="section__head">
+      <p class="gecal-overline">{{ t('community.uses.overline') }}</p>
+      <h2 class="h2" id="uses-title">{{ t('community.uses.title') }}</h2>
+      <p class="lead">{{ t('community.uses.lead', n=net.members) }}</p>
+    </div>
+    <ol class="bars">
+      {% for x in top_tools %}
+      <li><span class="bars__name">{{ x.name }}</span><span class="bars__track" aria-hidden="true"><span class="bars__fill" style="--w:{{ x.pct }}%"></span></span><span class="bars__n">{{ x.n }}</span></li>
+      {% endfor %}
+    </ol>
+    <p class="caption">{{ t('stats.source', date=as_of_text) }} {{ t('community.uses.unit') }}</p>
+  </section>
+
+</div>
+{% endblock %}
+{% block scripts %}<script src="{{ rel('static/js/directory.js') }}" defer></script>{% endblock %}

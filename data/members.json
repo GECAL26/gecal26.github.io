@@ -1,0 +1,27 @@
+[
+  {
+    "id": "duvan-nieves",
+    "name": "Duvan Nieves",
+    "institution": "SIATA",
+    "role": "Analista - Estudiante",
+    "country": "CO",
+    "city": "Medellín",
+    "areas": [
+      "urban_aq",
+      "atm_modelling",
+      "low_cost",
+      "monitoring"
+    ],
+    "tools": [
+      "WRF",
+      "CHIMERE",
+      "Python"
+    ],
+    "other_affiliation": "Universidad Nacional de Colombia - Sede Medellín",
+    "bio": "Trabajo como investigador en el Sistema de Alerta Temprana del Valle de Aburrá (SIATA) y curso la Maestría en Recursos Hidráulicos en la Universidad Nacional de Colombia – Sede Medellín.\n\nMis actividades se articulan en tres ejes principales. El primero corresponde al pronóstico operativo de calidad del aire, donde integro modelos de aprendizaje automático (SARIMAX, XGBoost, LightGBM, LSTM) con datos de estaciones de monitoreo convencionales, salidas del servicio Copernicus Atmosphere Monitoring Service (CAMS) y de un modelo Weather Research and Forecasting (WRF) operativo a resolución de 2 km sobre el Valle de Aburrá. Este enfoque multifuente permite caracterizar la variabilidad de contaminantes como el material particulado fino (PM₂.₅) en una cuenca urbana de topografía compleja. El segundo eje comprende el apoyo a la operación y mantenimiento de la red de sensores de bajo costo del Valle de Aburrá, con énfasis en su despliegue territorial, control de calidad de datos y desarrollo de rutinas de procesamiento para su integración en los sistemas de monitoreo existentes. El tercer eje se orienta al estudio de ciclones tropicales e intensificación rápida, abordado desde la identificación de mecanismos físicos y el análisis de datos observacionales.\n\nEn términos metodológicos, combino el análisis estadístico de series de tiempo de contaminantes atmosféricos y el procesamiento de productos de reanálisis como ERA5, CAMS, GOES y MERRA-2. Estas herramientas se aplican tanto en el contexto operativo del Valle de Aburrá como en estudios de caso en otras regiones tropicales.\n\nMe interesa colaborar en modelación química-transporte, validación de inventarios de emisiones, métodos de fusión de datos entre modelos y observaciones, y caracterización de episodios de contaminación en distintos entornos.",
+    "bio_lang": "es",
+    "orcid": "0000-0002-1002-7800",
+    "linkedin": "https://www.linkedin.com/in/duvannieves/",
+    "photo": null
+  }
+]

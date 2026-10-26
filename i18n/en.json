@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "home": {"title": "GECAL · Grupo de Estudio de la Calidad del Aire en Latinoamérica", "desc": "A peer scientific community of people and institutions working on air quality in Latin America who share methods, data and monitoring networks."},
+    "community": {"title": "Community · GECAL", "desc": "Members, countries and tools of the GECAL network."},
+    "activities": {"title": "Activities · GECAL", "desc": "The group's virtual meetings and presentations, with the time in each country."},
+    "join": {"title": "Join · GECAL", "desc": "How to join the GECAL group and what is published about each member."}
+  },
+  "a11y": {"skip": "Skip to content", "main_nav": "Main navigation", "theme": "Colour theme", "language": "Language"},
+  "nav": {"home": "Home", "community": "Community", "activities": "Activities", "join": "Join"},
+  "theme": {"system": "System", "light": "Light", "dark": "Dark"},
+  "lang_names": {"es": "Spanish", "en": "English", "fr": "French", "pt": "Portuguese"},
+  "footer": {
+    "tagline": "Grupo de Estudio de la Calidad del Aire en Latinoamérica (Air Quality Study Group in Latin America). A peer scientific community.",
+    "explore": "Explore", "project": "Project", "source": "Source code", "whatsapp": "WhatsApp group",
+    "license": "Code under the MIT license. Content under CC BY 4.0. The GECAL logo and brand are reserved. Members' personal data is not covered by these licenses."
+  },
+  "cta": {"join_group": "Join the group"},
+  "stats": {"source": "Source: the group's registration form, as of {date}."},
+  "home": {
+    "hero": {
+      "overline": "Air quality · Latin America",
+      "title": "Air that connects Latin America",
+      "lead": "GECAL is a peer scientific community: people and institutions working on air quality in Latin America who share methods, data and monitoring networks.",
+      "see_community": "See the community"
+    },
+    "about": {
+      "overline": "What we do", "title": "Methods, data and networks",
+      "methods": {"overline": "Methods", "title": "Modelling and analysis", "body": "Peers present and discuss how air quality is modelled, measured and analysed.", "link": "See activities"},
+      "data": {"overline": "Data", "title": "Monitoring and observation", "body": "Experience is exchanged on monitoring, low-cost sensors, emission inventories and satellite data.", "link": "See what the network uses"},
+      "networks": {"overline": "Networks", "title": "Monitoring networks", "body": "People and institutions across the region are connected to collaborate between monitoring networks and modelling groups.", "link": "Meet the community"}
+    },
+    "next": {"overline": "Next meeting", "title": "Coming up", "empty": "No meeting has been published yet. The next ones are announced in the WhatsApp group.", "all": "See all activities"},
+    "stats": {"overline": "The network in numbers", "title": "Who takes part", "members": "registered members", "countries": "countries", "areas": "areas of work"},
+    "countries": {"overline": "Countries", "title": "Countries in the network"},
+    "cta": {"title": "Do you work on air quality in Latin America?", "body": "The group brings together people and institutions from the region to exchange methods, data and experience.", "how": "How to join"}
+  },
+  "community": {
+    "overline": "Community", "title": "Who we are",
+    "lead": "People and institutions working on air quality in several countries. The directory shows only those who have authorised the publication of their professional profile.",
+    "directory": "Directory",
+    "progress": "Published profiles: {published} of {registered} registered members. Each profile is published only with the person's authorisation.",
+    "f_search": "Search", "f_search_ph": "Name, institution, tool…", "f_country": "Country", "f_area": "Area of work", "f_tool": "Tool or model",
+    "all_m": "All", "all_f": "All", "reset": "Clear",
+    "count": "Showing {n} of {total}",
+    "none": "No profile matches the filters.",
+    "empty": "No profiles are published yet. They will appear as each member authorises theirs.",
+    "privacy": "Only professional details are published. Emails and phone numbers are never shown.",
+    "view_profile": "View profile", "bio": "Introduction", "bio_lang": "Text written by the person, in {lang}.",
+    "areas": "Areas of work", "tools": "Tools and models", "other_affiliation": "Other affiliations",
+    "where": {"overline": "Countries", "title": "Where we are"},
+    "uses": {"overline": "Tools", "title": "What the network uses", "lead": "Most common models and tools among the {n} registered members.", "unit": "Figure: members who use each tool."}
+  },
+  "activities": {
+    "overline": "Virtual meeting", "title": "Activities",
+    "lead": "We meet online to present our work and talk about air quality. Any participant can present their monitoring network. What would you like to present?",
+    "upcoming": "Upcoming meetings", "past": "Past",
+    "empty": "No meetings have been published yet. Join the WhatsApp group and we will find out about the next one together.",
+    "zones_note": "Each time is for the exact date of the meeting; in some countries it changes with daylight saving time.",
+    "types": {"meeting": "Virtual meeting", "presentation": "Presentation"},
+    "presents": "Presenter", "join_meeting": "Join the meeting",
+    "host_time": "Reference time: {country} ({utc})",
+    "cta": {"title": "What would you like to present?", "body": "Write to us in the group and we will talk it over."}
+  },
+  "join": {
+    "overline": "Join", "title": "How to join",
+    "lead": "The group is open to people and institutions working on air quality in Latin America.",
+    "steps_title": "Steps",
+    "step1": {"title": "Join the WhatsApp group", "body": "It is the channel where members talk and where the group's meetings are announced."},
+    "step2": {"title": "Register in the directory", "body": "The form asks for your area of work, the tools and models you use and, optionally, a short introduction and a photo.", "cta": "Open the form"},
+    "who": {"title": "Who can take part", "body": "People and institutions working on air quality in Latin America. Colleagues from other regions who collaborate with the network also take part."},
+    "privacy": {
+      "overline": "Privacy", "title": "What is published and what is not",
+      "shown_title": "Published, if the person authorises it",
+      "shown": ["Name, institution, position, country and city", "Areas of work, tools and models", "The introduction and, if shared, the photo", "Links to ORCID and LinkedIn"],
+      "hidden_title": "Never published",
+      "hidden": ["Email address", "Phone number", "Any data the person has not authorised"],
+      "remove": "Any member can ask for their profile to be removed at any time by writing to the group administrators."
+    }
+  },
+  "date": {
+    "weekdays": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    "fmt": "{weekday}, {month} {day}, {year}",
+    "fmt_short": "{month} {day}, {year}"
+  },
+  "countries": {"AR": "Argentina", "BO": "Bolivia", "BR": "Brazil", "CL": "Chile", "CO": "Colombia", "CR": "Costa Rica", "EC": "Ecuador", "FR": "France", "MX": "Mexico", "PY": "Paraguay", "PE": "Peru"},
+  "areas": {
+    "urban_aq": "Urban air quality", "atm_modelling": "Atmospheric modelling", "low_cost": "Low-cost sensors",
+    "monitoring": "Air quality monitoring", "emissions": "Emission inventories", "biogenic": "Biogenic emissions",
+    "chemistry": "Atmospheric chemistry", "health": "Health and air quality", "satellite": "Satellite observation",
+    "forecasting": "Weather and air quality forecasting"
+  }
+}

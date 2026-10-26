@@ -1,0 +1,16 @@
+# Salida generada
+dist/
+__pycache__/
+*.pyc
+
+# Datos personales: NUNCA al repositorio (el historial de git es público y permanente).
+# Mantén el export del formulario fuera de esta carpeta; esto es solo una red de seguridad.
+*.csv
+*.xlsx
+*.tsv
+private/
+
+# Entorno local
+.venv/
+.DS_Store
+node_modules/

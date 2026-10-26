@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="{{ lang }}" data-theme-pref="system">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="{{ abs_url(lang) }}">
+{% for l in langs %}<link rel="alternate" hreflang="{{ l }}" href="{{ abs_url(l) }}">
+{% endfor %}<link rel="alternate" hreflang="x-default" href="{{ site_url }}/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GECAL">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:url" content="{{ abs_url(lang) }}">
+<meta property="og:image" content="{{ site_url }}/static/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="{{ rel('static/img/gecal-avatar-navy.svg') }}">
+<script>
+/* Tema antes del primer pintado: evita el parpadeo. localStorage puede fallar (modo privado). */
+(function(){var p="system";try{p=localStorage.getItem("gecal-theme")||"system"}catch(e){}
+if(p!=="light"&&p!=="dark")p="system";
+var d=p==="dark"||(p==="system"&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches);
+var r=document.documentElement;r.dataset.theme=d?"dark":"light";r.dataset.themePref=p;})();
+</script>
+<link rel="preload" href="{{ rel('static/fonts/montserrat-latin-800-normal.woff2') }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ rel('static/fonts/source-sans-3-latin-400-normal.woff2') }}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ rel('static/css/tokens.css') }}">
+<link rel="stylesheet" href="{{ rel('static/css/fonts.css') }}">
+<link rel="stylesheet" href="{{ rel('static/css/gecal.css') }}">
+</head>
+<body>
+<a class="skip" href="#contenido">{{ t('a11y.skip') }}</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="{{ link('home') }}" aria-label="GECAL — {{ t('nav.home') }}">
+      <img class="gecal-logo-light" src="{{ rel('static/img/gecal-logo-compacto.svg') }}" width="124" height="70" alt="GECAL">
+      <img class="gecal-logo-dark" src="{{ rel('static/img/gecal-logo-compacto-oscuro.svg') }}" width="124" height="70" alt="" aria-hidden="true">
+    </a>
+    <nav class="nav" aria-label="{{ t('a11y.main_nav') }}">
+      {% for key in ['home','community','activities','join'] %}
+      <a href="{{ link(key) }}"{% if key == page %} aria-current="page"{% endif %}>{{ t('nav.' ~ key) }}</a>
+      {% endfor %}
+    </nav>
+    <div class="controls">
+      <div class="seg" role="group" aria-label="{{ t('a11y.theme') }}" data-theme-switch hidden>
+        <button type="button" data-theme-set="system" aria-pressed="true">{{ t('theme.system') }}</button>
+        <button type="button" data-theme-set="light" aria-pressed="false">{{ t('theme.light') }}</button>
+        <button type="button" data-theme-set="dark" aria-pressed="false">{{ t('theme.dark') }}</button>
+      </div>
+      <details class="menu">
+        <summary aria-label="{{ t('a11y.language') }}"><span aria-hidden="true">{{ lang | upper }}</span><span class="sr-only"> {{ t('lang_names.' ~ lang) }}</span></summary>
+        <ul>
+          {% for l in langs %}
+          <li><a href="{{ link(page, l) }}" hreflang="{{ l }}" lang="{{ l }}" data-lang="{{ l }}"{% if l == lang %} aria-current="true"{% endif %}>{{ lang_names[l] }}</a></li>
+          {% endfor %}
+        </ul>
+      </details>
+    </div>
+  </div>
+</header>
+
+<main id="contenido">
+{% block content %}{% endblock %}
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <img class="footer-logo gecal-logo-light" src="{{ rel('static/img/gecal-logo.svg') }}" width="150" height="85" alt="GECAL" loading="lazy">
+      <img class="footer-logo gecal-logo-dark" src="{{ rel('static/img/gecal-logo-fondo-oscuro.svg') }}" width="150" height="85" alt="" aria-hidden="true" loading="lazy">
+      <p class="muted">{{ t('footer.tagline') }}</p>
+    </div>
+    <div>
+      <h2>{{ t('footer.explore') }}</h2>
+      <ul>
+        {% for key in ['home','community','activities','join'] %}<li><a href="{{ link(key) }}">{{ t('nav.' ~ key) }}</a></li>{% endfor %}
+      </ul>
+    </div>
+    <div>
+      <h2>{{ t('footer.project') }}</h2>
+      <ul>
+        <li><a href="{{ site.repo_url }}">{{ t('footer.source') }}</a></li>
+        <li><a href="{{ site.whatsapp_url }}">{{ t('footer.whatsapp') }}</a></li>
+      </ul>
+      <small>{{ t('footer.license') }}</small>
+    </div>
+  </div>
+</footer>
+<script src="{{ rel('static/js/site.js') }}" defer></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

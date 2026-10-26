@@ -1,0 +1,67 @@
+{# Componentes reutilizables. Los textos llegan ya traducidos desde t(). #}
+
+{% macro zones(ev) %}
+<div class="gecal-zones" role="list">
+  {% for z in ev.zones %}
+  <div class="gecal-zone" role="listitem">
+    <div class="gecal-zone__flags" aria-hidden="true">{{ z.flags }}</div>
+    <div class="gecal-zone__time">{{ z.time }}{% if z.day_shift %}<sup>{{ '%+d' % z.day_shift }}</sup>{% endif %}</div>
+    <span class="gecal-zone__utc">{{ z.utc }}</span>
+    <div class="gecal-zone__names">{{ z.names }}</div>
+  </div>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{% macro event(ev, t, past=False) %}
+<article class="event{% if past %} event--past{% endif %}">
+  <div class="event__meta">
+    <p class="gecal-overline">{{ t('activities.types.' ~ ev.type) }}</p>
+    <h3 class="gecal-card__title">{{ ev.title }}</h3>
+    {% if ev.presenter %}<p class="muted">{{ t('activities.presents') }}: {{ ev.presenter }}</p>{% endif %}
+  </div>
+  <div class="event__meta">
+    <p class="event__when">{{ ev.date_text }} · {{ ev.host_time }}</p>
+    <p class="event__host">{{ ev.host_text }}</p>
+  </div>
+  {{ zones(ev) }}
+  {% if ev.link and not past %}<p><a class="gecal-btn gecal-btn--primary" href="{{ ev.link }}">{{ t('activities.join_meeting') }}</a></p>{% endif %}
+</article>
+{% endmacro %}
+
+{% macro member(m, t, countries, areas) %}
+<article class="gecal-card member" data-member data-country="{{ m.country }}" data-areas="{{ m.areas | join(' ') }}" data-tools="{{ m.tool_slugs | join(' ') }}" data-text="{{ m.search }}">
+  <div class="member__head">
+    {% if m.photo %}<img class="avatar" src="{{ rel(m.photo) }}" width="64" height="64" alt="" loading="lazy">
+    {% else %}<span class="avatar" aria-hidden="true" style="--av:var(--{{ m.color }});--av-ink:var(--{{ 'on-deep' if m.color in ('blue','teal') else 'on-bright' }})">{{ m.initials }}</span>{% endif %}
+    <div>
+      <h3 class="member__name">{{ m.name }}</h3>
+      <p class="member__role">{{ [m.role, m.institution] | select | join(' · ') }}</p>
+    </div>
+  </div>
+  <p><span class="gecal-tag"><span class="gecal-tag__dot" style="--tag-dot:var(--{{ m.color }})"></span>{{ countries[m.country] }}{% if m.city %} <small>· {{ m.city }}</small>{% endif %}</span></p>
+  <ul class="tags">
+    {% for a in m.areas[:3] %}<li class="gecal-tag gecal-tag--solid">{{ areas[a] }}</li>{% endfor %}
+    {% if m.areas | length > 3 %}<li class="gecal-tag gecal-tag--solid">+{{ m.areas | length - 3 }}</li>{% endif %}
+  </ul>
+  <details>
+    <summary>{{ t('community.view_profile') }}</summary>
+    <div class="member__more">
+      {% if m.bio %}<div>
+        <h4>{{ t('community.bio') }}</h4>
+        {% for para in m.bio.split('\n\n') %}<p>{{ para }}</p>{% endfor %}
+        <p class="member__bio-lang">{{ t('community.bio_lang', lang=t('lang_names.' ~ m.bio_lang)) }}</p>
+      </div>{% endif %}
+      <div><h4>{{ t('community.areas') }}</h4>
+        <ul class="tags">{% for a in m.areas %}<li class="gecal-tag gecal-tag--solid">{{ areas[a] }}</li>{% endfor %}</ul></div>
+      {% if m.tools %}<div><h4>{{ t('community.tools') }}</h4>
+        <ul class="tools">{% for x in m.tools %}<li>{{ x }}</li>{% endfor %}</ul></div>{% endif %}
+      {% if m.other_affiliation %}<div><h4>{{ t('community.other_affiliation') }}</h4><p>{{ m.other_affiliation }}</p></div>{% endif %}
+      {% if m.orcid or m.linkedin %}<div class="member__links">
+        {% if m.orcid %}<a href="https://orcid.org/{{ m.orcid }}">ORCID</a>{% endif %}
+        {% if m.linkedin %}<a href="{{ m.linkedin }}">LinkedIn</a>{% endif %}
+      </div>{% endif %}
+    </div>
+  </details>
+</article>
+{% endmacro %}

@@ -1,0 +1,53 @@
+{
+  "as_of": "2026-10-26",
+  "members": 20,
+  "countries": {
+    "AR": 3,
+    "BO": 2,
+    "BR": 3,
+    "CL": 2,
+    "CO": 2,
+    "FR": 2,
+    "MX": 3,
+    "PE": 2,
+    "PY": 1
+  },
+  "areas": {
+    "atm_modelling": 16,
+    "urban_aq": 15,
+    "monitoring": 9,
+    "chemistry": 6,
+    "health": 6,
+    "emissions": 5,
+    "biogenic": 5,
+    "low_cost": 4,
+    "satellite": 4,
+    "forecasting": 2
+  },
+  "tools": {
+    "WRF": 16,
+    "Python": 16,
+    "R": 9,
+    "MODIS": 8,
+    "CHIMERE": 8,
+    "WRF-Chem": 7,
+    "HYSPLIT": 6,
+    "Landsat": 5,
+    "CMAQ": 4,
+    "AERMOD": 4,
+    "Sentinel-5P": 4,
+    "MEGAN": 3,
+    "CALPUFF": 3,
+    "Git": 1,
+    "HTML": 1,
+    "CSS": 1,
+    "JS": 1,
+    "TypeScript": 1,
+    "Python ML": 1,
+    "Matlab": 1,
+    "EMEP": 1,
+    "GOES-19": 1,
+    "Meteosat": 1,
+    "Wingridds": 1
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "home": {"title": "GECAL · Grupo de Estudio de la Calidad del Aire en Latinoamérica", "desc": "Comunidad científica entre pares de personas e instituciones de calidad del aire de Latinoamérica que comparten métodos, datos y redes de monitoreo."},
+    "community": {"title": "Comunidad · GECAL", "desc": "Integrantes, países y herramientas de la red GECAL."},
+    "activities": {"title": "Actividades · GECAL", "desc": "Reuniones virtuales y presentaciones del grupo, con la hora en cada país."},
+    "join": {"title": "Únete · GECAL", "desc": "Cómo sumarse al grupo GECAL y qué se publica de cada integrante."}
+  },
+  "a11y": {"skip": "Saltar al contenido", "main_nav": "Navegación principal", "theme": "Tema de color", "language": "Idioma"},
+  "nav": {"home": "Inicio", "community": "Comunidad", "activities": "Actividades", "join": "Únete"},
+  "theme": {"system": "Sistema", "light": "Claro", "dark": "Oscuro"},
+  "lang_names": {"es": "español", "en": "inglés", "fr": "francés", "pt": "portugués"},
+  "footer": {
+    "tagline": "Grupo de Estudio de la Calidad del Aire en Latinoamérica. Una comunidad científica entre pares.",
+    "explore": "Explorar", "project": "Proyecto", "source": "Código fuente", "whatsapp": "Grupo de WhatsApp",
+    "license": "Código bajo licencia MIT. Contenido bajo CC BY 4.0. El logo y la marca GECAL son de uso reservado. Los datos personales de los integrantes no están cubiertos por estas licencias."
+  },
+  "cta": {"join_group": "Unirme al grupo"},
+  "stats": {"source": "Fuente: formulario de registro del grupo, corte al {date}."},
+  "home": {
+    "hero": {
+      "overline": "Calidad del aire · Latinoamérica",
+      "title": "Aire que conecta Latinoamérica",
+      "lead": "GECAL es una comunidad científica entre pares: personas e instituciones de calidad del aire de Latinoamérica que comparten métodos, datos y redes de monitoreo.",
+      "see_community": "Ver la comunidad"
+    },
+    "about": {
+      "overline": "Qué hacemos", "title": "Métodos, datos y redes",
+      "methods": {"overline": "Métodos", "title": "Modelación y análisis", "body": "Se presentan y discuten entre pares las formas de modelar, medir y analizar la calidad del aire.", "link": "Ver actividades"},
+      "data": {"overline": "Datos", "title": "Monitoreo y observación", "body": "Se intercambian experiencias sobre monitoreo, sensores de bajo costo, inventarios de emisiones y datos satelitales.", "link": "Ver qué usa la red"},
+      "networks": {"overline": "Redes", "title": "Redes de monitoreo", "body": "Se conecta a personas e instituciones de la región para colaborar entre redes de monitoreo y grupos de modelación.", "link": "Conocer la comunidad"}
+    },
+    "next": {"overline": "Próxima reunión", "title": "Lo que viene", "empty": "Todavía no hay una reunión publicada. Las próximas se conocen entrando al grupo de WhatsApp.", "all": "Ver todas las actividades"},
+    "stats": {"overline": "La red en cifras", "title": "Quiénes participan", "members": "integrantes registrados", "countries": "países", "areas": "áreas de trabajo"},
+    "countries": {"overline": "Países", "title": "Países de la red"},
+    "cta": {"title": "¿Se trabaja en calidad del aire en Latinoamérica?", "body": "El grupo reúne a personas e instituciones de la región para intercambiar métodos, datos y experiencias.", "how": "Cómo sumarse"}
+  },
+  "community": {
+    "overline": "Comunidad", "title": "Quiénes somos",
+    "lead": "Personas e instituciones de calidad del aire de distintos países. El directorio muestra únicamente a quienes autorizaron publicar su perfil profesional.",
+    "directory": "Directorio",
+    "progress": "Perfiles publicados: {published} de {registered} integrantes registrados. Cada perfil se publica solo con la autorización de la persona.",
+    "f_search": "Buscar", "f_search_ph": "Nombre, institución, herramienta…", "f_country": "País", "f_area": "Área de trabajo", "f_tool": "Herramienta o modelo",
+    "all_m": "Todos", "all_f": "Todas", "reset": "Limpiar",
+    "count": "Mostrando {n} de {total}",
+    "none": "Ningún perfil coincide con los filtros.",
+    "empty": "Todavía no hay perfiles publicados. Aparecerán a medida que cada integrante autorice el suyo.",
+    "privacy": "Solo se publican datos profesionales. Nunca se muestran correos ni teléfonos.",
+    "view_profile": "Ver perfil", "bio": "Presentación", "bio_lang": "Texto escrito por la persona, en {lang}.",
+    "areas": "Áreas de trabajo", "tools": "Herramientas y modelos", "other_affiliation": "Otras afiliaciones",
+    "where": {"overline": "Países", "title": "Dónde estamos"},
+    "uses": {"overline": "Herramientas", "title": "Qué usa la red", "lead": "Modelos y herramientas más frecuentes entre los {n} integrantes registrados.", "unit": "Cifra: integrantes que usan cada herramienta."}
+  },
+  "activities": {
+    "overline": "Reunión virtual", "title": "Actividades",
+    "lead": "Nos reunimos de forma virtual para presentar nuestro trabajo y conversar sobre calidad del aire. Cada participante puede presentar su red de monitoreo. ¿Qué les gustaría presentar?",
+    "upcoming": "Próximas reuniones", "past": "Anteriores",
+    "empty": "Todavía no hay reuniones publicadas. Entren al grupo de WhatsApp y nos enteramos juntos de la próxima.",
+    "zones_note": "Cada hora corresponde a la fecha exacta de la reunión; en algunos países cambia por el horario de verano.",
+    "types": {"meeting": "Reunión virtual", "presentation": "Presentación"},
+    "presents": "Presenta", "join_meeting": "Entrar a la reunión",
+    "host_time": "Hora de referencia: {country} ({utc})",
+    "cta": {"title": "¿Qué les gustaría presentar?", "body": "Escríbannos en el grupo y lo conversamos."}
+  },
+  "join": {
+    "overline": "Únete", "title": "Cómo sumarse",
+    "lead": "El grupo está abierto a personas e instituciones que trabajan en calidad del aire en Latinoamérica.",
+    "steps_title": "Pasos",
+    "step1": {"title": "Entrar al grupo de WhatsApp", "body": "Es el canal donde se conversa y se comparten las convocatorias del grupo."},
+    "step2": {"title": "Registrarse en el directorio", "body": "Se pide el área de trabajo, las herramientas y modelos que se usan y, de forma opcional, una breve presentación y una fotografía.", "cta": "Abrir el formulario"},
+    "who": {"title": "Quién puede participar", "body": "Personas e instituciones que trabajan en calidad del aire en Latinoamérica. También participan colegas de otras regiones que colaboran con la red."},
+    "privacy": {
+      "overline": "Privacidad", "title": "Qué se publica y qué no",
+      "shown_title": "Se publica, si la persona lo autoriza",
+      "shown": ["Nombre, institución, cargo, país y ciudad", "Áreas de trabajo, herramientas y modelos", "La presentación y, si se comparte, la fotografía", "Enlaces a ORCID y a LinkedIn"],
+      "hidden_title": "Nunca se publica",
+      "hidden": ["Correo electrónico", "Número de teléfono", "Cualquier dato que la persona no haya autorizado"],
+      "remove": "Cualquier integrante puede pedir que se retire su perfil en cualquier momento, escribiendo a los administradores del grupo."
+    }
+  },
+  "date": {
+    "weekdays": ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"],
+    "months": ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"],
+    "fmt": "{weekday} {day} de {month} de {year}",
+    "fmt_short": "{day} de {month} de {year}"
+  },
+  "countries": {"AR": "Argentina", "BO": "Bolivia", "BR": "Brasil", "CL": "Chile", "CO": "Colombia", "CR": "Costa Rica", "EC": "Ecuador", "FR": "Francia", "MX": "México", "PY": "Paraguay", "PE": "Perú"},
+  "areas": {
+    "urban_aq": "Calidad del aire urbana", "atm_modelling": "Modelación atmosférica", "low_cost": "Sensores de bajo costo",
+    "monitoring": "Monitoreo de calidad del aire", "emissions": "Inventarios de emisiones", "biogenic": "Emisiones biogénicas",
+    "chemistry": "Química atmosférica", "health": "Salud y calidad del aire", "satellite": "Observación satelital",
+    "forecasting": "Pronóstico meteorológico y de calidad del aire"
+  }
+}

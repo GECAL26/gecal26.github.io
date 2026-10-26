@@ -1,0 +1,16 @@
+{
+  "_nota": "Una entrada por reunión. start: ISO 8601 con desfase. tz_ref: código del país cuya hora es la de referencia. title: texto o {es,en,fr,pt}. draft:true oculta el evento en producción (INCLUDE_DRAFTS=1 lo muestra). Borra el ejemplo y agrega los eventos reales.",
+  "events": [
+    {
+      "id": "ejemplo-ebc-valle-de-aburra",
+      "type": "presentation",
+      "title": "Características del eBC en el Valle de Aburrá",
+      "presenter": null,
+      "start": "2026-10-28T11:30:00-05:00",
+      "tz_ref": "CO",
+      "duration_min": 90,
+      "link": null,
+      "draft": true
+    }
+  ]
+}

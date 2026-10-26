@@ -1,0 +1,2 @@
+# Solo para scripts/import_members.py --photos (descarga y recorte de fotos)
+Pillow>=10

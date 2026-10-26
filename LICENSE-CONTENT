@@ -1,0 +1,26 @@
+Licencias de lo que no es código / Licenses for everything that is not code
+=========================================================================
+
+1. Contenido editorial (textos de interfaz en i18n/*.json y textos de las páginas)
+   Creative Commons Atribución 4.0 Internacional (CC BY 4.0)
+   https://creativecommons.org/licenses/by/4.0/legalcode.es
+   Atribución: "GECAL – Grupo de Estudio de la Calidad del Aire en Latinoamérica".
+
+2. Logo, símbolo, avatares y patrón de red (static/img/gecal-*.svg)
+   Marca de GECAL. TODOS LOS DERECHOS RESERVADOS. No se pueden usar para identificar
+   otros proyectos, grupos o publicaciones ni modificar sin permiso de GECAL.
+   Se permite mostrarlos, sin alterarlos, para referirse al grupo (por ejemplo, al
+   enlazar a esta web o anunciar una reunión de GECAL).
+
+3. Fuentes (static/fonts/)
+   Montserrat, Source Sans 3 e IBM Plex Mono, bajo SIL Open Font License 1.1.
+   Los textos de licencia están en static/fonts/LICENSE-*.txt.
+
+4. Datos personales (data/members.json, fotografías en static/img/members/)
+   NO tienen licencia abierta. Se publican únicamente con la autorización explícita
+   de cada persona, solo para el directorio de este sitio, y pueden retirarse en
+   cualquier momento. No se pueden extraer, agregar a otras bases ni reutilizar
+   para otros fines (incluida la prospección comercial).
+
+5. Datos agregados (data/network.json) y eventos (data/events.json)
+   CC BY 4.0, como el contenido editorial.
