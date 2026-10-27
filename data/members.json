@@ -57,5 +57,222 @@
     "orcid": "0009-0002-6210-3673",
     "linkedin": "https://www.linkedin.com/in/anahi-bianco-b73228403/",
     "photo": null
+  },
+  {
+    "id": "solange-luque",
+    "name": "Solange Luque",
+    "institution": "Centro de Investigaciones del Mar y la Atmósfera (CIMA)",
+    "role": "Becaria post doctoral",
+    "country": "AR",
+    "city": "Buenos Aires",
+    "areas": [
+      "urban_aq",
+      "atm_modelling"
+    ],
+    "tools": [
+      "WRF",
+      "CMAQ",
+      "MEGAN",
+      "MODIS",
+      "Python"
+    ],
+    "other_affiliation": "Universidad de Buenos Aires (UBA), Consejo Nacional de Investigaciones Científicas y Técnicas (CONICET)",
+    "bio": "Mi área de trabajo se centra en la modelización  de la calidad del aire urbana con WRF-CMAQ en alta resolución. Entre mis actividades se encuentran la compilación y puesta en funcionamiento de modelos (CMAQ, MEGAN, HERMES), el procesamiento y análisis de datos observacionales, la validación de simulaciones mediante redes de monitoreo y el desarrollo de herramientas para la visualización e interpretación de resultados. También me interesa la aplicación de modelos atmosféricos en contextos de gestión ambiental y apoyo a la toma de decisiones.",
+    "bio_lang": "es",
+    "orcid": "0000-0002-9136-6010",
+    "linkedin": "https://www.linkedin.com/in/solange-luque/",
+    "photo": null
+  },
+  {
+    "id": "alejandro-herman-delgado-peralta",
+    "name": "Alejandro Herman Delgado Peralta",
+    "institution": "Universidad de Sao Paulo - IAG",
+    "role": "",
+    "country": "BR",
+    "city": "São Paulo",
+    "areas": [
+      "urban_aq",
+      "emissions",
+      "biogenic",
+      "atm_modelling",
+      "chemistry",
+      "health"
+    ],
+    "tools": [
+      "WRF",
+      "WRF-Chem",
+      "CMAQ",
+      "AERMOD",
+      "CALPUFF",
+      "R",
+      "Python"
+    ],
+    "other_affiliation": "",
+    "bio": "Candidato a PhD por la Universidad de São Paulo. 15 años de experiencia en estudios de calidad del aire. Experiencia en el uso de modelos de calidad del aire (WRF-Chem, CMAQ, Calpuff, AERMOD) y ruido (SoundPLAN).",
+    "bio_lang": "es",
+    "orcid": "",
+    "linkedin": "",
+    "photo": null
+  },
+  {
+    "id": "igor-vinicius-reynaldo-tiburcio",
+    "name": "Igor Vinicius Reynaldo Tibúrcio",
+    "institution": "Universidade Federal de Santa Catarina",
+    "role": "Mestrando",
+    "country": "BR",
+    "city": "Florianópolis",
+    "areas": [
+      "emissions",
+      "atm_modelling"
+    ],
+    "tools": [
+      "WRF",
+      "CMAQ",
+      "AERMOD",
+      "Python",
+      "Git",
+      "HTML",
+      "CSS",
+      "JS",
+      "TypeScript",
+      "Python ML"
+    ],
+    "other_affiliation": "",
+    "bio": "Soy Ingeniero Sanitario y Ambiental, graduado por la Universidad Federal de Santa Catarina. Actualmente estoy finalizando mi maestría en Ingeniería Ambiental en la misma universidad, con enfoque en inventarios de emisiones vehiculares, donde estudio el uso de datos GPS y técnicas de aprendizaje automático para la representación de la actividad vehicular.\n\nCuento con conocimientos avanzados en Python, aprendizaje automático, estadística, programación orientada a objetos, estructuración de bases de datos, infraestructura de software en Linux, desarrollo de paquetes y aplicaciones, y control de versiones.\n\nParticipo en proyectos de modelización y estructuración de la calidad del aire junto con el Ministerio de Medio Ambiente y otras universidades brasileñas. También participé en el INCT Klimapolis, donde desarrollé la plataforma https://plataforma.inctklimapolis.ufsc.br/. Además, he participado en diversos proyectos del sector privado, muchos de los cuales involucraron esfuerzos de tratamiento de datos ambientales a gran escala.",
+    "bio_lang": "es",
+    "orcid": "0009-0001-4856-7466",
+    "linkedin": "https://www.linkedin.com/in/igor-tibúrcio-a9357664",
+    "photo": null
+  },
+  {
+    "id": "mariana-zavaleta-palacios",
+    "name": "Mariana Zavaleta Palacios",
+    "institution": "Instituto de Ciencias de la Atmósfera y Cambio Climático, UNAM",
+    "role": "Estudiante de doctorado",
+    "country": "MX",
+    "city": "Ciudad de México",
+    "areas": [
+      "urban_aq",
+      "atm_modelling"
+    ],
+    "tools": [
+      "WRF",
+      "HYSPLIT",
+      "Matlab"
+    ],
+    "other_affiliation": "",
+    "bio": "Actualmente soy estudiante de doctorado enfocada en el estudio de la climatología urbana mediante herramientas de modelación numérica y análisis espacial. Mi línea de investigación se centra en la comprensión de los procesos atmosféricos que ocurren en entornos urbanos, con especial interés en el fenómeno de la Isla de Calor Urbana (ICU) y sus implicaciones en la Ciudad de México.\n\nPara el desarrollo de mi trabajo empleo modelos atmosféricos y de dispersión como WRF-Urban y HYSPLIT. De manera más específica, utilizo el WRF-urban a alta resolución (500 m) y con el uso de suelo urbano basado en la clasificación Local Climate Zones (LCZ) con la finalidad de estudiar cómo influyen los cuerpos de agua en la temperatura del aire y el viento local. \n\nAsimismo, cuento con experiencia en el manejo de Sistemas de Información Geográfica (SIG) y percepción remota, utilizando herramientas como ArcMap, QGIS y ENVI para el procesamiento, análisis e integración de información geoespacial.\n\nMi trabajo busca contribuir al entendimiento de los efectos de la urbanización en la temperatura y en calidad del aire de la CDMX y así, apoyar la generación de estrategias para la mitigación del fenómeno ICU, para la mejora de la calidad del aire de la ciudad, y en resumen, para una planificación urbana más sostenible.",
+    "bio_lang": "es",
+    "orcid": "0000-0002-3743-0915",
+    "linkedin": "",
+    "photo": null
+  },
+  {
+    "id": "alanis-paez",
+    "name": "Alanis Páez",
+    "institution": "Universidad de Chile",
+    "role": "Ingeniera de proyectos",
+    "country": "CL",
+    "city": "Machalí",
+    "areas": [
+      "urban_aq",
+      "biogenic",
+      "atm_modelling",
+      "monitoring",
+      "chemistry"
+    ],
+    "tools": [
+      "MODIS",
+      "Python",
+      "EMEP"
+    ],
+    "other_affiliation": "Matuasto Asesorías Ambientales SpA",
+    "bio": "Soy Geofísica y Magíster en Meteorología y Climatología de la Universidad de Chile, especializada en el análisis y modelación de química atmosférica. Mi trabajo se centra en evaluar la dinámica de los contaminantes y aportar evidencia científica para la gestión ambiental.  Trabajé como Analista de Calidad del Aire en el Proyecto FONDECYT Nº1231404, donde investigué el impacto de las normativas vigentes sobre el material particulado (MP10, MP2.5) y el ozono. En paralelo, como Ingeniera de Proyectos en Matuasto Asesorías Ambientales, desarrollo informes técnicos de calidad del aire para líneas base y monitoreo dentro del Sistema de Evaluación de Impacto Ambiental (SEIA). En investigaciones recientes, evalué la sensibilidad del ozono estival en Santiago y caractericé contaminantes en aeropuertos de Sudamérica utilizando la infraestructura de datos globales IAGOS. A nivel metodológico, me especializo en modelación numérica y programación para el análisis de grandes volúmenes de datos. Para ello, utilizo herramientas como WRF, EMEP-MSC, Python, Matlab y datos satelitales como MODIS.",
+    "bio_lang": "es",
+    "orcid": "",
+    "linkedin": "",
+    "photo": null
+  },
+  {
+    "id": "guadalupe-aguilar-mendez",
+    "name": "Guadalupe Aguilar Mendez",
+    "institution": "SEDEMA, CDMX",
+    "role": "Meteoróloga",
+    "country": "MX",
+    "city": "Ciudad de México",
+    "areas": [
+      "monitoring",
+      "forecasting"
+    ],
+    "tools": [
+      "WRF",
+      "HYSPLIT",
+      "Sentinel-5P",
+      "MODIS",
+      "Landsat",
+      "R",
+      "Python"
+    ],
+    "other_affiliation": "Universidad Autónoma Metropolitana",
+    "bio": "Mi labor se centra en el pronóstico meteorológico aplicado a la calidad del aire, el monitoreo de variables atmosféricas y contaminantes, el análisis de datos y el fortalecimiento de la revisión de las estaciones de la red de monitoreo. Por ello, busco fortalecer mis conocimientos en evaluación de modelos y modelación numérica de la química atmosférica, así como mejorar los sistemas de pronóstico y contribuir al desarrollo de capacidades técnicas en la gestión de la calidad del aire.",
+    "bio_lang": "es",
+    "orcid": "",
+    "linkedin": "https://www.linkedin.com/in/guadalupe-aguilar-mendez-90b57221a",
+    "photo": null
+  },
+  {
+    "id": "milena-lemes-rosales",
+    "name": "Milena Lemes Rosales",
+    "institution": "SEDEMA",
+    "role": "JUD Pronóstico de Calidad del Aire",
+    "country": "MX",
+    "city": "Ciudad de México",
+    "areas": [
+      "urban_aq",
+      "monitoring",
+      "forecasting"
+    ],
+    "tools": [
+      "WRF",
+      "CMAQ",
+      "HYSPLIT",
+      "Python",
+      "GOES-19",
+      "Meteosat",
+      "Wingridds"
+    ],
+    "other_affiliation": "",
+    "bio": "Diagnóstico y pronóstico de las condiciones meteorológicas y de la calidad del aire a través de productos de modelos y observaciones en casi tiempo real. Validación de entornos de estaciones meteorológicas con fines de calidad del aire. Creación de herramientas para el seguimiento operativo y el análisis de episodios de alta concentración de contaminantes.\nMe gustaría colaborar en la instalación y corridas de WRF- Chimere para el dominio Cdmx, con el fin de evaluar el modelo en el pronóstico de episodios de altas concentraciones de ozono troposférico. Sería muy interesante obtener resultados similares para otras ciudades donde no se pudo obtener resultados durante el curso.",
+    "bio_lang": "es",
+    "orcid": "",
+    "linkedin": "",
+    "photo": null
+  },
+  {
+    "id": "joao-vitor-cardoso",
+    "name": "João Vitor Cardoso",
+    "institution": "Universidade de São Paulo",
+    "role": "Estudiante de doctorado",
+    "country": "BR",
+    "city": "São Paulo",
+    "areas": [
+      "urban_aq",
+      "atm_modelling",
+      "monitoring",
+      "chemistry",
+      "health"
+    ],
+    "tools": [
+      "WRF",
+      "WRF-Chem",
+      "R",
+      "Python"
+    ],
+    "other_affiliation": "",
+    "bio": "Trabajo en la modelización de la calidad del aire mediante el entrenamiento de modelos estadísticos basados en aprendizaje automático (machine learning), tales como Random Forest, XGBoost y aprendizaje profundo (deep learning). Además, utilizo modelos dinámicos como WRF-Chem para comparar las concentraciones de contaminantes atmosféricos con las estimaciones de los modelos estadísticos. También empleo herramientas como Python y MATLAB para el procesamiento de los datos de contaminantes.",
+    "bio_lang": "es",
+    "orcid": "0009-0003-2520-9580",
+    "linkedin": "",
+    "photo": null
   }
 ]

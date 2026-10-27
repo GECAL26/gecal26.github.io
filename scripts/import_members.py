@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Exporta del CSV del formulario de registro a los datos públicos de la web.
 
-    python scripts/import_members.py export.csv [--photos]
+    python scripts/import_members.py export.csv [--photos] [--merge]
 
 Lee el CSV exportado de la hoja del formulario (más una columna "Publicar") y escribe:
   data/members.json  SOLO perfiles con Publicar = sí. Sin correo, teléfono ni propuestas de nombre.
@@ -11,6 +11,8 @@ El CSV con datos personales NO debe estar dentro del repo (el historial de git e
 Las columnas se reconocen por el comienzo del encabezado, así que sirve el export tal cual del formulario.
 Columna opcional "Idioma de la presentación" (es/en/fr/pt); por defecto es.
 --as-of AAAA-MM-DD fija la fecha de corte de data/network.json (por defecto, hoy); úsala si los registros no cambiaron.
+--merge: el CSV es parcial (solo quienes acaban de autorizar). Se agregan o actualizan esos perfiles por id, se conservan
+  los demás de data/members.json y NO se toca data/network.json (sus conteos exigen el CSV completo).
 --photos descarga la foto (enlace de Drive compartido) de quien se publica y la guarda en 256x256 WebP.
 """
 import csv
@@ -100,6 +102,7 @@ def main():
     as_of = argv[argv.index("--as-of") + 1] if "--as-of" in argv else date.today().isoformat()
     args = [a for a in argv if not a.startswith("--") and a != as_of]
     want_photos = "--photos" in argv
+    merge = "--merge" in argv
     if len(args) != 1:
         sys.exit(__doc__)
     rows = list(csv.DictReader(open(args[0], encoding="utf-8-sig", newline="")))
@@ -164,7 +167,16 @@ def main():
             "bio_lang": g("bio_lang") or "es", "orcid": orcid, "linkedin": linkedin, "photo": photo,
         })
 
+    if merge:
+        old = json.loads((ROOT / "data/members.json").read_text(encoding="utf-8"))
+        new_ids = {m["id"] for m in members}
+        members = [m for m in old if m["id"] not in new_ids] + members
     (ROOT / "data/members.json").write_text(json.dumps(members, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    if merge:
+        print(f"Publicados ahora: {len(members)} (data/network.json sin cambios)")
+        for line in report:
+            print("  aviso:", line)
+        return
     network = {"as_of": as_of, "members": registered, "countries": dict(sorted(counts_country.items())),
                "areas": dict(counts_area.most_common()), "tools": dict(counts_tool.most_common())}
     (ROOT / "data/network.json").write_text(json.dumps(network, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

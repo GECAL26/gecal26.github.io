@@ -42,7 +42,7 @@ y mueve solo las reuniones pasadas a "Anteriores".
 
 1. Exporta la hoja del formulario a CSV **fuera de esta carpeta** y agrega una columna `Publicar` con `Sí` solo para quien lo autorizó
    (opcional: `Idioma de la presentación` con `es`, `en`, `fr` o `pt`).
-2. `python scripts/import_members.py /ruta/al/export.csv` (con `--photos` y `pip install -r requirements-import.txt` para descargar fotos).
+2. `python scripts/import_members.py /ruta/al/export.csv` (con `--photos` y `pip install -r requirements-import.txt` para descargar fotos). Con `--merge` se agregan solo las personas del CSV sin tocar a las demás ni `data/network.json`.
 3. Revisa los avisos que imprime (LinkedIn o ORCID con formato inválido, áreas desconocidas) y el `git diff` de `data/`.
 4. `data/members.json` queda **solo** con perfiles autorizados y sin correo ni teléfono. `data/network.json` guarda únicamente conteos.
 
