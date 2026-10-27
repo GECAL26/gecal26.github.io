@@ -274,5 +274,65 @@
     "orcid": "0009-0003-2520-9580",
     "linkedin": "",
     "photo": null
+  },
+  {
+    "id": "fernando-velarde-apaza",
+    "name": "Fernando Velarde Apaza",
+    "institution": "Laboratorio de Física de la Atmósfera UMSA",
+    "role": "Investigador",
+    "country": "BO",
+    "city": "La Paz",
+    "areas": [
+      "urban_aq",
+      "atm_modelling",
+      "low_cost",
+      "monitoring",
+      "satellite"
+    ],
+    "tools": [
+      "WRF",
+      "HYSPLIT",
+      "Sentinel-5P",
+      "MODIS",
+      "Python"
+    ],
+    "other_affiliation": "Tropos",
+    "bio": "Actualmente soy responsable de la estación Chacaltaya de la red GAW de la OMM. Mis labores incluyen la instalación, calibración y mantenimiento de la instrumentación atmosférica. Mi investigación se centra en la física de los aerosoles, sus efectos sobre el clima y su impacto en la calidad del aire y la salud humana. Asimismo, trabajo con modelos atmosféricos, que valido mediante datos generados por los instrumentos de la estación.",
+    "bio_lang": "es",
+    "orcid": "0000-0003-2061-3106",
+    "linkedin": "",
+    "photo": null
+  },
+  {
+    "id": "jesus-pozo-trelles",
+    "name": "Jesús Pozo Trelles",
+    "institution": "SENAMHI",
+    "role": "Analista ambiental",
+    "country": "PE",
+    "city": "Lima",
+    "areas": [
+      "urban_aq",
+      "atm_modelling",
+      "low_cost",
+      "monitoring",
+      "satellite",
+      "health"
+    ],
+    "tools": [
+      "WRF",
+      "WRF-Chem",
+      "AERMOD",
+      "Sentinel-5P",
+      "MODIS",
+      "Landsat",
+      "R",
+      "Python"
+    ],
+    "other_affiliation": "",
+    "bio": "Soy ingeniero meteorólogo y actualmente trabajo en el Servicio Nacional de Meteorología e Hidrología del Perú (SENAMHI), en el área de evaluación del ambiente atmosférico. Mi trabajo se enfoca en el análisis de la calidad del aire, la meteorología aplicada y el estudio de procesos que afectan la dispersión y concentración de contaminantes atmosféricos.\n\nMi tesis estuvo orientada a la caracterización de la radiación ultravioleta (RUV) en el Perú y a la evaluación de pronósticos de muy corto plazo mediante productos de reanálisis y pronóstico atmosférico, principalmente ERA5 y CAMS.\n\nActualmente participo en el monitoreo y evaluación de incendios urbanos, desarrollando sistemas automatizados en Python para la recopilación de información operativa en tiempo real mediante mensajería instantánea, generación automática de reportes meteorológicos y simulaciones de dispersión de contaminantes utilizando AERMOD, con el fin de apoyar la evaluación de impactos potenciales sobre la calidad del aire.\n\nAsimismo, desarrollo investigaciones sobre la influencia del tránsito vehicular en la calidad del aire de Lima Metropolitana utilizando información de la Red de Monitoreo de la Calidad del Aire (REMCA) del SENAMHI. Empleo técnicas de aprendizaje automático (Machine Learning), análisis estadístico y variables meteorológicas para identificar factores asociados a la variabilidad de PM₂.₅, PM₁₀ y otros contaminantes atmosféricos, así como para mejorar su pronóstico a corto plazo.\n\nMe interesa colaborar en temas de calidad del aire, radiación ultravioleta, análisis y evaluación de productos de modelamiento atmosférico-químico (WRF, CHIMERE, IFS), inteligencia artificial aplicada a las ciencias atmosféricas, sistemas de alerta temprana y análisis de datos ambientales a escala regional y urbana.",
+    "bio_lang": "es",
+    "orcid": "0000-0001-5643-3444",
+    "linkedin": "",
+    "photo": null
   }
 ]
