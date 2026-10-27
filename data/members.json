@@ -23,5 +23,39 @@
     "orcid": "0000-0002-1002-7800",
     "linkedin": "https://www.linkedin.com/in/duvannieves/",
     "photo": null
+  },
+  {
+    "id": "anahi-bianco",
+    "name": "Anahi Bianco",
+    "institution": "CONICET",
+    "role": "Estudiante doctorado",
+    "country": "AR",
+    "city": "Córdoba",
+    "areas": [
+      "urban_aq",
+      "atm_modelling",
+      "emissions",
+      "biogenic",
+      "monitoring",
+      "satellite",
+      "chemistry",
+      "health"
+    ],
+    "tools": [
+      "WRF",
+      "CHIMERE",
+      "MEGAN",
+      "Sentinel-5P",
+      "MODIS",
+      "Landsat",
+      "R",
+      "Python"
+    ],
+    "other_affiliation": "",
+    "bio": "Mi trabajo de investigación se centra en la estimación y análisis de emisiones biogénicas de compuestos orgánicos volátiles (COVB) en Argentina, con especial énfasis en el isopreno y su relación con la calidad del aire. Para ello, utilizo el modelo MEGAN (Model of Emissions of Gases and Aerosols from Nature) alimentado con variables meteorológicas provenientes del modelo WRF, con el objetivo de cuantificar las emisiones biogénicas y evaluar su impacto en la formación de contaminantes atmosféricos.\n\nComo parte de esta investigación, implemento las emisiones generadas por MEGAN en el modelo químico de transporte atmosférico CHIMERE, permitiendo estudiar la distribución espacial y temporal de especies químicas relevantes. Además, empleo observaciones satelitales, principalmente de Sentinel-5P, junto con mediciones terrestres de formaldehído e isopreno para validar los resultados obtenidos y analizar la capacidad de los productos satelitales para representar procesos atmosféricos asociados a las emisiones biogénicas. Este enfoque integrado combina principalmente modelado atmosférico y observaciones satelitales para mejorar la comprensión de los procesos que afectan la composición atmosférica en Argentina.",
+    "bio_lang": "es",
+    "orcid": "0009-0002-6210-3673",
+    "linkedin": "https://www.linkedin.com/in/anahi-bianco-b73228403/",
+    "photo": null
   }
 ]

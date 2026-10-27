@@ -10,6 +10,7 @@ Lee el CSV exportado de la hoja del formulario (más una columna "Publicar") y e
 El CSV con datos personales NO debe estar dentro del repo (el historial de git es público y permanente).
 Las columnas se reconocen por el comienzo del encabezado, así que sirve el export tal cual del formulario.
 Columna opcional "Idioma de la presentación" (es/en/fr/pt); por defecto es.
+--as-of AAAA-MM-DD fija la fecha de corte de data/network.json (por defecto, hoy); úsala si los registros no cambiaron.
 --photos descarga la foto (enlace de Drive compartido) de quien se publica y la guarda en 256x256 WebP.
 """
 import csv
@@ -95,8 +96,10 @@ def fetch_photo(url, dest):
 
 
 def main():
-    args = [a for a in sys.argv[1:] if not a.startswith("--")]
-    want_photos = "--photos" in sys.argv
+    argv = sys.argv[1:]
+    as_of = argv[argv.index("--as-of") + 1] if "--as-of" in argv else date.today().isoformat()
+    args = [a for a in argv if not a.startswith("--") and a != as_of]
+    want_photos = "--photos" in argv
     if len(args) != 1:
         sys.exit(__doc__)
     rows = list(csv.DictReader(open(args[0], encoding="utf-8-sig", newline="")))
@@ -162,7 +165,7 @@ def main():
         })
 
     (ROOT / "data/members.json").write_text(json.dumps(members, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    network = {"as_of": date.today().isoformat(), "members": registered, "countries": dict(sorted(counts_country.items())),
+    network = {"as_of": as_of, "members": registered, "countries": dict(sorted(counts_country.items())),
                "areas": dict(counts_area.most_common()), "tools": dict(counts_tool.most_common())}
     (ROOT / "data/network.json").write_text(json.dumps(network, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Registrados: {registered} · publicados: {len(members)} · países: {len(counts_country)} · áreas: {len(counts_area)}")
