@@ -274,5 +274,33 @@
     "orcid": "0009-0003-2520-9580",
     "linkedin": "",
     "photo": null
+  },
+  {
+    "id": "fernando-velarde-apaza",
+    "name": "Fernando Velarde Apaza",
+    "institution": "Laboratorio de Física de la Atmósfera UMSA",
+    "role": "Investigador",
+    "country": "BO",
+    "city": "La Paz",
+    "areas": [
+      "urban_aq",
+      "atm_modelling",
+      "low_cost",
+      "monitoring",
+      "satellite"
+    ],
+    "tools": [
+      "WRF",
+      "HYSPLIT",
+      "Sentinel-5P",
+      "MODIS",
+      "Python"
+    ],
+    "other_affiliation": "Tropos",
+    "bio": "Actualmente soy responsable de la estación Chacaltaya de la red GAW de la OMM. Mis labores incluyen la instalación, calibración y mantenimiento de la instrumentación atmosférica. Mi investigación se centra en la física de los aerosoles, sus efectos sobre el clima y su impacto en la calidad del aire y la salud humana. Asimismo, trabajo con modelos atmosféricos, que valido mediante datos generados por los instrumentos de la estación.",
+    "bio_lang": "es",
+    "orcid": "0000-0003-2061-3106",
+    "linkedin": "",
+    "photo": null
   }
 ]
