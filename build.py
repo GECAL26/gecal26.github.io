@@ -14,7 +14,7 @@ import os
 import re
 import shutil
 import unicodedata
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 import zoneinfo
 from zoneinfo import ZoneInfo
@@ -136,8 +136,13 @@ def event_views(lang):
             "title": title if isinstance(title, str) else title.get(lang) or title["es"],
             "date_text": "", "host_time": "", "host_text": "", "zones": [], "start": None,
         }
-        if not ev.get("start"):  # reunión ya realizada de la que aún no se registró la fecha
-            past_undated.append(view)
+        if not ev.get("start"):  # reunión ya realizada: basta la fecha ("date"), sin inventar hora
+            if ev.get("date"):
+                d = date.fromisoformat(ev["date"])
+                view.update(start=datetime(d.year, d.month, d.day, tzinfo=timezone.utc), date_text=fmt_date(d, lang))
+                past_dated.append(view)
+            else:
+                past_undated.append(view)
             continue
         start = datetime.fromisoformat(ev["start"])
         host = start.astimezone(ZoneInfo(COUNTRY_TZ[ev["tz_ref"]]))
