@@ -27,16 +27,15 @@
       if (selected) {
         mark(selected, "is-selected", true);
         root.querySelectorAll('.map__row[data-c="' + selected + '"]').forEach(function (r) { r.setAttribute("aria-pressed", "true"); });
-        var item = root.querySelector('.map__item[data-c="' + selected + '"]');
-        if (item && item.scrollIntoView) item.scrollIntoView({ block: "nearest" });
       }
     }
 
     shapes.forEach(function (s) {
       var code = s.dataset.c;
-      s.addEventListener("pointerenter", function (e) { mark(code, "is-active", true); showTip(s.dataset.label, e); });
-      s.addEventListener("pointermove", function (e) { showTip(s.dataset.label, e); });
-      s.addEventListener("pointerleave", function () { mark(code, "is-active", false); if (!selected) hideTip(); else hideTip(); });
+      s.addEventListener("pointerenter", function (e) { if (e.pointerType === "touch") return; mark(code, "is-active", true); showTip(s.dataset.label, e); });
+      s.addEventListener("pointermove", function (e) { if (e.pointerType !== "touch") showTip(s.dataset.label, e); });
+      // En táctil, pointerleave se dispara al levantar el dedo: el tooltip queda hasta tocar fuera.
+      s.addEventListener("pointerleave", function (e) { if (e.pointerType === "touch") return; mark(code, "is-active", false); hideTip(); });
       s.addEventListener("click", function (e) { select(code); showTip(s.dataset.label, e); });
     });
     // Un toque fuera de un país limpia la selección y el tooltip.

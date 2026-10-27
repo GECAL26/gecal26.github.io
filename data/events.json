@@ -1,5 +1,5 @@
 {
-  "_nota": "Una entrada por charla. Próximas: start (ISO 8601 con desfase) + tz_ref (país de la hora de referencia). Ya realizadas: basta date (AAAA-MM-DD); sin fecha ni hora si no se conocen. title: texto o {es,en,fr,pt}. link: enlace de la reunión. recording: enlace https de YouTube cuando exista la grabación. duration_min: por defecto 90; al terminar pasa a 'Anteriores'. draft:true la oculta en producción.",
+  "_nota": "Una entrada por charla. type: meeting, presentation o reading (club de lectura). Próximas: start (ISO 8601 con desfase) + tz_ref (país de la hora de referencia). Ya realizadas: basta date (AAAA-MM-DD); sin fecha ni hora si no se conocen. title: texto o {es,en,fr,pt}. link: enlace de la reunión. recording: enlace https de YouTube cuando exista la grabación. duration_min: por defecto 90; al terminar pasa a 'Anteriores'. draft:true la oculta en producción.",
   "events": [
     {
       "id": "2026-10-28-lichtig-co-sudamerica",

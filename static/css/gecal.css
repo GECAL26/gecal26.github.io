@@ -240,3 +240,10 @@ sub,sup{line-height:0}
 .map__count{font:400 14px/22px var(--font-sans);color:var(--ink-muted)}
 .map__link{flex:1 1 100%;font:600 14px/20px var(--font-display)}
 @media (max-width:1000px){.map{grid-template-columns:1fr}}
+
+/* Texto corrido (Acerca de) */
+.prose .h2{margin-bottom:var(--space-4)}
+.prose p,.prose li{font:400 18px/30px var(--font-sans);max-width:68ch}
+.prose p + p{margin-top:var(--space-3)}
+.prose .list{max-width:68ch}
+.prose li{text-align:justify;hyphens:auto;-webkit-hyphens:auto}  /* justificado; el guionado automático (según lang) evita huecos grandes */

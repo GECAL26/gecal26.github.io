@@ -11,6 +11,7 @@ Es estático, gratuito de mantener (GitHub Pages + Actions) y sigue el sistema d
 | Comunidad | Directorio filtrable (solo perfiles autorizados), países y herramientas más usadas |
 | Actividades | Próximas reuniones y archivo |
 | Únete | Grupo de WhatsApp, formulario de registro y qué se publica y qué no |
+| Acerca de | Antecedentes, objetivo y misión del grupo, quiénes lo integran (cifras y países calculados de los datos) y cómo funciona. Enlazada desde Inicio y el pie, no desde el menú |
 
 ## Cómo funciona
 
@@ -26,6 +27,7 @@ INCLUDE_DRAFTS=1 python build.py      # incluye eventos con "draft": true
 python scripts/check_links.py dist    # enlaces internos rotos
 ```
 
+Los CSS y JS se enlazan con `?v=<hash del contenido>`: GitHub Pages cachea 10 minutos y no permite fijar cabeceras, y sin versión un navegador podía mezclar HTML nuevo con CSS viejo (el mapa salía negro). El SVG del mapa lleva además colores de respaldo propios.
 Los enlaces son relativos: el sitio funciona igual en `gecal26.github.io`, en una subruta o en un dominio propio.
 `SITE_URL` fija la URL absoluta para `canonical`, `hreflang` y `sitemap.xml` (el workflow la toma de GitHub).
 
