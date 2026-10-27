@@ -358,5 +358,27 @@
     "orcid": "",
     "linkedin": "",
     "photo": null
+  },
+  {
+    "id": "tahis-belen-penaloza",
+    "name": "Tahis Belen Peñaloza",
+    "institution": "Laboratorio de física de la Atmósfera",
+    "role": "Auxiliar de investigación",
+    "country": "BO",
+    "city": "La Paz",
+    "areas": [
+      "biogenic",
+      "low_cost"
+    ],
+    "tools": [
+      "HYSPLIT",
+      "Python"
+    ],
+    "other_affiliation": "",
+    "bio": "Trabajo en monitoreo atmosférico y calidad del aire, combinando observaciones de superficie, instrumentación meteorológica y análisis de datos. He participado en la operación y mantenimiento de estaciones meteorológicas en la ciudad y en la estación GAW de Chacaltaya. \nTambién he trabajado con sensores de bajo costo para medir material particulado. \nMi principal interés de investigación es el impacto de las quemas e incendios forestales en la Amazonía sobre la calidad del aire en La Paz, Bolivia. Analizar el transporte de humo y aerosoles mediante observaciones de superficie, utilizando el modelo Hysplit y lidares para las medidas in situ.",
+    "bio_lang": "es",
+    "orcid": "",
+    "linkedin": "",
+    "photo": null
   }
 ]
