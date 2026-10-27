@@ -51,52 +51,67 @@
   --data-5:var(--cyan);
   --data-6:var(--green);
   --hero-bg:var(--navy);
+  --hero-accent:var(--cyan);
+  --hero-line:#7f98c4;
+  --cta-bg:var(--cyan);
+  --cta-ink:var(--on-bright);
+  --cta-hover:#5cc6f4;
   --shadow-float:0 4px 16px rgba(4, 32, 80, 0.16);
 }
 @media (prefers-color-scheme: dark){
 :root:not([data-theme="light"]){
-    --surface-100:#042050;
-    --surface-200:#0a2c66;
-    --surface-300:#12397f;
-    --ink:#f3f7fb;
-    --ink-muted:#b4c4de;
-    --line:#2b4a86;
-    --border-control:#7f98c4;
-    --action:#12afeb;
-    --action-hover:#5cc6f4;
-    --on-action:#042050;
-    --focus-ring:#12afeb;
-    --accent:#4cc9c0;
+    --surface-100:#0d1524;
+    --surface-200:#141f33;
+    --surface-300:#1d2b45;
+    --ink:#e6ecf5;
+    --ink-muted:#a9b8d0;
+    --line:#2a3a56;
+    --border-control:#8497ba;
+    --action:#5db9e8;
+    --action-hover:#8accf0;
+    --on-action:#0d1524;
+    --focus-ring:#5db9e8;
+    --accent:#58c5bd;
     --success:#6fd28a;
     --success-bg:#0f3f33;
     --warning:#f5b84a;
     --warning-bg:#3f3410;
     --danger:#ff9a93;
     --danger-bg:#4a1d2a;
-    --hero-bg:var(--surface-200);
+    --hero-bg:#16223a;
+    --hero-accent:#74c3ea;
+    --hero-line:#8497ba;
+    --cta-bg:var(--action);
+    --cta-ink:var(--on-action);
+    --cta-hover:var(--action-hover);
     --shadow-float:0 4px 16px rgba(0, 0, 0, 0.45);
   }
 }
 :root[data-theme="dark"]{
-  --surface-100:#042050;
-  --surface-200:#0a2c66;
-  --surface-300:#12397f;
-  --ink:#f3f7fb;
-  --ink-muted:#b4c4de;
-  --line:#2b4a86;
-  --border-control:#7f98c4;
-  --action:#12afeb;
-  --action-hover:#5cc6f4;
-  --on-action:#042050;
-  --focus-ring:#12afeb;
-  --accent:#4cc9c0;
+  --surface-100:#0d1524;
+  --surface-200:#141f33;
+  --surface-300:#1d2b45;
+  --ink:#e6ecf5;
+  --ink-muted:#a9b8d0;
+  --line:#2a3a56;
+  --border-control:#8497ba;
+  --action:#5db9e8;
+  --action-hover:#8accf0;
+  --on-action:#0d1524;
+  --focus-ring:#5db9e8;
+  --accent:#58c5bd;
   --success:#6fd28a;
   --success-bg:#0f3f33;
   --warning:#f5b84a;
   --warning-bg:#3f3410;
   --danger:#ff9a93;
   --danger-bg:#4a1d2a;
-  --hero-bg:var(--surface-200);
+  --hero-bg:#16223a;
+  --hero-accent:#74c3ea;
+  --hero-line:#8497ba;
+  --cta-bg:var(--action);
+  --cta-ink:var(--on-action);
+  --cta-hover:var(--action-hover);
   --shadow-float:0 4px 16px rgba(0, 0, 0, 0.45);
 }
 :root[data-theme="light"]{color-scheme:light}

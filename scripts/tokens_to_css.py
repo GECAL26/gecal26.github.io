@@ -11,9 +11,28 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 tokens = json.loads((ROOT / "design/tokens.json").read_text(encoding="utf-8"))
 
-# Variables propias de la web (no están en el sistema): superficies que dependen del tema.
-# hero-bg: bloque expresivo. Navy en claro; un navy más claro en oscuro, donde la página ya es navy.
-EXTRAS = {"hero-bg": ("var(--navy)", "var(--surface-200)")}
+# Variables propias de la web (no están en el sistema): piezas que dependen del tema.
+# hero-*: bloque expresivo (portada y bandas). cta-*: botón primario sobre ese bloque.
+EXTRAS = {
+    "hero-bg": ("var(--navy)", "#16223a"),
+    "hero-accent": ("var(--cyan)", "#74c3ea"),
+    "hero-line": ("#7f98c4", "#8497ba"),
+    "cta-bg": ("var(--cyan)", "var(--action)"),
+    "cta-ink": ("var(--on-bright)", "var(--on-action)"),
+    "cta-hover": ("#5cc6f4", "var(--action-hover)"),
+}
+
+# DESVIACIÓN DELIBERADA del sistema, solo para el tema oscuro de la web.
+# El oscuro del sistema usa el navy de marca (#042050, saturación HSL 90 %) como fondo; en pantalla resulta
+# muy intenso y el cian de acción (#12afeb) suma brillo. Aquí se usa un azul pizarra desaturado (~45 %) y un
+# cian más suave. Los colores de marca (navy, blue, teal, cyan, green, lime, orange) y el tema claro no cambian.
+# Los contrastes se verifican con scripts/check_contrast.py.
+WEB_DARK = {
+    "surface-100": "#0d1524", "surface-200": "#141f33", "surface-300": "#1d2b45",
+    "ink": "#e6ecf5", "ink-muted": "#a9b8d0", "line": "#2a3a56", "border-control": "#8497ba",
+    "action": "#5db9e8", "action-hover": "#8accf0", "on-action": "#0d1524", "focus-ring": "#5db9e8",
+    "accent": "#58c5bd",
+}
 
 light, dark = {}, {}
 for t in tokens["color"]["tokens"]:
@@ -24,6 +43,9 @@ for t in tokens["color"]["tokens"]:
         light[t["name"]] = v
 for name, (l, d) in EXTRAS.items():
     light[name], dark[name] = l, d
+for name, value in WEB_DARK.items():
+    assert name in dark, f"WEB_DARK: token desconocido {name}"
+    dark[name] = value
 
 # Alias "{blue}" -> var(--blue)
 def resolve(v):

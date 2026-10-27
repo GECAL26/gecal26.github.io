@@ -106,22 +106,22 @@ sub,sup{line-height:0}
 
 /* Hero expresivo */
 .hero{position:relative;overflow:hidden;margin-top:var(--space-6);background:var(--hero-bg);color:var(--on-deep);border-radius:var(--radius-lg)}
-.hero__art{position:absolute;right:-24px;top:0;height:100%;width:auto;max-width:none;pointer-events:none;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 42%);mask-image:linear-gradient(to right,transparent 0,#000 42%)}
+.hero__art{position:absolute;right:-24px;top:0;height:100%;width:auto;max-width:none;pointer-events:none;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 58%);mask-image:linear-gradient(to right,transparent 0,#000 58%)}
 .hero__inner{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:var(--space-5);padding:var(--space-8) var(--space-7);max-width:640px}
-.hero .gecal-overline{color:var(--cyan)}
+.hero .gecal-overline{color:var(--hero-accent)}
 .hero__lead{font:400 19px/30px var(--font-sans);max-width:56ch}
 .hero .gecal-rule{width:160px;height:6px}
-.hero .gecal-btn--primary{background:var(--cyan);color:var(--on-bright)}
-.hero .gecal-btn--primary:hover{background:#5cc6f4;color:var(--on-bright)}
-.hero .gecal-btn--secondary{color:var(--on-deep);border-color:#7f98c4}
+.hero .gecal-btn--primary{background:var(--cta-bg);color:var(--cta-ink)}
+.hero .gecal-btn--primary:hover{background:var(--cta-hover);color:var(--cta-ink)}
+.hero .gecal-btn--secondary{color:var(--on-deep);border-color:var(--hero-line)}
 .hero .gecal-btn--secondary:hover{background:rgba(255,255,255,.12);color:var(--on-deep)}
 
 /* Banda de cierre expresiva */
 .band{background:var(--hero-bg);color:var(--on-deep);border-radius:var(--radius-lg);padding:var(--space-7);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-5)}
 .band__text{max-width:60ch;display:flex;flex-direction:column;gap:var(--space-3)}
-.band .gecal-btn--primary{background:var(--cyan);color:var(--on-bright)}
-.band .gecal-btn--primary:hover{background:#5cc6f4;color:var(--on-bright)}
-.band .gecal-btn--secondary{color:var(--on-deep);border-color:#7f98c4}
+.band .gecal-btn--primary{background:var(--cta-bg);color:var(--cta-ink)}
+.band .gecal-btn--primary:hover{background:var(--cta-hover);color:var(--cta-ink)}
+.band .gecal-btn--secondary{color:var(--on-deep);border-color:var(--hero-line)}
 .band .gecal-btn--secondary:hover{background:rgba(255,255,255,.12);color:var(--on-deep)}
 
 /* Cifras */
