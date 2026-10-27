@@ -123,7 +123,7 @@
     },
     "chimere": {
       "title": "Si usas CHIMERE",
-      "intro": "Listas de correo externas sobre el modelo (sitios en inglés):",
+      "intro": "Listas de correo externas sobre el modelo:",
       "users": {
         "title": "Lista de usuarios de CHIMERE",
         "body": "Para la comunidad de usuarios del modelo."
