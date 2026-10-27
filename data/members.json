@@ -334,5 +334,29 @@
     "orcid": "0000-0001-5643-3444",
     "linkedin": "",
     "photo": null
+  },
+  {
+    "id": "monica-pozadas-zambrana",
+    "name": "Mónica Pozadas Zambrana",
+    "institution": "Laboratorio de Física de la atmósfera (LFA) - UMSA",
+    "role": "Investigadora",
+    "country": "BO",
+    "city": "La Paz",
+    "areas": [
+      "atm_modelling",
+      "monitoring"
+    ],
+    "tools": [
+      "WRF",
+      "WRF-Chem",
+      "R",
+      "Python"
+    ],
+    "other_affiliation": "Instituto de Investigaciones Físicas (IIF) Universidad Mayor de San Andrés",
+    "bio": "Me desempeño en el área de calidad del aire en la ciudad de La Paz, enfocándome en el modelado meteorológico y expandiendo actualmente mis funciones hacia el modelado químico atmosférico. Asimismo, estoy a cargo de la instalación de estaciones meteorológicas y del mantenimiento técnico (preventivo y correctivo) de los equipos de medición para el monitoreo de ozono (O3) y material particulado (PM10 y PM2.5).",
+    "bio_lang": "es",
+    "orcid": "",
+    "linkedin": "",
+    "photo": null
   }
 ]
