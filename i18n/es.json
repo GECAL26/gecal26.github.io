@@ -77,6 +77,7 @@
       "remove": "Cualquier integrante puede pedir que se retire su perfil en cualquier momento, escribiendo a los administradores del grupo."
     }
   },
+  "map": {"aria": "Mapa de Latinoamérica con los países de la red resaltados y el número de integrantes registrados en cada uno", "list_label": "Países de la red", "legend": "El número dentro de cada país es el de integrantes registrados. Francia aparece en un recuadro, fuera de escala.", "credit": "Fronteras: Natural Earth (dominio público).", "n_one": "{n} integrante registrado", "n_other": "{n} integrantes registrados", "profiles_one": "Ver {n} perfil publicado", "profiles_other": "Ver {n} perfiles publicados"},
   "date": {
     "weekdays": ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"],
     "months": ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"],

@@ -43,11 +43,7 @@
       <p class="gecal-overline">{{ t('community.where.overline') }}</p>
       <h2 class="h2" id="where-title">{{ t('community.where.title') }}</h2>
     </div>
-    <ul class="tags">
-      {% for c in country_list %}
-      <li class="gecal-tag"><span class="gecal-tag__dot" style="--tag-dot:var(--{{ c.color }})"></span>{{ c.name }} <small>· {{ c.n }}</small></li>
-      {% endfor %}
-    </ul>
+    {{ ui.map() }}
   </section>
 
   <section class="section" aria-labelledby="uses-title">
@@ -66,4 +62,4 @@
 
 </div>
 {% endblock %}
-{% block scripts %}<script src="{{ rel('static/js/directory.js') }}" defer></script>{% endblock %}
+{% block scripts %}<script src="{{ rel('static/js/directory.js') }}" defer></script><script src="{{ rel('static/js/map.js') }}" defer></script>{% endblock %}

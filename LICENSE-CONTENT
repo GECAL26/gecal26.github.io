@@ -22,5 +22,9 @@ Licencias de lo que no es código / Licenses for everything that is not code
    cualquier momento. No se pueden extraer, agregar a otras bases ni reutilizar
    para otros fines (incluida la prospección comercial).
 
-5. Datos agregados (data/network.json) y eventos (data/events.json)
+5. Mapa (data/map.json)
+   Fronteras de Natural Earth (dominio público, https://www.naturalearthdata.com/), obtenidas del paquete
+   npm world-atlas (licencia ISC). Simplificadas y proyectadas por scripts/make_map.py.
+
+6. Datos agregados (data/network.json) y eventos (data/events.json)
    CC BY 4.0, como el contenido editorial.

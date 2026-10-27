@@ -66,11 +66,7 @@
       <p class="gecal-overline">{{ t('home.countries.overline') }}</p>
       <h2 class="h2" id="countries-title">{{ t('home.countries.title') }}</h2>
     </div>
-    <ul class="tags">
-      {% for c in country_list %}
-      <li class="gecal-tag"><span class="gecal-tag__dot" style="--tag-dot:var(--{{ c.color }})"></span>{{ c.name }} <small>· {{ c.n }}</small></li>
-      {% endfor %}
-    </ul>
+    {{ ui.map() }}
   </section>
 
   <section class="section" aria-labelledby="cta-title">
@@ -88,3 +84,4 @@
 
 </div>
 {% endblock %}
+{% block scripts %}<script src="{{ rel('static/js/map.js') }}" defer></script>{% endblock %}

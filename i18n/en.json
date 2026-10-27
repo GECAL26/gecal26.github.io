@@ -77,6 +77,7 @@
       "remove": "Any member can ask for their profile to be removed at any time by writing to the group administrators."
     }
   },
+  "map": {"aria": "Map of Latin America with the network's countries highlighted and the number of registered members in each", "list_label": "Countries in the network", "legend": "The number inside each country is its registered members. France appears in an inset, not to scale.", "credit": "Borders: Natural Earth (public domain).", "n_one": "{n} registered member", "n_other": "{n} registered members", "profiles_one": "View {n} published profile", "profiles_other": "View {n} published profiles"},
   "date": {
     "weekdays": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
     "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],

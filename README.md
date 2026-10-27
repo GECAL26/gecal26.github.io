@@ -54,6 +54,10 @@ Las presentaciones de cada persona se muestran en su idioma original; no se trad
 El **tema oscuro de la web se aparta del sistema a propósito**: en vez del navy de marca como fondo (saturación 90 %, muy intenso en pantalla) usa un azul pizarra desaturado, definido en `WEB_DARK` dentro de `scripts/tokens_to_css.py`. Los colores de marca y el tema claro no cambian.
 Tras tocar cualquier color, `python scripts/check_contrast.py` verifica los contrastes WCAG en ambos temas.
 
+**Mapa de países.** `data/map.json` (rutas SVG simplificadas) se genera una sola vez con `scripts/make_map.py` a partir de Natural Earth:
+`npm pack world-atlas && tar xzf world-atlas-*.tgz && python scripts/make_map.py package/countries-50m.json`.
+Los países resaltados y los números salen de `data/network.json`; no hace falta regenerar el mapa al cambiar los conteos. Francia va en un recuadro (su parte europea) y sus territorios de ultramar se dibujan en gris. Los territorios en disputa se dibujan como vienen en Natural Earth, sin etiquetas.
+
 ## Publicación
 
 Settings → Pages → *Source*: **GitHub Actions**. Para que la web salga en `https://gecal26.github.io/` el repositorio debe llamarse `gecal26.github.io`.
