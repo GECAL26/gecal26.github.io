@@ -1,12 +1,13 @@
 {
   "meta": {
+    "about": {"title": "Sobre · GECAL", "desc": "Objetivo e missão do GECAL: como o grupo nasceu, o que se propõe e como funciona."},
     "home": {"title": "GECAL · Grupo de Estudio de la Calidad del Aire en Latinoamérica", "desc": "Comunidade científica entre pares de pessoas e instituições de qualidade do ar da América Latina que compartilham métodos, dados e redes de monitoramento."},
     "community": {"title": "Comunidade · GECAL", "desc": "Integrantes, países e ferramentas da rede GECAL."},
     "activities": {"title": "Atividades · GECAL", "desc": "Reuniões virtuais e apresentações do grupo, com o horário em cada país."},
     "join": {"title": "Participe · GECAL", "desc": "Como entrar no grupo GECAL e o que é publicado sobre cada integrante."}
   },
   "a11y": {"skip": "Ir para o conteúdo", "main_nav": "Navegação principal", "theme": "Tema de cor", "language": "Idioma"},
-  "nav": {"home": "Início", "community": "Comunidade", "activities": "Atividades", "join": "Participe"},
+  "nav": {"home": "Início", "community": "Comunidade", "activities": "Atividades", "join": "Participe", "about": "Sobre"},
   "theme": {"system": "Sistema", "light": "Claro", "dark": "Escuro"},
   "lang_names": {"es": "espanhol", "en": "inglês", "fr": "francês", "pt": "português"},
   "footer": {
@@ -24,7 +25,7 @@
       "see_community": "Ver a comunidade"
     },
     "about": {
-      "overline": "O que fazemos", "title": "Métodos, dados e redes",
+      "more": "Conhecer o objetivo e a missão", "overline": "O que fazemos", "title": "Métodos, dados e redes",
       "methods": {"overline": "Métodos", "title": "Modelagem e análise", "body": "Entre pares, apresentam-se e discutem-se as formas de modelar, medir e analisar a qualidade do ar.", "link": "Ver atividades"},
       "data": {"overline": "Dados", "title": "Monitoramento e observação", "body": "Trocam-se experiências sobre monitoramento, sensores de baixo custo, inventários de emissões e dados de satélite.", "link": "Ver o que a rede usa"},
       "networks": {"overline": "Redes", "title": "Redes de monitoramento", "body": "Pessoas e instituições da região são conectadas para colaborar entre redes de monitoramento e grupos de modelagem.", "link": "Conhecer a comunidade"}
@@ -52,11 +53,11 @@
   },
   "activities": {
     "overline": "Reunião virtual", "title": "Atividades",
-    "lead": "Nos reunimos online para apresentar nosso trabalho e conversar sobre qualidade do ar. Cada participante pode apresentar sua rede de monitoramento. O que vocês gostariam de apresentar?",
+    "lead": "Nos reunimos de forma virtual. A cada encontro, uma pessoa do grupo apresenta um artigo de seu interesse ou seu próprio trabalho, e discutimos entre todos. O que vocês gostariam de apresentar?",
     "upcoming": "Próximas reuniões", "past": "Anteriores",
     "empty": "Ainda não há reuniões publicadas. Entrem no grupo do WhatsApp e descobriremos juntos a próxima.",
     "zones_note": "Cada horário corresponde à data exata da reunião; em alguns países ele muda com o horário de verão.",
-    "types": {"meeting": "Reunião virtual", "presentation": "Apresentação"},
+    "types": {"meeting": "Reunião virtual", "presentation": "Apresentação", "reading": "Clube de leitura"},
     "watch_recording": "Assistir à gravação", "channel": "Todas as gravações, no canal do YouTube do GECAL", "presents": "Apresenta", "join_meeting": "Entrar na reunião",
     "host_time": "Horário de referência: {country} ({utc})",
     "cta": {"title": "O que vocês gostariam de apresentar?", "body": "Escrevam para nós no grupo e conversamos."}
@@ -78,6 +79,54 @@
     }
   },
   "map": {"aria": "Mapa da América Latina com os países da rede em destaque e o número de integrantes registrados em cada um", "list_label": "Países da rede", "legend": "O número dentro de cada país é o de integrantes registrados. A França aparece em um quadro, fora de escala.", "credit": "Fronteiras: Natural Earth (domínio público).", "n_one": "{n} integrante registrado", "n_other": "{n} integrantes registrados", "profiles_one": "Ver {n} perfil publicado", "profiles_other": "Ver {n} perfis publicados"},
+  "about": {
+    "conj": "e",
+    "overline": "Objetivo e missão",
+    "title": "Sobre o GECAL",
+    "lead": "Como o grupo nasceu, o que se propõe e como funciona.",
+    "background": {
+      "title": "Antecedentes",
+      "body": "O GECAL nasce de um grupo de profissionais que se conheceu durante um curso sobre qualidade do ar ministrado no Chile. Ao final do curso, o grupo decidiu não perder o contato: manter a comunicação entre pares que pesquisam, monitoram e gerenciam a qualidade do ar em diferentes países da América Latina, e transformar esse vínculo informal em uma rede de trabalho estável."
+    },
+    "goal": {
+      "title": "Objetivo geral",
+      "body": "Consolidar uma rede latino-americana de pessoas e instituições que trabalham com qualidade do ar, para manter a comunicação entre seus membros, compartilhar conhecimento técnico e científico de forma periódica e fortalecer a colaboração regional em pesquisa, monitoramento e gestão ambiental."
+    },
+    "specific": {
+      "title": "Objetivos específicos",
+      "items": [
+        "Manter um diretório atualizado dos membros, suas instituições, áreas de trabalho e ferramentas utilizadas.",
+        "Realizar reuniões periódicas em que cada membro apresenta um artigo de seu interesse ou seu próprio trabalho e o discute com o grupo.",
+        "Facilitar o intercâmbio de métodos, modelos (WRF, CHIMERE, CMAQ, MEGAN, entre outros) e dados (satélite, monitoramento em superfície) entre os membros.",
+        "Promover colaborações conjuntas em pesquisa, publicações e projetos entre instituições de diferentes países.",
+        "Dar visibilidade e fortalecer a identidade do grupo como referência regional em qualidade do ar."
+      ]
+    },
+    "members": {
+      "title": "Quem integra o grupo",
+      "body": "O grupo reúne {n} pessoas e instituições de qualidade do ar de diferentes países: {countries}. Atuam em modelagem atmosférica, inventários e emissões biogênicas, monitoramento e sensores de baixo custo, observação por satélite, química atmosférica e saúde ambiental, entre outras áreas, usando ferramentas como WRF, CHIMERE, CMAQ, MEGAN, R e Python.",
+      "france": "Da França participam desenvolvedores do modelo CHIMERE."
+    },
+    "how": {
+      "title": "Modalidade de funcionamento",
+      "meetings": {
+        "title": "Reuniões periódicas",
+        "body": "De forma virtual: a cada encontro, um membro apresenta um artigo de seu interesse ou seu próprio trabalho e o discute com os demais."
+      },
+      "directory": {
+        "title": "Diretório de membros",
+        "body": "Com os dados informados por cada pessoa (instituição, função, país, área de trabalho, ferramentas e contato), usado para se apresentar na primeira reunião. Neste site, apenas o perfil profissional de quem autoriza é publicado."
+      },
+      "identity": {
+        "title": "Identidade do grupo",
+        "body": "O nome e o logotipo são definidos de forma participativa. O grupo votou o nome “Grupo de Estudio de la Calidad del Aire en Latinoamérica” (GECAL)."
+      }
+    },
+    "join": {
+      "title": "Como participar",
+      "body": "O grupo está aberto a pessoas e instituições que trabalham com qualidade do ar na América Latina."
+    }
+  },
   "date": {
     "weekdays": ["segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sábado", "domingo"],
     "months": ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"],

@@ -32,6 +32,7 @@
       </article>
       {% endfor %}
     </div>
+    <p style="margin-top:var(--space-5)"><a class="gecal-btn gecal-btn--secondary" href="{{ link('about') }}">{{ t('home.about.more') }}</a></p>
   </section>
 
   <section class="section" aria-labelledby="next-title">
@@ -84,4 +85,4 @@
 
 </div>
 {% endblock %}
-{% block scripts %}<script src="{{ rel('static/js/map.js') }}" defer></script>{% endblock %}
+{% block scripts %}<script src="{{ asset('static/js/map.js') }}" defer></script>{% endblock %}

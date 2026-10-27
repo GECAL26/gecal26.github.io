@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+
+  <header class="page-head">
+    <p class="gecal-overline">{{ t('about.overline') }}</p>
+    <h1 class="h1">{{ t('about.title') }}</h1>
+    <span class="gecal-rule gecal-rule--short" aria-hidden="true"></span>
+    <p class="lead">{{ t('about.lead') }}</p>
+  </header>
+
+  <section class="section prose" aria-labelledby="bg-title">
+    <h2 class="h2" id="bg-title">{{ t('about.background.title') }}</h2>
+    <p>{{ t('about.background.body') }}</p>
+  </section>
+
+  <section class="section prose" aria-labelledby="goal-title">
+    <h2 class="h2" id="goal-title">{{ t('about.goal.title') }}</h2>
+    <p>{{ t('about.goal.body') }}</p>
+  </section>
+
+  <section class="section prose" aria-labelledby="spec-title">
+    <h2 class="h2" id="spec-title">{{ t('about.specific.title') }}</h2>
+    <ul class="list">{% for i in t_list('about.specific.items') %}<li>{{ i }}</li>{% endfor %}</ul>
+  </section>
+
+  <section class="section prose" aria-labelledby="who-title">
+    <h2 class="h2" id="who-title">{{ t('about.members.title') }}</h2>
+    <p>{{ t('about.members.body', n=net.members, countries=countries_text) }}</p>
+    <p>{{ t('about.members.france') }}</p>
+  </section>
+
+  <section class="section" aria-labelledby="how-title">
+    <div class="section__head"><h2 class="h2" id="how-title">{{ t('about.how.title') }}</h2></div>
+    <div class="grid grid--3">
+      {% for key in ['meetings', 'directory', 'identity'] %}
+      <article class="gecal-card">
+        <h3 class="gecal-card__title">{{ t('about.how.' ~ key ~ '.title') }}</h3>
+        <p class="gecal-card__body">{{ t('about.how.' ~ key ~ '.body') }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="join-title">
+    <div class="band">
+      <div class="band__text">
+        <h2 class="h2" id="join-title">{{ t('about.join.title') }}</h2>
+        <p>{{ t('about.join.body') }}</p>
+      </div>
+      <div class="row">
+        <a class="gecal-btn gecal-btn--primary gecal-btn--lg" href="{{ site.whatsapp_url }}">{{ t('cta.join_group') }}</a>
+        <a class="gecal-btn gecal-btn--secondary gecal-btn--lg" href="{{ link('join') }}">{{ t('home.cta.how') }}</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+{% endblock %}

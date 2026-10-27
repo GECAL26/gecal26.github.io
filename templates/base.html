@@ -26,9 +26,9 @@ var r=document.documentElement;r.dataset.theme=d?"dark":"light";r.dataset.themeP
 </script>
 <link rel="preload" href="{{ rel('static/fonts/montserrat-latin-800-normal.woff2') }}" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{{ rel('static/fonts/source-sans-3-latin-400-normal.woff2') }}" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="{{ rel('static/css/tokens.css') }}">
-<link rel="stylesheet" href="{{ rel('static/css/fonts.css') }}">
-<link rel="stylesheet" href="{{ rel('static/css/gecal.css') }}">
+<link rel="stylesheet" href="{{ asset('static/css/tokens.css') }}">
+<link rel="stylesheet" href="{{ asset('static/css/fonts.css') }}">
+<link rel="stylesheet" href="{{ asset('static/css/gecal.css') }}">
 </head>
 <body>
 <a class="skip" href="#contenido">{{ t('a11y.skip') }}</a>
@@ -76,7 +76,7 @@ var r=document.documentElement;r.dataset.theme=d?"dark":"light";r.dataset.themeP
     <div>
       <h2>{{ t('footer.explore') }}</h2>
       <ul>
-        {% for key in ['home','community','activities','join'] %}<li><a href="{{ link(key) }}">{{ t('nav.' ~ key) }}</a></li>{% endfor %}
+        {% for key in ['home','community','activities','join','about'] %}<li><a href="{{ link(key) }}">{{ t('nav.' ~ key) }}</a></li>{% endfor %}
       </ul>
     </div>
     <div>
@@ -89,7 +89,7 @@ var r=document.documentElement;r.dataset.theme=d?"dark":"light";r.dataset.themeP
     </div>
   </div>
 </footer>
-<script src="{{ rel('static/js/site.js') }}" defer></script>
+<script src="{{ asset('static/js/site.js') }}" defer></script>
 {% block scripts %}{% endblock %}
 </body>
 </html>

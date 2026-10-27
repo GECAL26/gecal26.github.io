@@ -76,21 +76,21 @@
 {% macro map() %}
 <div class="map" data-map>
   <figure class="map__figure" data-map-figure>
-    <svg class="map__svg" viewBox="0 0 {{ map_data.w }} {{ map_data.h }}" role="img" aria-label="{{ t('map.aria') }}" focusable="false">
-      <path class="map__context" d="{{ map_data.context }}" fill-rule="evenodd"/>
-      {% for code, d in map_data.countries.items() if code not in net.countries %}<path class="map__context" d="{{ d }}" fill-rule="evenodd"/>{% endfor %}
+    <svg class="map__svg" viewBox="0 0 {{ map_data.w }} {{ map_data.h }}" width="{{ map_data.w }}" height="{{ map_data.h }}" role="img" aria-label="{{ t('map.aria') }}" focusable="false">
+      <path class="map__context" d="{{ map_data.context }}" fill="#cdd9e6" stroke="#f3f7fb" stroke-width=".5" fill-rule="evenodd"/>
+      {% for code, d in map_data.countries.items() if code not in net.countries %}<path class="map__context" d="{{ d }}" fill="#cdd9e6" stroke="#f3f7fb" stroke-width=".5" fill-rule="evenodd"/>{% endfor %}
       {% for c in country_list if c.code in map_data.countries %}
-      <path class="map__c" data-c="{{ c.code }}" data-label="{{ c.label }}" d="{{ map_data.countries[c.code] }}" fill-rule="evenodd"/>
+      <path class="map__c" data-c="{{ c.code }}" data-label="{{ c.label }}" d="{{ map_data.countries[c.code] }}" fill="#0775b7" stroke="#f3f7fb" stroke-width=".8" fill-rule="evenodd"/>
       {% endfor %}
       {% for c in country_list if c.code in map_data.countries %}
-      <text class="map__n" x="{{ map_data.labels[c.code][0] }}" y="{{ map_data.labels[c.code][1] }}">{{ c.n }}</text>
+      <text class="map__n" fill="#fff" font-size="14" font-weight="700" text-anchor="middle" dominant-baseline="central" x="{{ map_data.labels[c.code][0] }}" y="{{ map_data.labels[c.code][1] }}">{{ c.n }}</text>
       {% endfor %}
       {% for c in country_list if c.code == 'FR' %}
       <g transform="translate(14 {{ map_data.h - map_data.inset.h - 14 }})">
-        <text class="map__inset-name" x="0" y="-7">{{ c.name }}</text>
-        <rect class="map__inset" width="{{ map_data.inset.w }}" height="{{ map_data.inset.h }}" rx="8"/>
-        <path class="map__c" data-c="FR" data-label="{{ c.label }}" d="{{ map_data.inset.d }}" fill-rule="evenodd"/>
-        <text class="map__n" x="{{ map_data.inset.label[0] }}" y="{{ map_data.inset.label[1] }}">{{ c.n }}</text>
+        <text class="map__inset-name" fill="#44587a" font-size="12" font-weight="600" x="0" y="-7">{{ c.name }}</text>
+        <rect class="map__inset" fill="#fff" stroke="#6a7e9c" width="{{ map_data.inset.w }}" height="{{ map_data.inset.h }}" rx="8"/>
+        <path class="map__c" data-c="FR" data-label="{{ c.label }}" d="{{ map_data.inset.d }}" fill="#0775b7" fill-rule="evenodd"/>
+        <text class="map__n" fill="#fff" font-size="14" font-weight="700" text-anchor="middle" dominant-baseline="central" x="{{ map_data.inset.label[0] }}" y="{{ map_data.inset.label[1] }}">{{ c.n }}</text>
       </g>
       {% endfor %}
     </svg>

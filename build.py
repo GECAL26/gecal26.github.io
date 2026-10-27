@@ -9,6 +9,7 @@
 Los enlaces entre páginas y a los assets son relativos: el sitio funciona igual en
 gecal26.github.io, en gecal26.github.io/<repo>/ o en un dominio propio.
 """
+import hashlib
 import json
 import os
 import re
@@ -33,7 +34,7 @@ ROOT = Path(__file__).resolve().parent
 DIST = ROOT / "dist"
 LANGS = ["es", "pt", "fr", "en"]  # orden del selector de idioma: español, portugués, francés, inglés
 LANG_NATIVE = {"es": "Español", "en": "English", "fr": "Français", "pt": "Português"}
-PAGES = {"home": "", "community": "community", "activities": "activities", "join": "join"}  # clave -> carpeta bajo /<lang>/
+PAGES = {"home": "", "community": "community", "activities": "activities", "join": "join", "about": "about"}  # clave -> carpeta bajo /<lang>/
 SITE_URL = os.environ.get("SITE_URL", "https://gecal26.github.io").rstrip("/")
 DRAFTS = os.environ.get("INCLUDE_DRAFTS") == "1"
 NOW = datetime.fromisoformat(os.environ["BUILD_NOW"]) if "BUILD_NOW" in os.environ else datetime.now(timezone.utc)
@@ -174,6 +175,8 @@ if DIST.exists():
     shutil.rmtree(DIST)
 shutil.copytree(ROOT / "static", DIST / "static")
 (DIST / ".nojekyll").write_text("")
+# GitHub Pages cachea 10 min y no deja fijar cabeceras: sin versión en la URL, un navegador puede mezclar HTML nuevo con CSS viejo.
+ASSET_V = {str(f.relative_to(DIST)): hashlib.sha1(f.read_bytes()).hexdigest()[:8] for f in (DIST / "static").rglob("*") if f.suffix in (".css", ".js")}
 
 for lang in LANGS:
     t, t_list, lookup = make_t(lang)
@@ -206,11 +209,17 @@ for lang in LANGS:
     top_tools = [{"name": n, "n": c, "pct": round(100 * c / net["members"])}
                  for n, c in sorted(net["tools"].items(), key=lambda kv: (-kv[1], sort_key(kv[0])))[:10]]
 
+    names = sorted((cname[c] for c in net["countries"]), key=sort_key)
+    countries_text = f"{', '.join(names[:-1])} {I18N[lang]['about']['conj']} {names[-1]}"
+
     for page, folder in PAGES.items():
         outdir = DIST / lang / folder
 
         def rel(path, outdir=outdir):
             return os.path.relpath(DIST / path, outdir)
+
+        def asset(path, rel=rel):
+            return f"{rel(path)}?v={ASSET_V[path]}"
 
         def link(page_key, l=None, lang=lang, outdir=outdir):
             r = os.path.relpath(DIST / (l or lang) / PAGES[page_key], outdir)
@@ -219,12 +228,12 @@ for lang in LANGS:
         def abs_url(l, page=page):
             return f"{SITE_URL}/{l}/" + (PAGES[page] + "/" if PAGES[page] else "")
 
-        key = {"home": "home", "community": "community", "activities": "activities", "join": "join"}[page]
+        key = page
         html = env.get_template(f"{page}.html").render(
-            lang=lang, langs=LANGS, lang_names=LANG_NATIVE, page=page, t=t, t_list=t_list, rel=rel, link=link, abs_url=abs_url,
+            lang=lang, langs=LANGS, lang_names=LANG_NATIVE, page=page, t=t, t_list=t_list, rel=rel, asset=asset, link=link, abs_url=abs_url,
             site_url=SITE_URL, site=site, net=net, map_data=map_data, countries=cname, areas=aname,
             title=t(f"meta.{key}.title"), description=t(f"meta.{key}.desc"),
-            members=members, country_list=country_list, filter_countries=filter_countries, filter_areas=filter_areas,
+            members=members, countries_text=countries_text, country_list=country_list, filter_countries=filter_countries, filter_areas=filter_areas,
             filter_tools=filter_tools, top_tools=top_tools, upcoming=upcoming, past=past,
             next_event=upcoming[0] if upcoming else None,
             as_of_text=fmt_date(datetime.fromisoformat(net["as_of"]).date(), lang, short=True),
