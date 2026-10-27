@@ -29,6 +29,9 @@
     none.hidden = n !== 0;
   }
 
+  var want = (new URLSearchParams(location.search).get("country") || "").replace(/[^A-Z]/g, "");
+  if (want && form.elements.country.querySelector('option[value="' + want + '"]')) form.elements.country.value = want;
+
   form.addEventListener("input", apply);
   form.addEventListener("submit", function (e) { e.preventDefault(); });
   form.addEventListener("reset", function () { setTimeout(apply); });

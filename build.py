@@ -14,7 +14,8 @@ import os
 import re
 import shutil
 import unicodedata
-from datetime import datetime, timedelta, timezone
+from collections import Counter
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 import zoneinfo
 from zoneinfo import ZoneInfo
@@ -30,7 +31,7 @@ except ImportError:
 
 ROOT = Path(__file__).resolve().parent
 DIST = ROOT / "dist"
-LANGS = ["es", "en", "fr", "pt"]
+LANGS = ["es", "pt", "fr", "en"]  # orden del selector de idioma: español, portugués, francés, inglés
 LANG_NATIVE = {"es": "Español", "en": "English", "fr": "Français", "pt": "Português"}
 PAGES = {"home": "", "community": "community", "activities": "activities", "join": "join"}  # clave -> carpeta bajo /<lang>/
 SITE_URL = os.environ.get("SITE_URL", "https://gecal26.github.io").rstrip("/")
@@ -87,6 +88,8 @@ site = json.loads((ROOT / "data/site.json").read_text("utf-8"))
 members_raw = json.loads((ROOT / "data/members.json").read_text("utf-8"))
 net = json.loads((ROOT / "data/network.json").read_text("utf-8"))
 events_raw = json.loads((ROOT / "data/events.json").read_text("utf-8"))["events"]
+map_data = json.loads((ROOT / "data/map.json").read_text("utf-8"))
+published = Counter(m["country"] for m in members_raw)
 zone_codes = [c for c in site.get("zone_countries") or sorted(net["countries"]) if c in COUNTRY_TZ]
 
 
@@ -136,8 +139,13 @@ def event_views(lang):
             "title": title if isinstance(title, str) else title.get(lang) or title["es"],
             "date_text": "", "host_time": "", "host_text": "", "zones": [], "start": None,
         }
-        if not ev.get("start"):  # reunión ya realizada de la que aún no se registró la fecha
-            past_undated.append(view)
+        if not ev.get("start"):  # reunión ya realizada: basta la fecha ("date"), sin inventar hora
+            if ev.get("date"):
+                d = date.fromisoformat(ev["date"])
+                view.update(start=datetime(d.year, d.month, d.day, tzinfo=timezone.utc), date_text=fmt_date(d, lang))
+                past_dated.append(view)
+            else:
+                past_undated.append(view)
             continue
         start = datetime.fromisoformat(ev["start"])
         host = start.astimezone(ZoneInfo(COUNTRY_TZ[ev["tz_ref"]]))
@@ -183,8 +191,13 @@ for lang in LANGS:
         members.append(m)
     members.sort(key=lambda m: sort_key(m["name"]))
 
+    def plural(key, n):
+        return t(key + ("_one" if n == 1 else "_other"), n=n)
+
     country_list = sorted(
-        ({"code": c, "name": cname[c], "n": n, "color": COLORS[COUNTRY_ORDER.index(c) % 6]} for c, n in net["countries"].items()),
+        ({"code": c, "name": cname[c], "n": n, "color": COLORS[COUNTRY_ORDER.index(c) % 6], "n_text": plural("map.n", n),
+          "published": published[c], "profiles_text": plural("map.profiles", published[c]) if published[c] else "",
+          "label": f"{cname[c]} · {plural('map.n', n)}"} for c, n in net["countries"].items()),
         key=lambda c: sort_key(c["name"]))
     filter_countries = sorted(({"code": c, "name": cname[c]} for c in {m["country"] for m in members}), key=lambda c: sort_key(c["name"]))
     filter_areas = sorted(({"slug": a, "name": aname[a]} for a in {a for m in members for a in m["areas"]}), key=lambda a: sort_key(a["name"]))
@@ -209,7 +222,7 @@ for lang in LANGS:
         key = {"home": "home", "community": "community", "activities": "activities", "join": "join"}[page]
         html = env.get_template(f"{page}.html").render(
             lang=lang, langs=LANGS, lang_names=LANG_NATIVE, page=page, t=t, t_list=t_list, rel=rel, link=link, abs_url=abs_url,
-            site_url=SITE_URL, site=site, net=net, countries=cname, areas=aname,
+            site_url=SITE_URL, site=site, net=net, map_data=map_data, countries=cname, areas=aname,
             title=t(f"meta.{key}.title"), description=t(f"meta.{key}.desc"),
             members=members, country_list=country_list, filter_countries=filter_countries, filter_areas=filter_areas,
             filter_tools=filter_tools, top_tools=top_tools, upcoming=upcoming, past=past,

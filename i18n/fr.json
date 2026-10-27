@@ -77,6 +77,7 @@
       "remove": "Tout membre peut demander à tout moment le retrait de son profil en écrivant aux administrateurs du groupe."
     }
   },
+  "map": {"aria": "Carte de l'Amérique latine avec les pays du réseau en évidence et le nombre de membres inscrits dans chacun", "list_label": "Pays du réseau", "legend": "Le nombre dans chaque pays est celui des membres inscrits. La France apparaît dans un encadré, hors échelle.", "credit": "Frontières : Natural Earth (domaine public).", "n_one": "{n} membre inscrit", "n_other": "{n} membres inscrits", "profiles_one": "Voir {n} profil publié", "profiles_other": "Voir {n} profils publiés"},
   "date": {
     "weekdays": ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"],
     "months": ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"],

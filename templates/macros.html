@@ -70,3 +70,42 @@
   </details>
 </article>
 {% endmacro %}
+
+
+{# Mapa de países. La lista es el equivalente accesible y funciona sin JavaScript; el mapa y map.js la sincronizan. #}
+{% macro map() %}
+<div class="map" data-map>
+  <figure class="map__figure" data-map-figure>
+    <svg class="map__svg" viewBox="0 0 {{ map_data.w }} {{ map_data.h }}" role="img" aria-label="{{ t('map.aria') }}" focusable="false">
+      <path class="map__context" d="{{ map_data.context }}" fill-rule="evenodd"/>
+      {% for code, d in map_data.countries.items() if code not in net.countries %}<path class="map__context" d="{{ d }}" fill-rule="evenodd"/>{% endfor %}
+      {% for c in country_list if c.code in map_data.countries %}
+      <path class="map__c" data-c="{{ c.code }}" data-label="{{ c.label }}" d="{{ map_data.countries[c.code] }}" fill-rule="evenodd"/>
+      {% endfor %}
+      {% for c in country_list if c.code in map_data.countries %}
+      <text class="map__n" x="{{ map_data.labels[c.code][0] }}" y="{{ map_data.labels[c.code][1] }}">{{ c.n }}</text>
+      {% endfor %}
+      {% for c in country_list if c.code == 'FR' %}
+      <g transform="translate(14 {{ map_data.h - map_data.inset.h - 14 }})">
+        <text class="map__inset-name" x="0" y="-7">{{ c.name }}</text>
+        <rect class="map__inset" width="{{ map_data.inset.w }}" height="{{ map_data.inset.h }}" rx="8"/>
+        <path class="map__c" data-c="FR" data-label="{{ c.label }}" d="{{ map_data.inset.d }}" fill-rule="evenodd"/>
+        <text class="map__n" x="{{ map_data.inset.label[0] }}" y="{{ map_data.inset.label[1] }}">{{ c.n }}</text>
+      </g>
+      {% endfor %}
+    </svg>
+    <div class="map__tip" data-map-tip hidden></div>
+  </figure>
+  <div class="map__side">
+    <ul class="map__list" aria-label="{{ t('map.list_label') }}">
+      {% for c in country_list %}
+      <li class="map__item" data-c="{{ c.code }}">
+        <span class="map__row" data-c="{{ c.code }}"><span class="map__name">{{ c.name }}</span><span class="map__count">{{ c.n_text }}</span></span>
+        {% if c.published %}<a class="map__link" href="{{ link('community') }}?country={{ c.code }}">{{ c.profiles_text }}</a>{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    <p class="caption">{{ t('map.legend') }} {{ t('map.credit') }}</p>
+  </div>
+</div>
+{% endmacro %}
