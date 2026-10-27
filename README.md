@@ -50,7 +50,9 @@ y mueve solo las reuniones pasadas a "Anteriores".
 Las traducciones al inglés, francés y portugués necesitan revisión de hablantes nativos.
 Las presentaciones de cada persona se muestran en su idioma original; no se traducen.
 
-**Enlaces del grupo.** `data/site.json`: WhatsApp, URL del formulario de registro (`form_url`; mientras sea `null` el paso no se muestra) y correo de contacto.
+**Enlaces del grupo.** `data/site.json`: WhatsApp, URL del formulario de registro (`form_url`; mientras sea `null` el paso no se muestra) y correo de contacto. También las listas de CHIMERE que se muestran en "Acerca de" (`chimere_users_url`, `chimsur_news_url`; sitios externos en inglés, la tarjeta se oculta si faltan).
+
+**Nombre y sigla.** El nombre completo no se traduce (sistema de diseño). Se imprime con la macro `brand_name()` (iniciales G·E·C·A·L resaltadas) en la portada, en "Acerca de" y junto al logo en la cabecera a partir de 1100 px; la glosa traducida (`brand.gloss`) solo aparece en "Acerca de". Inicio incluye datos estructurados `Organization` (JSON-LD) con `alternateName: GECAL`.
 
 **Colores y tipografía.** `design/tokens.json` viene del sistema de diseño de GECAL. Tras cambiarlo: `python scripts/tokens_to_css.py`.
 El **tema oscuro de la web se aparta del sistema a propósito**: en vez del navy de marca como fondo (saturación 90 %, muy intenso en pantalla) usa un azul pizarra desaturado, definido en `WEB_DARK` dentro de `scripts/tokens_to_css.py`. Los colores de marca y el tema claro no cambian.

@@ -4,5 +4,7 @@
   "form_url": null,
   "contact_email": null,
   "zone_countries": null,
-  "youtube_url": null
+  "youtube_url": null,
+  "chimere_users_url": "https://listes.lmd.ipsl.fr/sympa/info/chimere-users",
+  "chimsur_news_url": "https://listes.lmd.ipsl.fr/sympa/subscribe/chimsur_news"
 }
