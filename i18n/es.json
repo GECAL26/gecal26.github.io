@@ -19,7 +19,6 @@
   "stats": {"source": "Fuente: formulario de registro del grupo, corte al {date}."},
   "home": {
     "hero": {
-      "overline": "Calidad del aire · Latinoamérica",
       "title": "Aire que conecta Latinoamérica",
       "lead": "GECAL es una comunidad científica entre pares: personas e instituciones de calidad del aire de Latinoamérica que comparten métodos, datos y redes de monitoreo.",
       "see_community": "Ver la comunidad"
@@ -122,11 +121,24 @@
         "body": "El nombre y el logo se definen de forma participativa. El grupo votó el nombre «Grupo de Estudio de la Calidad del Aire en Latinoamérica» (GECAL)."
       }
     },
+    "chimere": {
+      "title": "Si usas CHIMERE",
+      "intro": "Listas de correo externas sobre el modelo (sitios en inglés):",
+      "users": {
+        "title": "Lista de usuarios de CHIMERE",
+        "body": "Para la comunidad de usuarios del modelo."
+      },
+      "chimsur": {
+        "title": "ChimSur: noticias del proyecto",
+        "body": "Novedades del proyecto por correo, por ejemplo seminarios web."
+      }
+    },
     "join": {
       "title": "Cómo sumarse",
       "body": "El grupo está abierto a personas e instituciones que trabajan en calidad del aire en Latinoamérica."
     }
   },
+  "brand": {"gloss": ""},
   "date": {
     "weekdays": ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"],
     "months": ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"],

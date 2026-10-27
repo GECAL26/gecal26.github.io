@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% import "macros.html" as ui with context %}
 {% block content %}
 <div class="container">
 
@@ -6,6 +7,7 @@
     <p class="gecal-overline">{{ t('about.overline') }}</p>
     <h1 class="h1">{{ t('about.title') }}</h1>
     <span class="gecal-rule gecal-rule--short" aria-hidden="true"></span>
+    <p class="about__name">{{ ui.brand_name() }}{% if t('brand.gloss') %} <span class="about__gloss">({{ t('brand.gloss') }})</span>{% endif %}</p>
     <p class="lead">{{ t('about.lead') }}</p>
   </header>
 
@@ -29,6 +31,19 @@
     <p>{{ t('about.members.body', n=net.members, countries=countries_text) }}</p>
     <p>{{ t('about.members.france') }}</p>
   </section>
+
+  {% if site.chimere_users_url or site.chimsur_news_url %}
+  <section class="section" aria-labelledby="chimere-title">
+    <div class="gecal-card chimere">
+      <h2 class="gecal-card__title" id="chimere-title">{{ t('about.chimere.title') }}</h2>
+      <p class="gecal-card__body">{{ t('about.chimere.intro') }}</p>
+      <ul class="chimere__links">
+        {% if site.chimere_users_url %}<li><a href="{{ site.chimere_users_url }}" rel="noopener" hreflang="en">{{ t('about.chimere.users.title') }}</a><span class="muted"> · {{ t('about.chimere.users.body') }}</span></li>{% endif %}
+        {% if site.chimsur_news_url %}<li><a href="{{ site.chimsur_news_url }}" rel="noopener" hreflang="en">{{ t('about.chimere.chimsur.title') }}</a><span class="muted"> · {{ t('about.chimere.chimsur.body') }}</span></li>{% endif %}
+      </ul>
+    </div>
+  </section>
+  {% endif %}
 
   <section class="section" aria-labelledby="how-title">
     <div class="section__head"><h2 class="h2" id="how-title">{{ t('about.how.title') }}</h2></div>

@@ -1,5 +1,8 @@
 {# Componentes reutilizables. Los textos llegan ya traducidos desde t(). #}
 
+{# Nombre completo con las iniciales de la sigla resaltadas. El nombre no se traduce (sistema de diseño). #}
+{% macro brand_name() %}<span class="acr"><b>G</b>rupo de <b>E</b>studio de la <b>C</b>alidad del <b>A</b>ire en <b>L</b>atinoamérica</span>{% endmacro %}
+
 {% macro zones(ev) %}
 <div class="gecal-zones" role="list">
   {% for z in ev.zones %}
@@ -54,7 +57,7 @@
     <div class="member__more">
       {% if m.bio %}<div>
         <h4>{{ t('community.bio') }}</h4>
-        {% for para in m.bio.split('\n\n') %}<p>{{ para }}</p>{% endfor %}
+        {% for para in m.bio.split('\n\n') %}<p lang="{{ m.bio_lang }}">{{ para }}</p>{% endfor %}
         <p class="member__bio-lang">{{ t('community.bio_lang', lang=t('lang_names.' ~ m.bio_lang)) }}</p>
       </div>{% endif %}
       <div><h4>{{ t('community.areas') }}</h4>

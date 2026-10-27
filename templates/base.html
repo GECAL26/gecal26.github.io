@@ -16,7 +16,8 @@
 <meta property="og:url" content="{{ abs_url(lang) }}">
 <meta property="og:image" content="{{ site_url }}/static/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="{{ rel('static/img/gecal-avatar-navy.svg') }}">
+{% if page == 'home' %}<script type="application/ld+json">{{ {"@context": "https://schema.org", "@type": "Organization", "name": "Grupo de Estudio de la Calidad del Aire en Latinoamérica", "alternateName": "GECAL", "url": site_url ~ "/", "logo": site_url ~ "/static/img/gecal-logo.svg", "description": description} | tojson }}</script>
+{% endif %}<link rel="icon" type="image/svg+xml" href="{{ rel('static/img/gecal-avatar-navy.svg') }}">
 <script>
 /* Tema antes del primer pintado: evita el parpadeo. localStorage puede fallar (modo privado). */
 (function(){var p="system";try{p=localStorage.getItem("gecal-theme")||"system"}catch(e){}
@@ -35,9 +36,10 @@ var r=document.documentElement;r.dataset.theme=d?"dark":"light";r.dataset.themeP
 
 <header class="site-header">
   <div class="container">
-    <a class="brand" href="{{ link('home') }}" aria-label="GECAL — {{ t('nav.home') }}">
+    <a class="brand" href="{{ link('home') }}" aria-label="GECAL — Grupo de Estudio de la Calidad del Aire en Latinoamérica — {{ t('nav.home') }}">
       <img class="gecal-logo-light" src="{{ rel('static/img/gecal-logo-compacto.svg') }}" width="124" height="70" alt="GECAL">
       <img class="gecal-logo-dark" src="{{ rel('static/img/gecal-logo-compacto-oscuro.svg') }}" width="124" height="70" alt="" aria-hidden="true">
+      <span class="brand__name" aria-hidden="true">Grupo de Estudio<br>de la Calidad del Aire<br>en Latinoamérica</span>
     </a>
     <nav class="nav" aria-label="{{ t('a11y.main_nav') }}">
       {% for key in ['home','community','activities','join'] %}
