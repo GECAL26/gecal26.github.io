@@ -430,5 +430,37 @@
     "orcid": "0000-0002-5382-7218",
     "linkedin": "",
     "photo": null
+  },
+  {
+    "id": "fernanda-garcia",
+    "name": "Fernanda Garcia",
+    "institution": "CONAE",
+    "role": "Desarrolladora de aplicaciones espaciales para calidad del aire",
+    "country": "AR",
+    "city": "Córdoba",
+    "areas": [
+      "urban_aq",
+      "biogenic",
+      "atm_modelling",
+      "satellite",
+      "chemistry",
+      "health"
+    ],
+    "tools": [
+      "WRF",
+      "CHIMERE",
+      "HYSPLIT",
+      "MEGAN",
+      "Sentinel-5P",
+      "MODIS",
+      "Landsat",
+      "R"
+    ],
+    "other_affiliation": "Instituto Gulich",
+    "bio": "Mi trabajo se centra en el estudio de la calidad del aire y la composición atmosférica mediante el uso integrado de modelos numéricos, datos satelitales y de monitoreo en superficie. Aplico modelos de transporte químico atmosférico, particularmente CHIMERE, para analizar episodios de contaminación atmosférica, realizar pronósticos operativos de calidad del aire para Argentina y la región, y estudiar el transporte y dispersión del humo de incendios de vegetación. Utilizo observaciones satelitales para la validación e intercomparación de resultados modelados con datos provenientes de estaciones de monitoreo de calidad del aire. Muchas de estas cosas las abordamos desde la red de investigadores ChimSur.\n\nTrabajo en el desarrollo de aplicaciones espaciales orientadas al monitoreo ambiental y la calidad del aire en la Comisión Nacional de Actividades Espaciales (CONAE) y el Instituto Gulich, preparando datos abiertos interoperables. \n\nAcompaño trabajos sobre evaluación de los impactos de la contaminación atmosférica sobre la salud, especialmente en enfermedades respiratorias y cáncer, así como la estimación y caracterización de emisiones biogénicas para su incorporación en modelos de transporte químico. \n\nTambién trabajo en la estimación de emisiones y concentraciones de gases de efecto invernadero (metano) a partir de información satelital.\n\nAdemás, soy docente de posgrado en temas de Fundamentos de la Teledetección y Teledetección Ambiental, dirijo tesis de maestría y doctorado.\n\nMe interesa la colaboración en todos estos temas, principalmente cuando el planteo suma una perspectiva de conocimiento local que pueden tener los integrantes de este espacio de su propio lugar.",
+    "bio_lang": "es",
+    "orcid": "0000-0003-4880-5302",
+    "linkedin": "https://www.linkedin.com/in/fernanda-garcia-ferreyra/",
+    "photo": null
   }
 ]
