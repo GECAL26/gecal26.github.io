@@ -380,5 +380,55 @@
     "orcid": "",
     "linkedin": "",
     "photo": null
+  },
+  {
+    "id": "diego-alejandro-grajales-gonzalez",
+    "name": "Diego Alejandro Grajales-González",
+    "institution": "Universidad de Antioquia",
+    "role": "Candidato a doctor en Ingeniería Ambiental (UdeA)",
+    "country": "CO",
+    "city": "Medellín",
+    "areas": [
+      "urban_aq",
+      "monitoring",
+      "chemistry",
+      "health"
+    ],
+    "tools": [
+      "HYSPLIT",
+      "R"
+    ],
+    "other_affiliation": "Politécnico Colombiano Jaime Isaza Cadavid",
+    "bio": "Candidato a PhD en ingeniería Ambiental de la Universidad de Antioquia, docente de la misma universidad y del Politécnico Colombiano Jaime Isaza Cadavid y actualmente pasante de investigación en la Universidade de Sao Paulo (IAG). Mi interés en general son la dinámica del material particulado, estudios de fuentes y efectos en salud pública. También me he interesado por los biaerosoles y la relación de PM, aerosol, ambiente y entornos laborales.",
+    "bio_lang": "es",
+    "orcid": "0000-0002-1648-018X",
+    "linkedin": "",
+    "photo": null
+  },
+  {
+    "id": "jhojan-pool-rojas-quincho",
+    "name": "Jhojan Pool Rojas Quincho",
+    "institution": "Universidad Nacional Agraria la Molina",
+    "role": "Estudiante doctorado",
+    "country": "PE",
+    "city": "Lima",
+    "areas": [
+      "urban_aq",
+      "emissions",
+      "atm_modelling",
+      "chemistry"
+    ],
+    "tools": [
+      "WRF-Chem",
+      "CHIMERE",
+      "AERMOD",
+      "CALPUFF"
+    ],
+    "other_affiliation": "",
+    "bio": "Actualmente estoy realizando mi tesis de doctorado sobre la modelación con el WRF-Chem en la ciudad de Lima",
+    "bio_lang": "es",
+    "orcid": "0000-0002-5382-7218",
+    "linkedin": "",
+    "photo": null
   }
 ]
