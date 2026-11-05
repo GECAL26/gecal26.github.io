@@ -35,6 +35,26 @@
     <p style="margin-top:var(--space-5)"><a class="gecal-btn gecal-btn--secondary" href="{{ link('about') }}">{{ t('home.about.more') }}</a></p>
   </section>
 
+  {% if site.stations_map_url %}
+  <section class="section" aria-labelledby="stations-title">
+    <div class="feature">
+      <div class="feature__text">
+        <p class="gecal-overline">{{ t('home.stations.overline') }}</p>
+        <h2 class="h2" id="stations-title">{{ t('home.stations.title') }}</h2>
+        <span class="gecal-rule" aria-hidden="true"></span>
+        <p class="feature__lead">{{ t('home.stations.body') }}</p>
+        <div class="row">
+          <a class="gecal-btn gecal-btn--primary gecal-btn--lg" href="{{ site.stations_map_url }}">{{ t('home.stations.explore') }}</a>
+          {% if site.stations_form_url %}<a class="gecal-btn gecal-btn--secondary gecal-btn--lg" href="{{ site.stations_form_url }}">{{ t('home.stations.add') }}</a>{% endif %}
+        </div>
+      </div>
+      <a class="feature__media" href="{{ site.stations_map_url }}" tabindex="-1" aria-hidden="true">
+        <img src="{{ rel('static/img/mapa-estaciones.webp') }}" alt="{{ t('home.stations.alt') }}" width="759" height="900" loading="lazy">
+      </a>
+    </div>
+  </section>
+  {% endif %}
+
   <section class="section" aria-labelledby="next-title">
     <div class="section__head">
       <p class="gecal-overline">{{ t('home.next.overline') }}</p>

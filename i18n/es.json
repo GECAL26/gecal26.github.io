@@ -7,12 +7,13 @@
     "join": {"title": "Únete · GECAL", "desc": "Cómo sumarse al grupo GECAL y qué se publica de cada integrante."}
   },
   "a11y": {"skip": "Saltar al contenido", "main_nav": "Navegación principal", "theme": "Tema de color", "language": "Idioma"},
-  "nav": {"home": "Inicio", "community": "Comunidad", "activities": "Actividades", "join": "Únete", "about": "Acerca de"},
+  "nav": {"home": "Inicio", "community": "Comunidad", "activities": "Actividades", "join": "Únete", "about": "Acerca de", "stations_map": "Mapa de estaciones"},
   "theme": {"system": "Sistema", "light": "Claro", "dark": "Oscuro"},
   "lang_names": {"es": "español", "en": "inglés", "fr": "francés", "pt": "portugués"},
   "footer": {
     "tagline": "Grupo de Estudio de la Calidad del Aire en Latinoamérica. Una comunidad científica entre pares.",
     "explore": "Explorar", "project": "Proyecto", "source": "Código fuente", "whatsapp": "Grupo de WhatsApp",
+    "stations_map": "Mapa de estaciones",
     "license": "Código bajo licencia MIT. Contenido bajo CC BY 4.0. El logo y la marca GECAL son de uso reservado. Los datos personales de los integrantes no están cubiertos por estas licencias."
   },
   "cta": {"join_group": "Unirme al grupo"},
@@ -29,6 +30,7 @@
       "data": {"overline": "Datos", "title": "Monitoreo y observación", "body": "Se intercambian experiencias sobre monitoreo, sensores de bajo costo, inventarios de emisiones y datos satelitales.", "link": "Ver qué usa la red"},
       "networks": {"overline": "Redes", "title": "Redes de monitoreo", "body": "Se conecta a personas e instituciones de la región para colaborar entre redes de monitoreo y grupos de modelación.", "link": "Conocer la comunidad"}
     },
+    "stations": {"overline": "Mapa de estaciones", "title": "¿Dónde se mide el aire en la región?", "body": "Un mapa abierto con las estaciones de calidad del aire y meteorología de Latinoamérica y el Caribe: qué mide cada una, quién la opera y dónde están sus datos. Lo construimos entre todos.", "explore": "Explorar el mapa", "add": "Sumar una estación", "alt": "Vista del mapa de estaciones de monitoreo en Latinoamérica y el Caribe"},
     "next": {"overline": "Próxima reunión", "title": "Lo que viene", "empty": "Todavía no hay una reunión publicada. Las próximas se conocen entrando al grupo de WhatsApp.", "all": "Ver todas las actividades"},
     "stats": {"overline": "La red en cifras", "title": "Quiénes participan", "members": "integrantes registrados", "countries": "países", "areas": "áreas de trabajo"},
     "countries": {"overline": "Países", "title": "Países de la red"},

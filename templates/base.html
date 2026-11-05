@@ -45,6 +45,7 @@ var r=document.documentElement;r.dataset.theme=d?"dark":"light";r.dataset.themeP
       {% for key in ['home','community','activities','join'] %}
       <a href="{{ link(key) }}"{% if key == page %} aria-current="page"{% endif %}>{{ t('nav.' ~ key) }}</a>
       {% endfor %}
+      {% if site.stations_map_url %}<a href="{{ site.stations_map_url }}">{{ t('nav.stations_map') }}</a>{% endif %}
     </nav>
     <div class="controls">
       <div class="seg" role="group" aria-label="{{ t('a11y.theme') }}" data-theme-switch hidden>
@@ -84,6 +85,7 @@ var r=document.documentElement;r.dataset.theme=d?"dark":"light";r.dataset.themeP
     <div>
       <h2>{{ t('footer.project') }}</h2>
       <ul>
+        {% if site.stations_map_url %}<li><a href="{{ site.stations_map_url }}">{{ t('footer.stations_map') }}</a></li>{% endif %}
         <li><a href="{{ site.repo_url }}">{{ t('footer.source') }}</a></li>
         <li><a href="{{ site.whatsapp_url }}">{{ t('footer.whatsapp') }}</a></li>
       </ul>

@@ -7,12 +7,13 @@
     "join": {"title": "Join · GECAL", "desc": "How to join the GECAL group and what is published about each member."}
   },
   "a11y": {"skip": "Skip to content", "main_nav": "Main navigation", "theme": "Colour theme", "language": "Language"},
-  "nav": {"home": "Home", "community": "Community", "activities": "Activities", "join": "Join", "about": "About"},
+  "nav": {"home": "Home", "community": "Community", "activities": "Activities", "join": "Join", "about": "About", "stations_map": "Station map"},
   "theme": {"system": "System", "light": "Light", "dark": "Dark"},
   "lang_names": {"es": "Spanish", "en": "English", "fr": "French", "pt": "Portuguese"},
   "footer": {
     "tagline": "Grupo de Estudio de la Calidad del Aire en Latinoamérica (Air Quality Study Group in Latin America). A peer scientific community.",
     "explore": "Explore", "project": "Project", "source": "Source code", "whatsapp": "WhatsApp group",
+    "stations_map": "Station map",
     "license": "Code under the MIT license. Content under CC BY 4.0. The GECAL logo and brand are reserved. Members' personal data is not covered by these licenses."
   },
   "cta": {"join_group": "Join the group"},
@@ -29,6 +30,7 @@
       "data": {"overline": "Data", "title": "Monitoring and observation", "body": "Experience is exchanged on monitoring, low-cost sensors, emission inventories and satellite data.", "link": "See what the network uses"},
       "networks": {"overline": "Networks", "title": "Monitoring networks", "body": "People and institutions across the region are connected to collaborate between monitoring networks and modelling groups.", "link": "Meet the community"}
     },
+    "stations": {"overline": "Station map", "title": "Where is air measured across the region?", "body": "An open map of air quality and meteorological stations in Latin America and the Caribbean: what each one measures, who runs it and where its data live. Built together by the community.", "explore": "Explore the map", "add": "Add a station", "alt": "View of the monitoring station map of Latin America and the Caribbean"},
     "next": {"overline": "Next meeting", "title": "Coming up", "empty": "No meeting has been published yet. The next ones are announced in the WhatsApp group.", "all": "See all activities"},
     "stats": {"overline": "The network in numbers", "title": "Who takes part", "members": "registered members", "countries": "countries", "areas": "areas of work"},
     "countries": {"overline": "Countries", "title": "Countries in the network"},
