@@ -13,7 +13,7 @@
   "footer": {
     "tagline": "Grupo de Estudio de la Calidad del Aire en Latinoamérica. Una comunidad científica entre pares.",
     "explore": "Explorar", "project": "Proyecto", "source": "Código fuente", "whatsapp": "Grupo de WhatsApp",
-    "stations_map": "Mapa de estaciones",
+    "stations_map": "Mapa de estaciones", "social": "GECAL en redes",
     "license": "Código bajo licencia MIT. Contenido bajo CC BY 4.0. El logo y la marca GECAL son de uso reservado. Los datos personales de los integrantes no están cubiertos por estas licencias."
   },
   "cta": {"join_group": "Unirme al grupo"},

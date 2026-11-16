@@ -28,3 +28,8 @@ Licencias de lo que no es código / Licenses for everything that is not code
 
 6. Datos agregados (data/network.json) y eventos (data/events.json)
    CC BY 4.0, como el contenido editorial.
+
+7. Íconos de redes sociales (templates/icons/*.svg)
+   Font Awesome Free 7.3.1, de Fonticons, Inc. (https://fontawesome.com), bajo CC BY 4.0
+   (https://fontawesome.com/license/free). Los logotipos de Instagram y LinkedIn son marcas
+   de sus titulares y se usan solo para enlazar a los perfiles de GECAL.

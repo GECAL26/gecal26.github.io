@@ -96,9 +96,12 @@
         <h2 class="h2" id="cta-title">{{ t('home.cta.title') }}</h2>
         <p>{{ t('home.cta.body') }}</p>
       </div>
-      <div class="row">
-        <a class="gecal-btn gecal-btn--primary gecal-btn--lg" href="{{ site.whatsapp_url }}">{{ t('cta.join_group') }}</a>
-        <a class="gecal-btn gecal-btn--secondary gecal-btn--lg" href="{{ link('join') }}">{{ t('home.cta.how') }}</a>
+      <div class="band__actions">
+        <div class="row">
+          <a class="gecal-btn gecal-btn--primary gecal-btn--lg" href="{{ site.whatsapp_url }}">{{ t('cta.join_group') }}</a>
+          <a class="gecal-btn gecal-btn--secondary gecal-btn--lg" href="{{ link('join') }}">{{ t('home.cta.how') }}</a>
+        </div>
+        {{ ui.social(t('footer.social')) }}
       </div>
     </div>
   </section>

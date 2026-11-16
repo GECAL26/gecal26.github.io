@@ -3,6 +3,18 @@
 {# Nombre completo con las iniciales de la sigla resaltadas. El nombre no se traduce (sistema de diseño). #}
 {% macro brand_name() %}<span class="acr"><b>G</b>rupo de <b>E</b>studio de la <b>C</b>alidad del <b>A</b>ire en <b>L</b>atinoamérica</span>{% endmacro %}
 
+{# Redes sociales: íconos con enlace. Solo aparecen las que tienen URL en data/site.json.
+   Íconos de Font Awesome Free (CC BY 4.0), en templates/icons/. #}
+{% macro social(label=None) %}
+{% if site.instagram_url or site.linkedin_url %}
+<div class="social">
+  {% if label %}<span class="social__label">{{ label }}</span>{% endif %}
+  {% if site.instagram_url %}<a class="social__link" href="{{ site.instagram_url }}" rel="me" aria-label="Instagram" title="Instagram">{% include "icons/instagram.svg" %}</a>{% endif %}
+  {% if site.linkedin_url %}<a class="social__link" href="{{ site.linkedin_url }}" rel="me" aria-label="LinkedIn" title="LinkedIn">{% include "icons/linkedin.svg" %}</a>{% endif %}
+</div>
+{% endif %}
+{% endmacro %}
+
 {% macro zones(ev) %}
 <div class="gecal-zones" role="list">
   {% for z in ev.zones %}

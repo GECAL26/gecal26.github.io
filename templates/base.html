@@ -75,6 +75,7 @@ var r=document.documentElement;r.dataset.theme=d?"dark":"light";r.dataset.themeP
       <img class="footer-logo gecal-logo-light" src="{{ rel('static/img/gecal-logo.svg') }}" width="150" height="85" alt="GECAL" loading="lazy">
       <img class="footer-logo gecal-logo-dark" src="{{ rel('static/img/gecal-logo-fondo-oscuro.svg') }}" width="150" height="85" alt="" aria-hidden="true" loading="lazy">
       <p class="muted">{{ t('footer.tagline') }}</p>
+      {% import "macros.html" as footer_ui with context %}{{ footer_ui.social() }}
     </div>
     <div>
       <h2>{{ t('footer.explore') }}</h2>
@@ -88,8 +89,6 @@ var r=document.documentElement;r.dataset.theme=d?"dark":"light";r.dataset.themeP
         {% if site.stations_map_url %}<li><a href="{{ site.stations_map_url }}">{{ t('footer.stations_map') }}</a></li>{% endif %}
         <li><a href="{{ site.repo_url }}">{{ t('footer.source') }}</a></li>
         <li><a href="{{ site.whatsapp_url }}">{{ t('footer.whatsapp') }}</a></li>
-        {% if site.instagram_url %}<li><a href="{{ site.instagram_url }}" rel="me">Instagram</a></li>{% endif %}
-        {% if site.linkedin_url %}<li><a href="{{ site.linkedin_url }}" rel="me">LinkedIn</a></li>{% endif %}
       </ul>
       <small>{{ t('footer.license') }}</small>
     </div>
