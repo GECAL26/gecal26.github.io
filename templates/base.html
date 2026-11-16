@@ -48,6 +48,7 @@ var r=document.documentElement;r.dataset.theme=d?"dark":"light";r.dataset.themeP
       {% if site.stations_map_url %}<a href="{{ site.stations_map_url }}">{{ t('nav.stations_map') }}</a>{% endif %}
     </nav>
     <div class="controls">
+      {% import "macros.html" as header_ui with context %}{{ header_ui.social() }}
       <div class="seg" role="group" aria-label="{{ t('a11y.theme') }}" data-theme-switch hidden>
         <button type="button" data-theme-set="system" aria-pressed="true">{{ t('theme.system') }}</button>
         <button type="button" data-theme-set="light" aria-pressed="false">{{ t('theme.light') }}</button>
