@@ -88,6 +88,8 @@ var r=document.documentElement;r.dataset.theme=d?"dark":"light";r.dataset.themeP
         {% if site.stations_map_url %}<li><a href="{{ site.stations_map_url }}">{{ t('footer.stations_map') }}</a></li>{% endif %}
         <li><a href="{{ site.repo_url }}">{{ t('footer.source') }}</a></li>
         <li><a href="{{ site.whatsapp_url }}">{{ t('footer.whatsapp') }}</a></li>
+        {% if site.instagram_url %}<li><a href="{{ site.instagram_url }}" rel="me">Instagram</a></li>{% endif %}
+        {% if site.linkedin_url %}<li><a href="{{ site.linkedin_url }}" rel="me">LinkedIn</a></li>{% endif %}
       </ul>
       <small>{{ t('footer.license') }}</small>
     </div>
