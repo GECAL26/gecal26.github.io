@@ -293,7 +293,7 @@ if DIST.exists():
 shutil.copytree(ROOT / "static", DIST / "static")
 (DIST / ".nojekyll").write_text("")
 # GitHub Pages cachea 10 min y no deja fijar cabeceras: sin versión en la URL, un navegador puede mezclar HTML nuevo con CSS viejo.
-ASSET_V = {str(f.relative_to(DIST)): hashlib.sha1(f.read_bytes()).hexdigest()[:8] for f in (DIST / "static").rglob("*") if f.suffix in (".css", ".js")}
+ASSET_V = {str(f.relative_to(DIST)): hashlib.sha1(f.read_bytes()).hexdigest()[:8] for f in (DIST / "static").rglob("*") if f.suffix in (".css", ".js", ".svg")}
 
 for lang in LANGS:
     t, t_list, lookup = make_t(lang)

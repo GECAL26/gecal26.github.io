@@ -17,7 +17,7 @@
 <meta property="og:image" content="{{ site_url }}/static/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
 {% if page == 'home' %}<script type="application/ld+json">{{ {"@context": "https://schema.org", "@type": "Organization", "name": "Grupo de Estudio de la Calidad del Aire en Latinoamérica", "alternateName": "GECAL", "url": site_url ~ "/", "logo": site_url ~ "/static/img/gecal-logo.svg", "description": description} | tojson }}</script>
-{% endif %}<link rel="icon" type="image/svg+xml" href="{{ rel('static/img/gecal-avatar-navy.svg') }}">
+{% endif %}<link rel="icon" type="image/svg+xml" href="{{ asset('static/img/gecal-simbolo.svg') }}">
 <link rel="alternate" type="application/rss+xml" title="GECAL · {{ t('nav.news') }}" href="{{ rel(lang ~ '/feed.xml') }}">
 <script>
 /* Tema antes del primer pintado: evita el parpadeo. localStorage puede fallar (modo privado). */
