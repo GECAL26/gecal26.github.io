@@ -4,16 +4,17 @@
     "home": {"title": "GECAL · Grupo de Estudio de la Calidad del Aire en Latinoamérica", "desc": "Comunidad científica entre pares de personas e instituciones de calidad del aire de Latinoamérica que comparten métodos, datos y redes de monitoreo."},
     "community": {"title": "Comunidad · GECAL", "desc": "Integrantes, países y herramientas de la red GECAL."},
     "activities": {"title": "Actividades · GECAL", "desc": "Reuniones virtuales y presentaciones del grupo, con la hora en cada país."},
+    "news": {"title": "Novedades · GECAL", "desc": "Congresos, becas, cursos y seminarios de calidad del aire en Latinoamérica y el Caribe, compartidos por la red."},
     "join": {"title": "Únete · GECAL", "desc": "Cómo sumarse al grupo GECAL y qué se publica de cada integrante."}
   },
   "a11y": {"skip": "Saltar al contenido", "main_nav": "Navegación principal", "theme": "Tema de color", "language": "Idioma"},
-  "nav": {"home": "Inicio", "community": "Comunidad", "activities": "Actividades", "join": "Únete", "about": "Acerca de", "stations_map": "Mapa de estaciones"},
+  "nav": {"home": "Inicio", "community": "Comunidad", "activities": "Actividades", "news": "Novedades", "join": "Únete", "about": "Acerca de", "stations_map": "Mapa de estaciones"},
   "theme": {"system": "Sistema", "light": "Claro", "dark": "Oscuro"},
   "lang_names": {"es": "español", "en": "inglés", "fr": "francés", "pt": "portugués"},
   "footer": {
     "tagline": "Grupo de Estudio de la Calidad del Aire en Latinoamérica. Una comunidad científica entre pares.",
     "explore": "Explorar", "project": "Proyecto", "source": "Código fuente", "whatsapp": "Grupo de WhatsApp",
-    "stations_map": "Mapa de estaciones", "social": "GECAL en redes",
+    "stations_map": "Mapa de estaciones", "news_group": "Novedades por correo", "social": "GECAL en redes",
     "license": "Código bajo licencia MIT. Contenido bajo CC BY 4.0. El logo y la marca GECAL son de uso reservado. Los datos personales de los integrantes no están cubiertos por estas licencias."
   },
   "cta": {"join_group": "Unirme al grupo"},
@@ -32,6 +33,7 @@
     },
     "stations": {"overline": "Mapa de estaciones", "title": "¿Dónde se mide el aire en la región?", "body": "Un mapa abierto con las estaciones de calidad del aire y meteorología de Latinoamérica y el Caribe: qué mide cada una, quién la opera y dónde están sus datos. Lo construimos entre todos.", "explore": "Explorar el mapa", "add": "Sumar una estación", "alt": "Vista del mapa de estaciones de monitoreo en Latinoamérica y el Caribe"},
     "next": {"overline": "Próxima reunión", "title": "Lo que viene", "empty": "Todavía no hay una reunión publicada. Las próximas se conocen entrando al grupo de WhatsApp.", "all": "Ver todas las actividades"},
+    "news": {"overline": "Novedades", "title": "Convocatorias que no conviene perderse", "all": "Ver todas las novedades", "empty": "Todavía no hay novedades publicadas."},
     "stats": {"overline": "La red en cifras", "title": "Quiénes participan", "members": "integrantes registrados", "countries": "países", "areas": "áreas de trabajo"},
     "countries": {"overline": "Países", "title": "Países de la red"},
     "cta": {"title": "¿Se trabaja en calidad del aire en Latinoamérica?", "body": "El grupo reúne a personas e instituciones de la región para intercambiar métodos, datos y experiencias.", "how": "Cómo sumarse"}
@@ -61,7 +63,27 @@
     "types": {"meeting": "Reunión virtual", "presentation": "Presentación", "reading": "Club de lectura"},
     "watch_recording": "Ver la grabación", "channel": "Todas las grabaciones, en el canal de YouTube de GECAL", "presents": "Presenta", "join_meeting": "Entrar a la reunión",
     "host_time": "Hora de referencia: {country} ({utc})",
+    "add_to_calendar": "Agregar a mi calendario",
+    "calendar": {"overline": "Calendario", "title": "Seguir el calendario de GECAL", "body": "Las reuniones se publican en el calendario del grupo. Al suscribirse, cada reunión aparece sola en el calendario propio, con los cambios de horario incluidos.", "google": "Agregar a Google Calendar", "ics": "Suscribirse desde otra aplicación"},
     "cta": {"title": "¿Qué les gustaría presentar?", "body": "Escríbannos en el grupo y lo conversamos."}
+  },
+  "news": {
+    "overline": "Novedades", "title": "Convocatorias y novedades",
+    "lead": "Congresos, becas, cursos, seminarios y convocatorias de otras instituciones, compartidos por la red. Las reuniones del grupo están en Actividades.",
+    "current": "Vigentes", "archive": "Ya pasaron",
+    "empty": "Todavía no hay novedades publicadas. Si conocen una convocatoria, pueden compartirla en el grupo de WhatsApp.",
+    "types": {"congress": "Congreso", "grant": "Beca", "course": "Curso", "seminar": "Seminario", "call": "Convocatoria", "other": "Novedad"},
+    "f_search": "Buscar", "f_search_ph": "Tema, institución, lugar…", "f_type": "Tipo", "all_f": "Todas", "reset": "Limpiar",
+    "count": "Mostrando {n} de {total}", "none": "Ninguna novedad coincide con los filtros.",
+    "deadline": "Cierra el {date}", "days_one": "queda {n} día", "days_other": "quedan {n} días",
+    "last_day": "último día", "closed": "cerrada", "soon": "cierra pronto",
+    "link": "Más información", "published": "Publicada el {date}", "virtual": "Virtual",
+    "subscribe": {
+      "overline": "Lista de correo", "title": "Recibir las novedades por mail",
+      "body": "La lista de difusión del grupo avisa de congresos, becas, cursos y seminarios de otras instituciones. Un correo cada tanto, y se puede dar de baja en cualquier momento.",
+      "cta": "Suscribirme", "mail": "Suscribirme por correo", "rss": "Seguir por RSS",
+      "note": "La lista la administra GECAL. Las direcciones no se comparten con nadie ni se publican."
+    }
   },
   "join": {
     "overline": "Únete", "title": "Cómo sumarse",
@@ -69,6 +91,7 @@
     "steps_title": "Pasos",
     "step1": {"title": "Entrar al grupo de WhatsApp", "body": "Es el canal donde se conversa y se comparten las convocatorias del grupo."},
     "step2": {"title": "Registrarse en el directorio", "body": "Se pide el área de trabajo, las herramientas y modelos que se usan y, de forma opcional, una breve presentación y una fotografía.", "cta": "Abrir el formulario"},
+    "step3": {"title": "Recibir las novedades por mail", "body": "La lista de difusión del grupo avisa de congresos, becas, cursos y seminarios de otras instituciones.", "cta": "Suscribirme a la lista"},
     "who": {"title": "Quién puede participar", "body": "Personas e instituciones que trabajan en calidad del aire en Latinoamérica. También participan colegas de otras regiones que colaboran con la red."},
     "privacy": {
       "overline": "Privacidad", "title": "Qué se publica y qué no",

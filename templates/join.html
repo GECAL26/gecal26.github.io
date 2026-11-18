@@ -24,6 +24,13 @@
         <a class="gecal-btn gecal-btn--secondary gecal-btn--lg" href="{{ site.form_url }}">{{ t('join.step2.cta') }}</a>
       </li>
       {% endif %}
+      {% if news_group.url or news_group.subscribe %}
+      <li>
+        <h3>{{ t('join.step3.title') }}</h3>
+        <p class="muted">{{ t('join.step3.body') }}</p>
+        <a class="gecal-btn gecal-btn--secondary gecal-btn--lg" href="{{ news_group.url or 'mailto:' ~ news_group.subscribe }}">{{ t('join.step3.cta') }}</a>
+      </li>
+      {% endif %}
     </ol>
   </section>
 

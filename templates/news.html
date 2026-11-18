@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% import "macros.html" as ui with context %}
+{% block content %}
+<div class="container">
+
+  <header class="page-head">
+    <p class="gecal-overline">{{ t('news.overline') }}</p>
+    <h1 class="h1">{{ t('news.title') }}</h1>
+    <span class="gecal-rule gecal-rule--short" aria-hidden="true"></span>
+    <p class="lead">{{ t('news.lead') }}</p>
+  </header>
+
+  <section class="section" aria-labelledby="news-title" data-news-list>
+    <div class="section__head"><h2 class="h2" id="news-title">{{ t('news.current') }}</h2></div>
+
+    {% if news_current %}
+    <form class="filters filters--news" data-filters role="search" hidden>
+      <div class="field"><label for="f-nq">{{ t('news.f_search') }}</label><input id="f-nq" name="q" type="search" autocomplete="off" placeholder="{{ t('news.f_search_ph') }}"></div>
+      <div class="field"><label for="f-ntype">{{ t('news.f_type') }}</label>
+        <select id="f-ntype" name="type"><option value="">{{ t('news.all_f') }}</option>{% for x in news_types %}<option value="{{ x.slug }}">{{ x.name }}</option>{% endfor %}</select></div>
+      <button class="gecal-btn gecal-btn--secondary" type="reset">{{ t('news.reset') }}</button>
+    </form>
+    <p class="count" role="status" aria-live="polite" data-count data-tpl="{{ t('news.count') }}">{{ t('news.count', n=news_current | length, total=news_current | length) }}</p>
+    <div class="news">
+      {% for n in news_current %}{{ ui.news_card(n, t) }}{% endfor %}
+    </div>
+    <p class="empty" data-none hidden>{{ t('news.none') }}</p>
+    {% else %}
+    <p class="empty">{{ t('news.empty') }}</p>
+    {% endif %}
+  </section>
+
+  {% if news_group.url or news_group.subscribe %}
+  <section class="section" aria-labelledby="news-sub-title">
+    {{ ui.news_subscribe(t, heading_id='news-sub-title') }}
+  </section>
+  {% endif %}
+
+  {% if news_past %}
+  <section class="section" aria-labelledby="news-past-title">
+    <div class="section__head"><h2 class="h2" id="news-past-title">{{ t('news.archive') }}</h2></div>
+    <div class="news">
+      {% for n in news_past %}{{ ui.news_card(n, t) }}{% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+</div>
+{% endblock %}
+{% block scripts %}<script src="{{ asset('static/js/news.js') }}" defer></script>{% endblock %}

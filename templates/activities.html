@@ -16,6 +16,7 @@
     <p class="empty">{{ t('activities.empty') }}</p>
     {% endfor %}
     {% if upcoming %}<p class="zones-note" style="margin-top:var(--space-4)">{{ t('activities.zones_note') }}</p>{% endif %}
+    <div style="margin-top:var(--space-6)">{{ ui.calendar_card(t) }}</div>
   </section>
 
   {% if past %}

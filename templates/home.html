@@ -69,6 +69,21 @@
     {% endif %}
   </section>
 
+  <section class="section" aria-labelledby="news-title">
+    <div class="section__head">
+      <p class="gecal-overline">{{ t('home.news.overline') }}</p>
+      <h2 class="h2" id="news-title">{{ t('home.news.title') }}</h2>
+    </div>
+    {% if latest_news %}
+      <div class="news news--home">
+        {% for n in latest_news %}{{ ui.news_card(n, t) }}{% endfor %}
+      </div>
+      <p style="margin-top:var(--space-5)"><a class="gecal-btn gecal-btn--secondary" href="{{ link('news') }}">{{ t('home.news.all') }}</a></p>
+    {% else %}
+      <p class="empty">{{ t('home.news.empty') }}</p>
+    {% endif %}
+  </section>
+
   <section class="section" aria-labelledby="stats-title">
     <div class="section__head">
       <p class="gecal-overline">{{ t('home.stats.overline') }}</p>

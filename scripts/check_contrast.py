@@ -51,6 +51,8 @@ PAIRS += [
     ("on-action", "action", 4.5, False), ("on-action", "action-hover", 4.5, False),
     ("on-deep", "hero-bg", 4.5, False), ("hero-accent", "hero-bg", 4.5, False), ("hero-line", "hero-bg", 3, False),
     ("cta-ink", "cta-bg", 4.5, False), ("cta-ink", "cta-hover", 4.5, False), ("cta-bg", "hero-bg", 3, False),
+    # Estados semánticos: se usan como texto sobre su propio fondo (fechas límite de las novedades).
+    ("success", "success-bg", 4.5, False), ("warning", "warning-bg", 4.5, False), ("danger", "danger-bg", 4.5, False),
 ]
 
 failed = 0

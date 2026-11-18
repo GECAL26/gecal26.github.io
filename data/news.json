@@ -1,0 +1,32 @@
+{
+  "_nota": "Novedades de otras instituciones: congresos, becas, cursos, seminarios y convocatorias. Las reuniones del propio grupo van en data/events.json. Una entrada por novedad. Campos: id (único, sin espacios); type: congress, grant, course, seminar, call u other; title y summary: texto o {es,en,fr,pt} (si falta un idioma se muestra el español); org: quién convoca; place: ciudad y país (o virtual:true para en línea); when: cuándo es, texto libre o {es,en,fr,pt}; link: página oficial; published: fecha de carga (AAAA-MM-DD); deadline: fecha límite para postular o inscribirse (AAAA-MM-DD o null); until: fecha opcional a partir de la cual pasa a 'Ya pasaron' (por defecto: el deadline, o 120 días después de published); draft:true la oculta en producción (se ve con INCLUDE_DRAFTS=1 python build.py). Las dos de abajo son ejemplos: reemplazarlas por novedades reales y poner draft en false.",
+  "news": [
+    {
+      "id": "ejemplo-congreso",
+      "type": "congress",
+      "title": "Ejemplo: congreso regional de calidad del aire",
+      "org": "Institución que organiza",
+      "place": "Ciudad, País",
+      "when": "del 10 al 14 de mayo de 2027",
+      "summary": "Dos o tres líneas sobre de qué se trata y a quién le puede interesar. El enlace lleva a la convocatoria oficial, que es donde están los detalles.",
+      "link": "https://example.org/congreso",
+      "published": "2026-11-18",
+      "deadline": "2027-02-28",
+      "draft": true
+    },
+    {
+      "id": "ejemplo-curso-virtual",
+      "type": "course",
+      "title": "Ejemplo: curso virtual de modelación atmosférica",
+      "org": "Institución que dicta el curso",
+      "virtual": true,
+      "when": "marzo y abril de 2027, martes de 15 a 18 h",
+      "summary": "Curso corto, gratuito y con certificado. Requiere manejo básico de Linux.",
+      "link": "https://example.org/curso",
+      "published": "2026-11-18",
+      "deadline": null,
+      "until": "2027-04-30",
+      "draft": true
+    }
+  ]
+}

@@ -18,6 +18,7 @@
 <meta name="twitter:card" content="summary_large_image">
 {% if page == 'home' %}<script type="application/ld+json">{{ {"@context": "https://schema.org", "@type": "Organization", "name": "Grupo de Estudio de la Calidad del Aire en Latinoamérica", "alternateName": "GECAL", "url": site_url ~ "/", "logo": site_url ~ "/static/img/gecal-logo.svg", "description": description} | tojson }}</script>
 {% endif %}<link rel="icon" type="image/svg+xml" href="{{ rel('static/img/gecal-avatar-navy.svg') }}">
+<link rel="alternate" type="application/rss+xml" title="GECAL · {{ t('nav.news') }}" href="{{ rel(lang ~ '/feed.xml') }}">
 <script>
 /* Tema antes del primer pintado: evita el parpadeo. localStorage puede fallar (modo privado). */
 (function(){var p="system";try{p=localStorage.getItem("gecal-theme")||"system"}catch(e){}
@@ -42,7 +43,7 @@ var r=document.documentElement;r.dataset.theme=d?"dark":"light";r.dataset.themeP
       <span class="brand__name" aria-hidden="true">Grupo de Estudio<br>de la Calidad del Aire<br>en Latinoamérica</span>
     </a>
     <nav class="nav" aria-label="{{ t('a11y.main_nav') }}">
-      {% for key in ['home','community','activities','join'] %}
+      {% for key in ['home','community','activities','news','join'] %}
       <a href="{{ link(key) }}"{% if key == page %} aria-current="page"{% endif %}>{{ t('nav.' ~ key) }}</a>
       {% endfor %}
       {% if site.stations_map_url %}<a href="{{ site.stations_map_url }}">{{ t('nav.stations_map') }}</a>{% endif %}
@@ -81,13 +82,14 @@ var r=document.documentElement;r.dataset.theme=d?"dark":"light";r.dataset.themeP
     <div>
       <h2>{{ t('footer.explore') }}</h2>
       <ul>
-        {% for key in ['home','community','activities','join','about'] %}<li><a href="{{ link(key) }}">{{ t('nav.' ~ key) }}</a></li>{% endfor %}
+        {% for key in ['home','community','activities','news','join','about'] %}<li><a href="{{ link(key) }}">{{ t('nav.' ~ key) }}</a></li>{% endfor %}
       </ul>
     </div>
     <div>
       <h2>{{ t('footer.project') }}</h2>
       <ul>
         {% if site.stations_map_url %}<li><a href="{{ site.stations_map_url }}">{{ t('footer.stations_map') }}</a></li>{% endif %}
+        {% if news_group.url %}<li><a href="{{ news_group.url }}">{{ t('footer.news_group') }}</a></li>{% endif %}
         <li><a href="{{ site.repo_url }}">{{ t('footer.source') }}</a></li>
         <li><a href="{{ site.whatsapp_url }}">{{ t('footer.whatsapp') }}</a></li>
       </ul>

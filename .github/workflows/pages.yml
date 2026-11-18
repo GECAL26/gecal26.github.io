@@ -29,6 +29,10 @@ jobs:
       - run: pip install -r requirements.txt
       - id: pages
         uses: actions/configure-pages@v5
+      - name: Leer el calendario de GECAL
+        # Actualiza data/events.json con las reuniones del calendario público (solo acá, no se commitea).
+        # Si el calendario no se puede leer, avisa y sigue con lo último que hay en el repositorio.
+        run: python scripts/importar_calendario.py
       - name: Generar sitio
         run: python build.py
         env:

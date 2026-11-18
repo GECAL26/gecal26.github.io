@@ -4,16 +4,17 @@
     "home": {"title": "GECAL · Grupo de Estudio de la Calidad del Aire en Latinoamérica", "desc": "A peer scientific community of people and institutions working on air quality in Latin America who share methods, data and monitoring networks."},
     "community": {"title": "Community · GECAL", "desc": "Members, countries and tools of the GECAL network."},
     "activities": {"title": "Activities · GECAL", "desc": "The group's virtual meetings and presentations, with the time in each country."},
+    "news": {"title": "News · GECAL", "desc": "Conferences, grants, courses and seminars on air quality in Latin America and the Caribbean, shared by the network."},
     "join": {"title": "Join · GECAL", "desc": "How to join the GECAL group and what is published about each member."}
   },
   "a11y": {"skip": "Skip to content", "main_nav": "Main navigation", "theme": "Colour theme", "language": "Language"},
-  "nav": {"home": "Home", "community": "Community", "activities": "Activities", "join": "Join", "about": "About", "stations_map": "Station map"},
+  "nav": {"home": "Home", "community": "Community", "activities": "Activities", "news": "News", "join": "Join", "about": "About", "stations_map": "Station map"},
   "theme": {"system": "System", "light": "Light", "dark": "Dark"},
   "lang_names": {"es": "Spanish", "en": "English", "fr": "French", "pt": "Portuguese"},
   "footer": {
     "tagline": "Grupo de Estudio de la Calidad del Aire en Latinoamérica (Air Quality Study Group in Latin America). A peer scientific community.",
     "explore": "Explore", "project": "Project", "source": "Source code", "whatsapp": "WhatsApp group",
-    "stations_map": "Station map", "social": "GECAL on social media",
+    "stations_map": "Station map", "news_group": "News by email", "social": "GECAL on social media",
     "license": "Code under the MIT license. Content under CC BY 4.0. The GECAL logo and brand are reserved. Members' personal data is not covered by these licenses."
   },
   "cta": {"join_group": "Join the group"},
@@ -32,6 +33,7 @@
     },
     "stations": {"overline": "Station map", "title": "Where is air measured across the region?", "body": "An open map of air quality and meteorological stations in Latin America and the Caribbean: what each one measures, who runs it and where its data live. Built together by the community.", "explore": "Explore the map", "add": "Add a station", "alt": "View of the monitoring station map of Latin America and the Caribbean"},
     "next": {"overline": "Next meeting", "title": "Coming up", "empty": "No meeting has been published yet. The next ones are announced in the WhatsApp group.", "all": "See all activities"},
+    "news": {"overline": "News", "title": "Calls worth not missing", "all": "See all news", "empty": "No news published yet."},
     "stats": {"overline": "The network in numbers", "title": "Who takes part", "members": "registered members", "countries": "countries", "areas": "areas of work"},
     "countries": {"overline": "Countries", "title": "Countries in the network"},
     "cta": {"title": "Do you work on air quality in Latin America?", "body": "The group brings together people and institutions from the region to exchange methods, data and experience.", "how": "How to join"}
@@ -61,7 +63,27 @@
     "types": {"meeting": "Virtual meeting", "presentation": "Presentation", "reading": "Reading club"},
     "watch_recording": "Watch the recording", "channel": "All recordings, on the GECAL YouTube channel", "presents": "Presenter", "join_meeting": "Join the meeting",
     "host_time": "Reference time: {country} ({utc})",
+    "add_to_calendar": "Add to my calendar",
+    "calendar": {"overline": "Calendar", "title": "Follow the GECAL calendar", "body": "Meetings are published in the group calendar. Once subscribed, every meeting shows up in your own calendar, schedule changes included.", "google": "Add to Google Calendar", "ics": "Subscribe from another app"},
     "cta": {"title": "What would you like to present?", "body": "Write to us in the group and we will talk it over."}
+  },
+  "news": {
+    "overline": "News", "title": "Calls and news",
+    "lead": "Conferences, grants, courses, seminars and calls from other institutions, shared by the network. The group's own meetings are under Activities.",
+    "current": "Open", "archive": "Past",
+    "empty": "No news published yet. If you know about a call, share it in the WhatsApp group.",
+    "types": {"congress": "Conference", "grant": "Grant", "course": "Course", "seminar": "Seminar", "call": "Call", "other": "News"},
+    "f_search": "Search", "f_search_ph": "Topic, institution, place…", "f_type": "Type", "all_f": "All", "reset": "Clear",
+    "count": "Showing {n} of {total}", "none": "No news matches the filters.",
+    "deadline": "Closes on {date}", "days_one": "{n} day left", "days_other": "{n} days left",
+    "last_day": "last day", "closed": "closed", "soon": "closing soon",
+    "link": "More information", "published": "Published on {date}", "virtual": "Online",
+    "subscribe": {
+      "overline": "Mailing list", "title": "Get the news by email",
+      "body": "The group mailing list announces conferences, grants, courses and seminars from other institutions. An email every now and then, and you can unsubscribe at any time.",
+      "cta": "Subscribe", "mail": "Subscribe by email", "rss": "Follow by RSS",
+      "note": "The list is run by GECAL. Addresses are never shared or published."
+    }
   },
   "join": {
     "overline": "Join", "title": "How to join",
@@ -69,6 +91,7 @@
     "steps_title": "Steps",
     "step1": {"title": "Join the WhatsApp group", "body": "It is the channel where members talk and where the group's meetings are announced."},
     "step2": {"title": "Register in the directory", "body": "The form asks for your area of work, the tools and models you use and, optionally, a short introduction and a photo.", "cta": "Open the form"},
+    "step3": {"title": "Get the news by email", "body": "The group mailing list announces conferences, grants, courses and seminars from other institutions.", "cta": "Subscribe to the list"},
     "who": {"title": "Who can take part", "body": "People and institutions working on air quality in Latin America. Colleagues from other regions who collaborate with the network also take part."},
     "privacy": {
       "overline": "Privacy", "title": "What is published and what is not",

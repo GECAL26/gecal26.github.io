@@ -18,6 +18,8 @@ import unicodedata
 from collections import Counter
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
+from urllib.parse import quote, urlencode
+from xml.sax.saxutils import escape as xml_escape
 import zoneinfo
 from zoneinfo import ZoneInfo
 
@@ -34,7 +36,7 @@ ROOT = Path(__file__).resolve().parent
 DIST = ROOT / "dist"
 LANGS = ["es", "pt", "fr", "en"]  # orden del selector de idioma: español, portugués, francés, inglés
 LANG_NATIVE = {"es": "Español", "en": "English", "fr": "Français", "pt": "Português"}
-PAGES = {"home": "", "community": "community", "activities": "activities", "join": "join", "about": "about"}  # clave -> carpeta bajo /<lang>/
+PAGES = {"home": "", "community": "community", "activities": "activities", "news": "news", "join": "join", "about": "about"}  # clave -> carpeta bajo /<lang>/
 SITE_URL = os.environ.get("SITE_URL", "https://gecal26.github.io").rstrip("/")
 DRAFTS = os.environ.get("INCLUDE_DRAFTS") == "1"
 NOW = datetime.fromisoformat(os.environ["BUILD_NOW"]) if "BUILD_NOW" in os.environ else datetime.now(timezone.utc)
@@ -47,6 +49,12 @@ COUNTRY_TZ = {
 }
 COUNTRY_ORDER = sorted(COUNTRY_TZ)
 COLORS = ["cyan", "blue", "teal", "green", "lime", "orange"]  # decorativos; el nombre del país siempre va escrito
+NEWS_TYPES = ["congress", "grant", "course", "seminar", "call", "other"]  # tipos válidos en data/news.json
+NEWS_DAYS = 120   # sin 'until' ni 'deadline', una novedad pasa al archivo a los 120 días
+SOON_DAYS = 15    # a esta altura la fecha límite se marca como "cierra pronto"
+RSS_ITEMS = 20
+RSS_DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]                                        # RFC 822: siempre en inglés,
+RSS_MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]   # sin depender del locale
 
 
 def strip_accents(s):
@@ -89,9 +97,43 @@ site = json.loads((ROOT / "data/site.json").read_text("utf-8"))
 members_raw = json.loads((ROOT / "data/members.json").read_text("utf-8"))
 net = json.loads((ROOT / "data/network.json").read_text("utf-8"))
 events_raw = json.loads((ROOT / "data/events.json").read_text("utf-8"))["events"]
+news_raw = json.loads((ROOT / "data/news.json").read_text("utf-8"))["news"]
 map_data = json.loads((ROOT / "data/map.json").read_text("utf-8"))
 published = Counter(m["country"] for m in members_raw)
 zone_codes = [c for c in site.get("zone_countries") or sorted(net["countries"]) if c in COUNTRY_TZ]
+
+vistos = set()
+for it in news_raw:  # errores de carga en data/news.json: mejor que falle el build que publicar una novedad muda
+    faltan = [k for k in ("id", "type", "title", "published") if not it.get(k)]
+    if faltan:
+        raise SystemExit(f"data/news.json: a la novedad {it.get('id') or it} le faltan: {', '.join(faltan)}")
+    if it["type"] not in NEWS_TYPES:
+        raise SystemExit(f"data/news.json: {it['id']}: 'type' es {it['type']!r}; tiene que ser uno de {', '.join(NEWS_TYPES)}")
+    if it["id"] in vistos:
+        raise SystemExit(f"data/news.json: el id {it['id']!r} está repetido")
+    vistos.add(it["id"])
+    for campo in ("published", "deadline", "until"):
+        try:
+            date.fromisoformat(it[campo]) if it.get(campo) else None
+        except ValueError:
+            raise SystemExit(f"data/news.json: {it['id']}: '{campo}' = {it[campo]!r} no es una fecha AAAA-MM-DD")
+    if it.get("link") and not it["link"].startswith(("https://", "http://")):
+        raise SystemExit(f"data/news.json: {it['id']}: 'link' tiene que empezar con https://, no {it['link']!r}")
+
+# Calendario público de GECAL: suscribirse desde Google o desde cualquier otra aplicación (webcal://).
+calendar = {
+    "google": f"https://calendar.google.com/calendar/render?cid={quote(site['calendar_id'])}" if site.get("calendar_id") else "",
+    "webcal": re.sub(r"^https?://", "webcal://", site["calendar_ics_url"]) if site.get("calendar_ics_url") else "",
+}
+
+# Lista de difusión. En un grupo de Google se puede suscribir cualquiera escribiendo a <grupo>+subscribe@…,
+# sin necesidad de tener cuenta de Google; con otro proveedor, se escribe a la dirección tal cual.
+grupo = site.get("news_group_email") or ""
+news_group = {
+    "url": site.get("news_group_url") or "",
+    "email": grupo,
+    "subscribe": grupo.replace("@", "+subscribe@") if grupo.endswith("@googlegroups.com") else grupo,
+}
 
 
 def make_t(lang):
@@ -126,6 +168,80 @@ def check_youtube(url, where):
     return url or ""
 
 
+def texto(valor, lang):
+    """Campos que pueden venir como texto o como {es,en,fr,pt}; sin traducción, se muestra el español."""
+    return valor if isinstance(valor, str) else (valor.get(lang) or valor["es"])
+
+
+def add_to_calendar_url(title, start, minutes, presenter, link):
+    """Enlace para que cada persona guarde esa reunión en su propio calendario."""
+    fin = start + timedelta(minutes=minutes)
+    detalle = " · ".join(x for x in (presenter, link) if x)
+    return "https://calendar.google.com/calendar/render?" + urlencode({
+        "action": "TEMPLATE", "text": f"GECAL · {title}",
+        "dates": f"{start.astimezone(timezone.utc):%Y%m%dT%H%M%SZ}/{fin.astimezone(timezone.utc):%Y%m%dT%H%M%SZ}",
+        "details": detalle, "location": link or "",
+    })
+
+
+def news_views(lang):
+    t, _, lookup = make_t(lang)
+    hoy = NOW.date()
+    vigentes, archivo = [], []
+    for it in news_raw:
+        if it.get("draft") and not DRAFTS:
+            continue
+        pub = date.fromisoformat(it["published"])
+        limite = date.fromisoformat(it["deadline"]) if it.get("deadline") else None
+        hasta = date.fromisoformat(it["until"]) if it.get("until") else (limite or pub + timedelta(days=NEWS_DAYS))
+        dias = (limite - hoy).days if limite else None
+        if dias is None:
+            dias_text, estado = "", ""
+        elif dias < 0:
+            dias_text, estado = lookup("news.closed"), "closed"
+        elif dias == 0:
+            dias_text, estado = lookup("news.last_day"), "soon"
+        else:
+            dias_text = lookup("news.days_one" if dias == 1 else "news.days_other").format(n=dias)
+            estado = "soon" if dias <= SOON_DAYS else "open"
+        lugar = texto(it["place"], lang) if it.get("place") else (lookup("news.virtual") if it.get("virtual") else "")
+        view = {
+            "id": it["id"], "type": it["type"], "type_label": lookup(f"news.types.{it['type']}"),
+            "title": texto(it["title"], lang), "summary": texto(it["summary"], lang) if it.get("summary") else "",
+            "org": it.get("org") or "", "place": lugar, "when": texto(it["when"], lang) if it.get("when") else "",
+            "link": it.get("link") or "", "published": pub, "published_text": fmt_date(pub, lang, short=True),
+            "deadline": limite, "deadline_text": t("news.deadline", date=fmt_date(limite, lang, short=True)) if limite else "",
+            "days_text": dias_text, "state": estado,
+        }
+        view["search"] = sort_key(" ".join([view["title"], view["org"], view["place"], view["when"], view["summary"], view["type_label"]]))
+        (archivo if hasta < hoy else vigentes).append(view)
+    vigentes.sort(key=lambda x: (x["published"], x["id"]), reverse=True)
+    archivo.sort(key=lambda x: (x["published"], x["id"]), reverse=True)
+    return vigentes, archivo
+
+
+def rss(lang, items, lookup):
+    """Feed de novedades, para quien prefiere seguirlas sin correo."""
+    pagina = f"{SITE_URL}/{lang}/{PAGES['news']}/"
+    partes = ['<?xml version="1.0" encoding="UTF-8"?>',
+              '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">', "<channel>",
+              f"<title>GECAL · {xml_escape(lookup('nav.news'))}</title>",
+              f"<link>{pagina}</link>",
+              f"<description>{xml_escape(lookup('meta.news.desc'))}</description>",
+              f"<language>{lang}</language>",
+              f'<atom:link href="{SITE_URL}/{lang}/feed.xml" rel="self" type="application/rss+xml"/>']
+    for it in items[:RSS_ITEMS]:
+        d = it["published"]
+        cuando = f"{RSS_DAYS[d.weekday()]}, {d.day:02d} {RSS_MONTHS[d.month - 1]} {d.year} 00:00:00 +0000"
+        detalle = " · ".join(x for x in (it["type_label"], it["org"], it["place"], it["when"], it["deadline_text"]) if x)
+        partes += ["<item>", f"<title>{xml_escape(it['title'])}</title>",
+                   f"<link>{xml_escape(it['link'] or pagina)}</link>",
+                   f'<guid isPermaLink="false">{xml_escape(SITE_URL)}/novedad/{xml_escape(it["id"])}</guid>',
+                   f"<pubDate>{cuando}</pubDate>",
+                   f"<description>{xml_escape((it['summary'] + ' — ' if it['summary'] else '') + detalle)}</description>", "</item>"]
+    return "\n".join(partes + ["</channel>", "</rss>", ""])
+
+
 def event_views(lang):
     t = make_t(lang)[0]
     cname = I18N[lang]["countries"]
@@ -138,7 +254,7 @@ def event_views(lang):
             "type": ev["type"], "link": ev.get("link") or "", "presenter": ev.get("presenter") or "",
             "recording": check_youtube(ev.get("recording"), ev["id"]),
             "title": title if isinstance(title, str) else title.get(lang) or title["es"],
-            "date_text": "", "host_time": "", "host_text": "", "zones": [], "start": None,
+            "date_text": "", "host_time": "", "host_text": "", "zones": [], "start": None, "add_url": "",
         }
         if not ev.get("start"):  # reunión ya realizada: basta la fecha ("date"), sin inventar hora
             if ev.get("date"):
@@ -161,7 +277,8 @@ def event_views(lang):
             "names": ", ".join(sorted((cname[c] for c in boxes[off]["codes"]), key=sort_key)),
         } for off in sorted(boxes)]
         view.update(start=start, date_text=fmt_date(host, lang), host_time=host.strftime("%H:%M"),
-                    host_text=t("activities.host_time", country=cname[ev["tz_ref"]], utc=utc_label(host.utcoffset())))
+                    host_text=t("activities.host_time", country=cname[ev["tz_ref"]], utc=utc_label(host.utcoffset())),
+                    add_url=add_to_calendar_url(view["title"], start, ev.get("duration_min", 90), view["presenter"], view["link"]))
         end = start + timedelta(minutes=ev.get("duration_min", 90))
         (upcoming if end >= NOW else past_dated).append(view)
     upcoming.sort(key=lambda e: e["start"])
@@ -182,6 +299,9 @@ for lang in LANGS:
     t, t_list, lookup = make_t(lang)
     cname, aname = I18N[lang]["countries"], I18N[lang]["areas"]
     upcoming, past = event_views(lang)
+    news_current, news_past = news_views(lang)
+    news_types = [{"slug": x, "name": lookup(f"news.types.{x}")} for x in NEWS_TYPES
+                  if any(n["type"] == x for n in news_current + news_past)]
 
     members = []
     for m in members_raw:
@@ -235,11 +355,14 @@ for lang in LANGS:
             title=t(f"meta.{key}.title"), description=t(f"meta.{key}.desc"),
             members=members, countries_text=countries_text, country_list=country_list, filter_countries=filter_countries, filter_areas=filter_areas,
             filter_tools=filter_tools, top_tools=top_tools, upcoming=upcoming, past=past,
-            next_event=upcoming[0] if upcoming else None,
+            next_event=upcoming[0] if upcoming else None, calendar=calendar, news_group=news_group,
+            news_current=news_current, news_past=news_past, news_types=news_types, latest_news=news_current[:3],
             as_of_text=fmt_date(datetime.fromisoformat(net["as_of"]).date(), lang, short=True),
         )
         outdir.mkdir(parents=True, exist_ok=True)
         (outdir / "index.html").write_text(html, encoding="utf-8")
+
+    (DIST / lang / "feed.xml").write_text(rss(lang, news_current + news_past, lookup), encoding="utf-8")
 
 # ---------- Raíz: redirección por idioma, 404, sitemap, robots ----------
 links = " · ".join(f'<a href="{l}/" hreflang="{l}" lang="{l}">{LANG_NATIVE[l]}</a>' for l in LANGS)
@@ -269,4 +392,5 @@ for page, folder in PAGES.items():
     + "\n".join(urls) + "\n</urlset>\n", encoding="utf-8")
 (DIST / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n", encoding="utf-8")
 
-print(f"OK: {len(LANGS) * len(PAGES)} páginas en dist/ · {len(members_raw)} perfiles publicados · eventos próximos: {len(upcoming)} · SITE_URL={SITE_URL}")
+print(f"OK: {len(LANGS) * len(PAGES)} páginas en dist/ · {len(members_raw)} perfiles publicados · eventos próximos: {len(upcoming)}"
+      f" · novedades: {len(news_current)} vigentes y {len(news_past)} en archivo · SITE_URL={SITE_URL}")

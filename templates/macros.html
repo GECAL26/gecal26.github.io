@@ -44,9 +44,74 @@
     <p class="event__host">{{ ev.host_text }}</p>
   </div>
   {{ zones(ev) }}
-  {% if ev.link %}<p><a class="gecal-btn gecal-btn--primary" href="{{ ev.link }}">{{ t('activities.join_meeting') }}</a></p>{% endif %}
+  {% if ev.link or ev.add_url %}
+  <div class="row">
+    {% if ev.link %}<a class="gecal-btn gecal-btn--primary" href="{{ ev.link }}">{{ t('activities.join_meeting') }}</a>{% endif %}
+    {% if ev.add_url %}<a class="gecal-btn gecal-btn--secondary" href="{{ ev.add_url }}">{{ t('activities.add_to_calendar') }}</a>{% endif %}
+  </div>
+  {% endif %}
   {% endif %}
 </article>
+{% endmacro %}
+
+{# Suscribirse al calendario del grupo: así cada reunión aparece sola en el calendario de cada persona. #}
+{% macro calendar_card(t) %}
+{% if calendar.google or calendar.webcal %}
+<article class="gecal-card calendar-card">
+  <p class="gecal-overline">{{ t('activities.calendar.overline') }}</p>
+  <h2 class="gecal-card__title">{{ t('activities.calendar.title') }}</h2>
+  <p class="gecal-card__body">{{ t('activities.calendar.body') }}</p>
+  <div class="row">
+    {% if calendar.google %}<a class="gecal-btn gecal-btn--primary" href="{{ calendar.google }}">{{ t('activities.calendar.google') }}</a>{% endif %}
+    {% if calendar.webcal %}<a class="gecal-btn gecal-btn--secondary" href="{{ calendar.webcal }}">{{ t('activities.calendar.ics') }}</a>{% endif %}
+  </div>
+</article>
+{% endif %}
+{% endmacro %}
+
+{# Novedad de otra institución: congreso, beca, curso, seminario o convocatoria. #}
+{% macro news_card(n, t) %}
+<article class="news-card{% if n.state == 'closed' %} news-card--closed{% endif %}" data-news data-type="{{ n.type }}" data-text="{{ n.search }}">
+  <div class="news-card__head">
+    <p class="gecal-overline">{{ n.type_label }}</p>
+    {% if n.days_text %}<span class="news-card__days news-card__days--{{ n.state }}">{{ n.days_text }}</span>{% endif %}
+  </div>
+  <h3 class="gecal-card__title">{{ n.title }}</h3>
+  {% if n.org %}<p class="news-card__org">{{ n.org }}</p>{% endif %}
+  {% if n.summary %}<p class="gecal-card__body">{{ n.summary }}</p>{% endif %}
+  {% if n.place or n.when or n.deadline_text %}
+  <ul class="tags">
+    {% if n.place %}<li class="gecal-tag gecal-tag--solid">{{ n.place }}</li>{% endif %}
+    {% if n.when %}<li class="gecal-tag gecal-tag--solid">{{ n.when }}</li>{% endif %}
+    {% if n.deadline_text %}<li class="gecal-tag"><span class="gecal-tag__dot" style="--tag-dot:var({{ '--orange' if n.state in ('soon', 'closed') else '--teal' }})"></span>{{ n.deadline_text }}</li>{% endif %}
+  </ul>
+  {% endif %}
+  <div class="news-card__foot">
+    {% if n.link %}<a class="gecal-card__link" href="{{ n.link }}">{{ t('news.link') }}</a>{% endif %}
+    <span class="news-card__date">{{ t('news.published', date=n.published_text) }}</span>
+  </div>
+</article>
+{% endmacro %}
+
+{# Lista de difusión por correo. Aparece cuando data/site.json tiene el grupo cargado. #}
+{% macro news_subscribe(t, heading_id=None) %}
+{% if news_group.url or news_group.subscribe %}
+<div class="band">
+  <div class="band__text">
+    <p class="gecal-overline">{{ t('news.subscribe.overline') }}</p>
+    <h2 class="h2"{% if heading_id %} id="{{ heading_id }}"{% endif %}>{{ t('news.subscribe.title') }}</h2>
+    <p>{{ t('news.subscribe.body') }}</p>
+    <small>{{ t('news.subscribe.note') }}</small>
+  </div>
+  <div class="band__actions">
+    <div class="row">
+      {% if news_group.url %}<a class="gecal-btn gecal-btn--primary gecal-btn--lg" href="{{ news_group.url }}">{{ t('news.subscribe.cta') }}</a>{% endif %}
+      {% if news_group.subscribe %}<a class="gecal-btn gecal-btn--secondary gecal-btn--lg" href="mailto:{{ news_group.subscribe }}">{{ t('news.subscribe.mail') }}</a>{% endif %}
+    </div>
+    <p><a class="band__rss" href="{{ rel(lang ~ '/feed.xml') }}">{{ t('news.subscribe.rss') }}</a></p>
+  </div>
+</div>
+{% endif %}
 {% endmacro %}
 
 {% macro member(m, t, countries, areas) %}

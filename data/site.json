@@ -10,5 +10,9 @@
   "chimere_users_url": "https://listes.lmd.ipsl.fr/sympa/info/chimere-users",
   "chimsur_news_url": "https://listes.lmd.ipsl.fr/sympa/subscribe/chimsur_news",
   "stations_map_url": "https://gecal26.github.io/mapa/",
-  "stations_form_url": "https://docs.google.com/forms/d/e/1FAIpQLSekWaESlNnNnT37WikP3nw3cTO_vsU_XZo3XidvIZS1gh7XvQ/viewform"
+  "stations_form_url": "https://docs.google.com/forms/d/e/1FAIpQLSekWaESlNnNnT37WikP3nw3cTO_vsU_XZo3XidvIZS1gh7XvQ/viewform",
+  "calendar_id": "gecal.latinoamerica@gmail.com",
+  "calendar_ics_url": "https://calendar.google.com/calendar/ical/gecal.latinoamerica%40gmail.com/public/basic.ics",
+  "news_group_url": null,
+  "news_group_email": null
 }
