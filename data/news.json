@@ -2,6 +2,35 @@
   "_nota": "Novedades de otras instituciones: congresos, becas, cursos, seminarios y convocatorias. Las reuniones del propio grupo van en el calendario de GECAL, no acá. Una entrada por novedad. Campos: id (único, sin espacios); type: congress, grant, course, seminar, call u other; title y summary: texto o {es,en,fr,pt} (si falta un idioma se muestra el español); org: quién convoca; place: ciudad y país (o virtual:true para en línea); when: cuándo es, texto libre o {es,en,fr,pt}; link: página oficial; published: fecha de carga (AAAA-MM-DD); deadline: fecha límite para postular o inscribirse (AAAA-MM-DD o null); until: fecha a partir de la cual pasa a 'Ya pasaron' (por defecto: el deadline, o 120 días después de published; conviene ponerle el último día del evento, así el congreso sigue listado aunque los resúmenes ya hayan cerrado); draft:true la oculta en producción. Antes de publicar una novedad, confirmar las fechas en la página oficial: son lo primero que mira quien la lee.",
   "news": [
     {
+      "id": "air-pollution-conference-brazil-2026",
+      "type": "congress",
+      "title": {
+        "es": "Air Pollution Conference Brazil 2026 y 6th CMAS South America",
+        "en": "Air Pollution Conference Brazil 2026 and 6th CMAS South America",
+        "fr": "Air Pollution Conference Brazil 2026 et 6th CMAS South America",
+        "pt": "Air Pollution Conference Brazil 2026 e 6th CMAS South America"
+      },
+      "org": "UFES, UFMG, USP y UNC",
+      "place": "Vitória, Brasil",
+      "when": {
+        "es": "del 17 al 19 de noviembre de 2026",
+        "en": "17–19 November 2026",
+        "fr": "du 17 au 19 novembre 2026",
+        "pt": "de 17 a 19 de novembro de 2026"
+      },
+      "summary": {
+        "es": "Encuentro internacional sobre calidad del aire, salud y clima/energía, con sesiones de modelación, inventarios de emisiones, monitoreo, sensores de bajo costo y exposición y salud. Hay integrantes de GECAL presentes en el congreso.",
+        "en": "International meeting on air quality, health and climate/energy, with sessions on modelling, emission inventories, monitoring, low-cost sensors, and exposure and health. GECAL members are attending.",
+        "fr": "Rencontre internationale sur la qualité de l'air, la santé et le climat/l'énergie, avec des sessions sur la modélisation, les inventaires d'émissions, la surveillance, les capteurs à bas coût, l'exposition et la santé. Des membres de GECAL y participent.",
+        "pt": "Encontro internacional sobre qualidade do ar, saúde e clima/energia, com sessões de modelagem, inventários de emissões, monitoramento, sensores de baixo custo, exposição e saúde. Há integrantes do GECAL presentes no congresso."
+      },
+      "link": "https://airpollutionconference.com/",
+      "published": "2026-11-18",
+      "deadline": null,
+      "until": "2026-11-19",
+      "draft": false
+    },
+    {
       "id": "casap-xi-2027",
       "type": "congress",
       "title": "CASAP XI: calidad del aire, cambio climático y salud pública",
