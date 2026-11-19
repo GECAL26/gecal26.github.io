@@ -65,6 +65,10 @@
     "host_time": "Horário de referência: {country} ({utc})",
     "add_to_calendar": "Adicionar à minha agenda",
     "calendar": {"overline": "Calendário", "title": "Acompanhar o calendário do GECAL", "body": "As reuniões são publicadas no calendário do grupo. Ao assinar, cada reunião aparece sozinha na agenda de cada um, com as mudanças de horário incluídas.", "google": "Adicionar ao Google Agenda", "ics": "Assinar de outro aplicativo"},
+    "participations": {"overline": "A rede nos eventos", "title": "Participações do GECAL",
+      "lead": "Congressos, oficinas e cursos onde integrantes da rede apresentaram trabalhos ou participaram em nome do grupo.",
+      "empty": "Ainda não há participações registradas.",
+      "formats": {"talk": "Apresentação oral", "poster": "Pôster", "training": "Treinamento", "attendance": "Participação", "organization": "Organização"}},
     "cta": {"title": "O que vocês gostariam de apresentar?", "body": "Escrevam para nós no grupo e conversamos."}
   },
   "news": {

@@ -27,6 +27,21 @@
   </section>
   {% endif %}
 
+  <section class="section" aria-labelledby="part-title">
+    <div class="section__head">
+      <p class="gecal-overline">{{ t('activities.participations.overline') }}</p>
+      <h2 class="h2" id="part-title">{{ t('activities.participations.title') }}</h2>
+      <p class="lead">{{ t('activities.participations.lead') }}</p>
+    </div>
+    {% if participations %}
+    <div class="parts">
+      {% for p in participations %}{{ ui.participation(p) }}{% endfor %}
+    </div>
+    {% else %}
+    <p class="empty">{{ t('activities.participations.empty') }}</p>
+    {% endif %}
+  </section>
+
   <section class="section">
     <div class="band">
       <div class="band__text">

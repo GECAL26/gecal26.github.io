@@ -65,6 +65,10 @@
     "host_time": "Reference time: {country} ({utc})",
     "add_to_calendar": "Add to my calendar",
     "calendar": {"overline": "Calendar", "title": "Follow the GECAL calendar", "body": "Meetings are published in the group calendar. Once subscribed, every meeting shows up in your own calendar, schedule changes included.", "google": "Add to Google Calendar", "ics": "Subscribe from another app"},
+    "participations": {"overline": "The network at events", "title": "GECAL participations",
+      "lead": "Conferences, workshops and courses where members of the network presented work or took part on behalf of the group.",
+      "empty": "No participations recorded yet.",
+      "formats": {"talk": "Talk", "poster": "Poster", "training": "Training", "attendance": "Attendance", "organization": "Organizing"}},
     "cta": {"title": "What would you like to present?", "body": "Write to us in the group and we will talk it over."}
   },
   "news": {

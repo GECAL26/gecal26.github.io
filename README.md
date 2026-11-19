@@ -71,6 +71,9 @@ del propio grupo van en el calendario). Hay dos ejemplos con `"draft": true`; re
 La tarjeta muestra sola los días que faltan (en ámbar cuando quedan 15 o menos) y la novedad pasa a "Ya pasaron" después del `deadline`,
 del `until` o a los 120 días de publicada. El build falla si falta un campo o una fecha está mal escrita.
 
+**Registrar una participación.** `data/participations.json`: congresos, talleres, cursos y escuelas de terceros donde integrantes de la red presentaron trabajos o fueron en representación del grupo. Se publica al final de Actividades, lo más reciente primero. Campos: `id`, `event`, `org`, `place` (o `virtual: true`), `when` (las fechas como se leen), `date` (AAAA-MM-DD del primer día, solo para ordenar), `link`, `note` y `contributions`: una entrada por aporte, con `people` (los nombres tal como se firman), `format` (`talk`, `poster`, `training`, `attendance` u `organization`) y `title` del trabajo. `event`, `place`, `when`, `note` y `title` aceptan texto o `{es,en,fr,pt}`.
+Son nombres de personas: cargarlos solo después de confirmarlos con cada una, y dejar la entrada en `"draft": true` mientras tanto. El build falla si un aporte no tiene `people` o si el `format` no es uno de los cinco.
+
 **Mandar el boletín.** `scripts/boletin.py` arma el correo con lo que ya está publicado: las novedades vigentes y las próximas reuniones.
 
 ```bash

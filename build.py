@@ -50,6 +50,7 @@ COUNTRY_TZ = {
 COUNTRY_ORDER = sorted(COUNTRY_TZ)
 COLORS = ["cyan", "blue", "teal", "green", "lime", "orange"]  # decorativos; el nombre del país siempre va escrito
 NEWS_TYPES = ["congress", "grant", "course", "seminar", "call", "other"]  # tipos válidos en data/news.json
+PART_FORMATS = ["talk", "poster", "training", "attendance", "organization"]  # aportes en data/participations.json
 NEWS_DAYS = 120   # sin 'until' ni 'deadline', una novedad pasa al archivo a los 120 días
 SOON_DAYS = 15    # a esta altura la fecha límite se marca como "cierra pronto"
 RSS_ITEMS = 20
@@ -98,6 +99,7 @@ members_raw = json.loads((ROOT / "data/members.json").read_text("utf-8"))
 net = json.loads((ROOT / "data/network.json").read_text("utf-8"))
 events_raw = json.loads((ROOT / "data/events.json").read_text("utf-8"))["events"]
 news_raw = json.loads((ROOT / "data/news.json").read_text("utf-8"))["news"]
+parts_raw = json.loads((ROOT / "data/participations.json").read_text("utf-8"))["participations"]
 map_data = json.loads((ROOT / "data/map.json").read_text("utf-8"))
 published = Counter(m["country"] for m in members_raw)
 zone_codes = [c for c in site.get("zone_countries") or sorted(net["countries"]) if c in COUNTRY_TZ]
@@ -119,6 +121,24 @@ for it in news_raw:  # errores de carga en data/news.json: mejor que falle el bu
             raise SystemExit(f"data/news.json: {it['id']}: '{campo}' = {it[campo]!r} no es una fecha AAAA-MM-DD")
     if it.get("link") and not it["link"].startswith(("https://", "http://")):
         raise SystemExit(f"data/news.json: {it['id']}: 'link' tiene que empezar con https://, no {it['link']!r}")
+
+vistos = set()
+for p in parts_raw:  # un nombre mal cargado acá es el nombre de una persona: que falle el build
+    faltan = [k for k in ("id", "event", "date") if not p.get(k)]
+    if faltan:
+        raise SystemExit(f"data/participations.json: a {p.get('id') or p} le faltan: {', '.join(faltan)}")
+    if p["id"] in vistos:
+        raise SystemExit(f"data/participations.json: el id {p['id']!r} está repetido")
+    vistos.add(p["id"])
+    try:
+        date.fromisoformat(p["date"])
+    except ValueError:
+        raise SystemExit(f"data/participations.json: {p['id']}: 'date' = {p['date']!r} no es una fecha AAAA-MM-DD")
+    for c in p.get("contributions") or []:
+        if not c.get("people"):
+            raise SystemExit(f"data/participations.json: {p['id']}: hay un aporte sin 'people'")
+        if c.get("format") and c["format"] not in PART_FORMATS:
+            raise SystemExit(f"data/participations.json: {p['id']}: 'format' es {c['format']!r}; tiene que ser uno de {', '.join(PART_FORMATS)}")
 
 # Calendario público de GECAL: suscribirse desde Google o desde cualquier otra aplicación (webcal://).
 calendar = {
@@ -220,6 +240,29 @@ def news_views(lang):
     return vigentes, archivo
 
 
+def participation_views(lang):
+    """Dónde estuvo la red: eventos de terceros, los más recientes primero."""
+    lookup = make_t(lang)[2]
+    salida = []
+    for p in parts_raw:
+        if p.get("draft") and not DRAFTS:
+            continue
+        dia = date.fromisoformat(p["date"])
+        salida.append({
+            "id": p["id"], "event": texto(p["event"], lang), "org": p.get("org") or "",
+            "place": texto(p["place"], lang) if p.get("place") else (lookup("news.virtual") if p.get("virtual") else ""),
+            "when": texto(p["when"], lang) if p.get("when") else fmt_date(dia, lang, short=True),
+            "note": texto(p["note"], lang) if p.get("note") else "", "link": p.get("link") or "", "date": dia,
+            "contributions": [{
+                "people": c["people"],
+                "format": lookup(f"activities.participations.formats.{c['format']}") if c.get("format") else "",
+                "title": texto(c["title"], lang) if c.get("title") else "",
+            } for c in p.get("contributions") or []],
+        })
+    salida.sort(key=lambda x: (x["date"], x["id"]), reverse=True)
+    return salida
+
+
 def rss(lang, items, lookup):
     """Feed de novedades, para quien prefiere seguirlas sin correo."""
     pagina = f"{SITE_URL}/{lang}/{PAGES['news']}/"
@@ -300,6 +343,7 @@ for lang in LANGS:
     cname, aname = I18N[lang]["countries"], I18N[lang]["areas"]
     upcoming, past = event_views(lang)
     news_current, news_past = news_views(lang)
+    participations = participation_views(lang)
     news_types = [{"slug": x, "name": lookup(f"news.types.{x}")} for x in NEWS_TYPES
                   if any(n["type"] == x for n in news_current + news_past)]
 
@@ -357,6 +401,7 @@ for lang in LANGS:
             filter_tools=filter_tools, top_tools=top_tools, upcoming=upcoming, past=past,
             next_event=upcoming[0] if upcoming else None, calendar=calendar, news_group=news_group,
             news_current=news_current, news_past=news_past, news_types=news_types, latest_news=news_current[:3],
+            participations=participations,
             as_of_text=fmt_date(datetime.fromisoformat(net["as_of"]).date(), lang, short=True),
         )
         outdir.mkdir(parents=True, exist_ok=True)
@@ -393,4 +438,5 @@ for page, folder in PAGES.items():
 (DIST / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n", encoding="utf-8")
 
 print(f"OK: {len(LANGS) * len(PAGES)} páginas en dist/ · {len(members_raw)} perfiles publicados · eventos próximos: {len(upcoming)}"
-      f" · novedades: {len(news_current)} vigentes y {len(news_past)} en archivo · SITE_URL={SITE_URL}")
+      f" · novedades: {len(news_current)} vigentes y {len(news_past)} en archivo"
+      f" · participaciones: {len(participations)} · SITE_URL={SITE_URL}")

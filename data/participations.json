@@ -1,0 +1,19 @@
+{
+  "_nota": "Registro de participaciones de la red en eventos de terceros: congresos, talleres, cursos y escuelas donde integrantes de GECAL presentaron trabajos o fueron en representación del grupo. Las reuniones propias van en el calendario (data/events.json) y las convocatorias abiertas en data/news.json. Campos: id (único, sin espacios); event: nombre del evento, texto o {es,en,fr,pt}; org: quién lo organiza; place: ciudad y país (o virtual:true); when: fechas en texto, como se leen; date: AAAA-MM-DD del primer día, solo para ordenar; link: página del evento; note: una línea de contexto (opcional); contributions: lista de aportes, cada uno con people (nombres, tal como se firman), format (talk, poster, training, attendance u organization) y title (el trabajo presentado, opcional); draft:true lo oculta en producción. Nunca cargar un nombre sin confirmarlo con la persona.",
+  "participations": [
+    {
+      "id": "mineral-dust-americas-2026",
+      "event": "Mineral Dust in the Americas, taller panamericano de polvo mineral",
+      "org": "Centro Panamericano SDS-WAS (OMM), (CR)2 y CIMH",
+      "place": "Santiago, Chile",
+      "when": "17 al 19 de noviembre de 2026",
+      "date": "2026-11-17",
+      "link": "https://www.cr2.cl/pan-american-dust-training-and-workshop/",
+      "note": "Dos días de sesiones científicas sobre polvo mineral en las Américas y uno de entrenamiento práctico, para afianzar el Nodo Regional para las Américas del sistema SDS-WAS.",
+      "contributions": [
+        {"people": "Pendiente de confirmar", "format": "attendance"}
+      ],
+      "draft": true
+    }
+  ]
+}

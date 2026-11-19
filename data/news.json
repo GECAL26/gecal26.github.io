@@ -31,6 +31,19 @@
       "draft": false
     },
     {
+      "id": "sds-was-mineral-dust-americas-2026",
+      "type": "course",
+      "title": "Mineral Dust in the Americas: taller panamericano de polvo mineral",
+      "org": "Centro Panamericano SDS-WAS (OMM), (CR)2 y CIMH",
+      "place": "Santiago, Chile",
+      "when": "17 al 19 de noviembre de 2026",
+      "summary": "Taller internacional del Centro Panamericano del sistema de avisos de tormentas de polvo y arena (SDS-WAS) de la OMM, junto al (CR)2 de la Universidad de Chile y el Instituto de Meteorología e Hidrología del Caribe: dos días de sesiones científicas sobre polvo de origen natural y antrópico en las Américas y uno de entrenamiento práctico, para afianzar el Nodo Regional para las Américas. La postulación cerró el 21 de julio de 2026.",
+      "link": "https://www.cr2.cl/pan-american-dust-training-and-workshop/",
+      "published": "2026-11-19",
+      "deadline": "2026-07-21",
+      "draft": false
+    },
+    {
       "id": "casap-xi-2027",
       "type": "congress",
       "title": "CASAP XI: calidad del aire, cambio climático y salud pública",

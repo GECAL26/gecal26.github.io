@@ -316,3 +316,19 @@ sub,sup{line-height:0}
 .band__rss{color:var(--on-deep);font:600 14px/20px var(--font-display)}
 @media (max-width:1000px){.news--home{grid-template-columns:repeat(2,minmax(0,1fr))}.filters--news{grid-template-columns:1fr 1fr}}
 @media (max-width:760px){.news,.news--home,.filters--news{grid-template-columns:1fr}.news-card{padding:var(--space-5)}}
+
+/* ---------- Participaciones de la red en eventos ---------- */
+.parts{display:flex;flex-direction:column;gap:var(--space-5)}
+.part{display:grid;grid-template-columns:230px 1fr;gap:var(--space-5);padding-bottom:var(--space-5);border-bottom:1px solid var(--line)}
+.parts .part:last-child{border-bottom:none;padding-bottom:0}
+.part__when{margin:0;font:600 15px/22px var(--font-display);color:var(--ink-muted);padding-top:3px}
+.part__event{margin:0 0 var(--space-2);font:700 22px/30px var(--font-display);color:var(--ink)}
+.part__event a{color:inherit}
+.part__meta{margin:0;font:400 16px/24px var(--font-sans);color:var(--ink-muted)}
+.part__note{margin:var(--space-3) 0 0;font:400 16px/26px var(--font-sans);color:var(--ink)}
+.contribs{list-style:none;margin:var(--space-4) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--space-2)}
+.contribs li{display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--space-2);font:400 16px/24px var(--font-sans)}
+.contrib__fmt{flex-shrink:0;padding:2px var(--space-3);border-radius:var(--radius-full);background:var(--surface-300);color:var(--ink-muted);font:600 12px/18px var(--font-display);letter-spacing:.04em;text-transform:uppercase}
+.contrib__people{font-weight:600;color:var(--ink)}
+.contrib__title{color:var(--ink-muted)}
+@media (max-width:760px){.part{grid-template-columns:1fr;gap:var(--space-3)}.part__when{padding-top:0}}

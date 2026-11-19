@@ -69,6 +69,26 @@
 {% endif %}
 {% endmacro %}
 
+{# Dónde estuvo la red: un evento de terceros y qué presentó cada quien. #}
+{% macro participation(p) %}
+<article class="part">
+  <p class="part__when">{{ p.when }}</p>
+  <div class="part__body">
+    <h3 class="part__event">{% if p.link %}<a href="{{ p.link }}">{{ p.event }}</a>{% else %}{{ p.event }}{% endif %}</h3>
+    {% set datos = [p.org, p.place] | select | list %}
+    {% if datos %}<p class="part__meta">{{ datos | join(' · ') }}</p>{% endif %}
+    {% if p.note %}<p class="part__note">{{ p.note }}</p>{% endif %}
+    {% if p.contributions %}
+    <ul class="contribs">
+      {% for c in p.contributions %}
+      <li>{% if c.format %}<span class="contrib__fmt">{{ c.format }}</span>{% endif %}<span class="contrib__people">{{ c.people }}</span>{% if c.title %} <i class="contrib__title">{{ c.title }}</i>{% endif %}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+</article>
+{% endmacro %}
+
 {# Novedad de otra institución: congreso, beca, curso, seminario o convocatoria. #}
 {% macro news_card(n, t) %}
 <article class="news-card{% if n.state == 'closed' %} news-card--closed{% endif %}" data-news data-type="{{ n.type }}" data-text="{{ n.search }}">
