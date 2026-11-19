@@ -1,6 +1,6 @@
 {
-  "as_of": "2026-10-28",
-  "members": 22,
+  "as_of": "2026-11-19",
+  "members": 21,
   "countries": {
     "AR": 3,
     "BO": 3,
@@ -9,12 +9,11 @@
     "CO": 3,
     "FR": 2,
     "MX": 3,
-    "PE": 2,
-    "PY": 1
+    "PE": 2
   },
   "areas": {
-    "atm_modelling": 17,
-    "urban_aq": 17,
+    "atm_modelling": 16,
+    "urban_aq": 16,
     "monitoring": 11,
     "chemistry": 7,
     "health": 7,
@@ -25,19 +24,19 @@
     "forecasting": 2
   },
   "tools": {
-    "WRF": 17,
-    "Python": 17,
-    "R": 10,
-    "MODIS": 9,
-    "CHIMERE": 8,
-    "HYSPLIT": 8,
-    "WRF-Chem": 7,
-    "Landsat": 5,
+    "WRF": 16,
+    "Python": 16,
+    "R": 9,
+    "MODIS": 8,
+    "CHIMERE": 7,
+    "HYSPLIT": 7,
+    "WRF-Chem": 6,
     "Sentinel-5P": 5,
+    "Landsat": 4,
     "CMAQ": 4,
     "AERMOD": 4,
     "MEGAN": 3,
-    "CALPUFF": 3,
+    "CALPUFF": 2,
     "Git": 1,
     "HTML": 1,
     "CSS": 1,
