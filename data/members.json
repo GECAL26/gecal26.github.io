@@ -462,5 +462,28 @@
     "orcid": "0000-0003-4880-5302",
     "linkedin": "https://www.linkedin.com/in/fernanda-garcia-ferreyra/",
     "photo": null
+  },
+  {
+    "id": "romain-pennel",
+    "name": "Romain Pennel",
+    "institution": "LMD/IPSL ecole Polytechnique Paris, France",
+    "role": "Research engineer",
+    "country": "FR",
+    "city": "Paris",
+    "areas": [
+      "urban_aq",
+      "atm_modelling"
+    ],
+    "tools": [
+      "WRF",
+      "CHIMERE",
+      "Python"
+    ],
+    "other_affiliation": "",
+    "bio": "Desarrollo de Chimere",
+    "bio_lang": "es",
+    "orcid": "0000-0003-4448-4820",
+    "linkedin": "https://www.linkedin.com/in/romain-pennel-87a2a180",
+    "photo": null
   }
 ]
